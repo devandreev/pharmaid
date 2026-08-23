@@ -1,0 +1,77 @@
+.leadership {
+  padding: 40px 0;
+
+  @media (--tablet) {
+    padding: 60px 0;
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 1.1;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (--tablet) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    min-height: 125px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 16px;
+  }
+
+  &__value {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    color: var(--color-green);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-bottom: 16px;
+  }
+
+  &__number {
+    @mixin font Bebas Neue;
+
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  &__prefix {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+
+  &__unit {
+    @mixin font Bebas Neue;
+
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue);
+  }
+}
