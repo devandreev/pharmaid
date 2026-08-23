@@ -1,0 +1,8 @@
+@custom-media --mobile screen and (max-width: 767px);
+@custom-media --mobile-landscape screen and (orientation:landscape);
+@custom-media --tablet screen and (min-width: 768px);
+@custom-media --tablet-landscape screen and (min-width: 1024px);
+@custom-media --laptop screen and (min-width: 1280px);
+@custom-media --desktop screen and (min-width: 1330px);
+
+@custom-media --max-tablet screen and (max-width: 768px);

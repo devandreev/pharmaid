@@ -1,0 +1,169 @@
+/*
+ * Миксин элемента чекбокса
+ * @property className - имя класса чекбокса (используется для иконок и селекторов)
+*/
+@define-mixin checkbox $className {
+  $checkIcon: $(className)/check;
+  $borderIcon: $(className)/border;
+  $borderCheckedIcon: $(className)/border-checked;
+  $checkbox: .$(className);
+
+  --color-accent: var(--color-primary);
+  --color-base: var(--color-gray-light-2);
+  --color-base-hover: var(--color-gray);
+  --color-base-focus: var(--color-base-hover);
+  --color-secondary: var(--color-gray-light);
+
+  display: block;
+
+  user-select: none;
+
+  margin-top: .8em;
+  margin-bottom: .8em;
+
+  position: relative;
+
+  &__content {
+    --check-color: var(--color-base);
+
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    min-height: var(--check-size);
+
+    vertical-align: top;
+  }
+
+  &__text {
+    order: -1;
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: color .2s ease;
+
+    &:before,
+    &:after {
+      color: var(--check-color);
+
+      font-size: var(--check-size);
+      height: 1em;
+      width: 1em;
+
+      position: absolute;
+      left: 0;
+
+      transition: color .2s ease;
+    }
+
+    &:before {
+      @mixin icon $borderIcon;
+
+      top: 0;
+    }
+
+    &:after {
+      @mixin icon $checkIcon;
+    }
+
+    &:hover {
+      --check-color: var(--color-base-hover);
+    }
+  }
+
+  &__link {
+
+    &:focus-within a {
+      outline-color: var(--color-base-focus);
+    }
+  }
+
+  &__input {
+    @mixin visually-hidden;
+
+    appearance: none;
+
+    &:checked {
+
+      & ~ $(checkbox)__content {
+
+        $(checkbox)__text {
+          --check-color: var(--checked-color);
+
+          &:before {
+            @mixin icon $borderCheckedIcon;
+
+            --check-color: var(--color-secondary);
+          }
+
+          &:after {
+            --check-color: var(--color-accent);
+          }
+        }
+
+        &:hover {
+          $(checkbox)__text:before {
+            --check-color: var(--color-base-focus);
+          }
+
+          $(checkbox)__link:hover ~ $(checkbox)__text:before {
+            --check-color: var(--color-secondary);
+          }
+        } 
+      }
+
+      &:focus-visible ~ $(checkbox)__content {
+
+        $(checkbox)__link:hover ~ $(checkbox)__text:before {
+          --check-color: var(--color-accent);
+        }
+      }
+    }
+
+    &:not(:checked) {
+
+      & ~ $(checkbox)__content {
+
+        $(checkbox)__text:after {
+          --check-color: transparent;
+        }
+      } 
+
+      &:focus-visible ~ $(checkbox)__content {
+
+        $(checkbox)__link:hover ~ $(checkbox)__text:before {
+          --check-color: var(--color-base);
+        }
+      }
+    }
+
+    &:disabled {
+
+      & ~ $(checkbox)__content {
+        color: var(--check-color);
+        cursor: default;
+
+        $(checkbox)__text {
+          --check-color: var(--color-base);
+
+          pointer-events: none;
+        }
+      }
+
+      &:checked ~ $(checkbox)__content {
+        --check-color: var(--color-base);
+      }
+    }
+
+    &:not(:disabled) {
+
+      &:focus-visible ~ $(checkbox)__content {
+        $(checkbox)__text:before {
+          --check-color: var(--color-base-focus);
+        }
+      }
+    }
+  }
+}

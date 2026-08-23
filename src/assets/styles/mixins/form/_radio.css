@@ -1,0 +1,70 @@
+/*
+ * Миксин радиокнопки
+ * @property className - имя класса радио-кнопки (используется для иконок и селекторов)
+*/
+@define-mixin radio $className {
+  $borderIcon: $(className)/border;
+  $borderCheckedIcon: $(className)/border-checked;
+  $radio: .$(className);
+
+  --color-accent: var(--color-primary);
+  --color-base: var(--color-gray-light-2);
+  --color-base-hover: var(--color-green-dark);
+  --color-base-focus: var(--color-base-hover);
+
+  --check-size: 18px;
+
+  display: block;
+
+  margin-top: .9em;
+  margin-bottom: .9em;
+
+  position: relative;
+
+  &__label {
+    cursor: pointer;
+
+    &:before {
+      @mixin icon $borderIcon;
+
+      color: var(--color-base);
+      font-size: var(--check-size);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 1em;
+      width: 1em;
+
+      transition: color .2s ease;
+    }
+  }
+
+  &__input {
+    @mixin visually-hidden;
+
+    appearance: none;
+
+    &:checked ~ $(radio)__label {
+      cursor: default;
+
+      &:before {
+        @mixin icon $borderCheckedIcon;
+
+        color: var(--color-accent);
+      }
+    }
+
+    &:focus-visible ~ $(radio)__label {
+
+      &:before {
+        color: var(--color-base-focus);
+      }
+    }
+  }
+
+  &:hover &__label:before {
+    color: var(--color-base-hover);
+  }
+}

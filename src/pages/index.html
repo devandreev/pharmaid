@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" name="viewport">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <%= require('../views/preload.html').default %>
+
+</head>
+<body>
+<%= require('../views/header.html').default %>
+
+  <main class="page-home page"> 
+    <div class="wrapper">
+      CElement webpack template
+    </div>
+  </main>
+
+  <%= require('../views/footer.html').default %>
+
+  <%= require('../views/popups.html').default %>
+</body>
+</html>

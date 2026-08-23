@@ -1,0 +1,37 @@
+.form-radio {
+  @mixin radio form-radio;
+
+  --color-base: var(--color-brown-light);
+  --color-base-hover: var(--color-green-dark);
+  --color-base-focus: var(--color-tomato);
+  --color-accent: var(--color-green-2);
+
+  --check-size: 18px;
+
+  font-size: 14px;
+  line-height: 18px;
+
+  padding-left: 27px;
+
+  &__label {
+    display: block;
+
+    &:before {
+      top: 0;
+      left: -1px;
+    }
+  }
+
+  &-group {
+    display: grid;
+    row-gap: 10px;
+
+    @media (--tablet) {
+      row-gap: 16px;
+    }
+  }
+
+  &-group & {
+    margin: 0;
+  }
+}

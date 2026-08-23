@@ -1,0 +1,44 @@
+.paragraph {
+
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+
+  @media (--tablet) {
+    margin: 10px 0;
+  }
+
+  li {
+    padding-left: 20px;
+    position: relative;
+
+    & + li {
+      margin-top: 8px;
+
+      @media (--tablet) {
+        margin-top: 10px;
+      }
+    }
+
+    &:before {
+      content: '—';
+      color: var(--color-green);
+      font-weight: 700;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+ol.list {
+  counter-reset: list;
+
+  li:before {
+    counter-increment: list;
+    content: counter(list) ".";
+  }
+}

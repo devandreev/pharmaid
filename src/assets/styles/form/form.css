@@ -1,0 +1,59 @@
+.form {
+
+  &-input,
+  &-textarea {
+    --border-color: var(--color-gray-2);
+
+    display: block;
+    background: white;
+    border: none;
+    box-shadow: 0 0 0 1px var(--border-color);
+    border-radius: 25px;
+    color: var(--color-dark);
+    font-size: 12px;
+    line-height: 20px;
+    outline: none;
+
+    padding: 12px 28px 12px 21px;
+
+    max-width: none;
+    width: 100%;
+
+    transition: box-shadow .2s ease;
+
+    @media (--tablet) {
+      font-size: 14px;
+
+      padding: 16px 28px 16px 21px;
+    }
+
+    &:hover {
+      --border-color: var(--color-green-5);
+    }
+
+    &:focus {
+      --border-color: var(--color-green-2);
+    }
+  }
+
+  &-input {
+
+    /* TODO: переписать правило */
+    c-search:focus-within & {
+      box-shadow: 0 0 0 1px var(--color-green-2);
+
+      &:not(:placeholder-shown):invalid {
+        box-shadow: 0 0 0 1px var(--color-tomato);
+      }
+    }
+  }
+
+  &-textarea {
+    height: 92px;
+    resize: none;
+
+    @media (--tablet) {
+      height: 108px;
+    }
+  }
+}

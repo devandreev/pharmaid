@@ -1,0 +1,9 @@
+@keyframes sliding {
+  from {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translate(-100%);
+  }
+}
