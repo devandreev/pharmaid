@@ -1,176 +1,210 @@
 .hero {
   position: relative;
-  min-height: 100svh;
+  height: calc(100svh - var(--body-offset));
   display: flex;
   flex-direction: column;
-}
 
-/* Фон */
-
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-
-  & picture {
-    display: block;
-    height: 100%;
-  }
-}
-
-.hero__bg-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.hero__bg-gradient {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  &--top {
-    top: 0;
-    height: 100px;
-    background: linear-gradient(to top, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+  @media (--tablet) {
+    height: auto;
   }
 
-  &--bottom {
-    bottom: 0;
-    height: 163px;
-    background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+  /* Контент */
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
-}
 
-/* Контент */
+  /* Фон */
 
-.hero > .wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
 
-/* Заголовок */
+    &-picture {
+      display: block;
+      height: 100%;
+    }
 
-.hero__title {
-  margin: 0;
-  padding-top: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 0.95;
-  text-transform: uppercase;
-  text-align: center;
-}
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
 
-.hero__title-blue {
-  color: var(--color-blue);
-}
+    &-gradient {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 1;
 
-.hero__title-red {
-  color: var(--color-red);
-}
+      &--top {
+        top: 0;
+        height: 100px;
+        background: linear-gradient(to top, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
 
-/* Нижний блок */
+        @media (--tablet) {
+          height: 149px;
+        }
+      }
 
-.hero__bottom {
-  margin-top: auto;
-  padding-bottom: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
+      &--bottom {
+        bottom: 0;
+        height: 163px;
+        background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
 
-/* Блок компании */
+        @media (--tablet) {
+          height: 90px;
+        }
+      }
+    }
+  }
 
-.hero__company {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 179px;
-  flex-shrink: 0;
-}
+  /* Заголовок */
 
-.hero__company-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+  &__title {
+    @mixin font Bebas Neue;
 
-.hero__company-icon {
-  font-size: 32px;
-  color: var(--color-red);
-  cursor: default;
-}
+    margin: 0;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-align: center;
 
-.hero__company-text {
-  display: flex;
-  flex-direction: column;
-  width: 141px;
-  color: var(--color-blue);
-}
+    @media (--tablet) {
+      gap: 8px;
+      font-size: 48px;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
 
-.hero__company-name {
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: -0.48px;
-}
+    &-blue {
+      color: var(--color-blue);
+    }
 
-.hero__company-desc {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.1;
-}
+    &-red {
+      color: var(--color-red);
+    }
+  }
 
-.hero__company-founded {
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.1;
-  letter-spacing: -0.3px;
-  text-transform: uppercase;
-  color: var(--color-red);
-  width: 121px;
-}
+  /* Нижний блок */
 
-/* Блок преимуществ */
+  &__bottom {
+    margin-top: auto;
+    padding-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
 
-.hero__features {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
-  min-width: 0;
-  justify-content: flex-end;
-}
+  /* Блок компании */
 
-.hero__feature {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+  &__company {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-.hero__feature-icon {
-  font-size: 20px;
-  color: var(--color-red);
-  cursor: default;
-  flex-shrink: 0;
-}
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
 
-.hero__feature-text {
-  font-size: 12px;
-  line-height: 1.1;
-  letter-spacing: -0.36px;
-  text-transform: uppercase;
-  color: var(--color-blue);
-  white-space: nowrap;
+      @media (--tablet) {
+        gap: 12px;
+      }
+    }
+
+    &-icon {
+      font-size: 32px;
+      color: var(--color-red);
+      cursor: default;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      color: var(--color-blue);
+    }
+
+    &-name {
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+
+      @media (--tablet) {
+        font-size: 20px;
+      }
+    }
+
+    &-desc {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.1;
+
+      @media (--tablet) {
+        font-size: 14px;
+      }
+    }
+
+    &-founded {
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--color-red);
+
+      @media (--tablet) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  /* Блок преимуществ */
+
+  &__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-end;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media (--tablet) {
+      gap: 12px;
+    }
+
+    &-icon {
+      font-size: 20px;
+      color: var(--color-red);
+      cursor: default;
+      flex-shrink: 0;
+    }
+
+    &-text {
+      font-size: 12px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      white-space: nowrap;
+    }
+  }
 }
