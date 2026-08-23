@@ -43,7 +43,7 @@ html {
 
   body {
     font-size: 12px;
-    line-height: 20px;
+    line-height: 1.67;
 
     padding-right: var(--scrollbar-gap);
 
@@ -51,12 +51,12 @@ html {
 
     @media (--tablet) {
       font-size: 14px;
-      line-height: 24px;
+      line-height: 1.71;
     }
 
     @media (--desktop) {
       font-size: 16px;
-      line-height: 26px;
+      line-height: 1.63;
     }
 
     & > .page {

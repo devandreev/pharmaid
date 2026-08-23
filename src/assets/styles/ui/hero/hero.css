@@ -1,0 +1,176 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Фон */
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  & picture {
+    display: block;
+    height: 100%;
+  }
+}
+
+.hero__bg-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero__bg-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  &--top {
+    top: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+  }
+
+  &--bottom {
+    bottom: 0;
+    height: 163px;
+    background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+  }
+}
+
+/* Контент */
+
+.hero > .wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Заголовок */
+
+.hero__title {
+  margin: 0;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hero__title-blue {
+  color: var(--color-blue);
+}
+
+.hero__title-red {
+  color: var(--color-red);
+}
+
+/* Нижний блок */
+
+.hero__bottom {
+  margin-top: auto;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Блок компании */
+
+.hero__company {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 179px;
+  flex-shrink: 0;
+}
+
+.hero__company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero__company-icon {
+  font-size: 32px;
+  color: var(--color-red);
+  cursor: default;
+}
+
+.hero__company-text {
+  display: flex;
+  flex-direction: column;
+  width: 141px;
+  color: var(--color-blue);
+}
+
+.hero__company-name {
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+}
+
+.hero__company-desc {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.hero__company-founded {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  color: var(--color-red);
+  width: 121px;
+}
+
+/* Блок преимуществ */
+
+.hero__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.hero__feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__feature-icon {
+  font-size: 20px;
+  color: var(--color-red);
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.hero__feature-text {
+  font-size: 12px;
+  line-height: 1.1;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  white-space: nowrap;
+}

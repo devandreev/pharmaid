@@ -1,4 +1,4 @@
-.link-icon {
+.icon {
   appearance: none;
   border: none;
   color: black;
@@ -15,4 +15,24 @@
   overflow: hidden;
 
   transition: color .2s ease;
+
+  &--medal {
+    @mixin icon medal;
+  }
+
+  &--bag {
+    @mixin icon bag;
+  }
+
+  &--graph {
+    @mixin icon graph;
+  }
+
+  &--shield {
+    @mixin icon shield;
+  }
+
+  &--benzene {
+    @mixin icon benzene;
+  }
 }

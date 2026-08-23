@@ -1,4 +1,4 @@
-@define-mixin font $name: Montserrat {
+@define-mixin font $name: Inter {
   font-family: $name, sans-serif;
   font-size: 16px;
 }
