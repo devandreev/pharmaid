@@ -19,9 +19,9 @@ cp -r ./public/images_avif ./public/dist/images_avif
 
 cd ./public/dist
 
-grep -rli '/images/' * | xargs -I@ sed -i '' 's/\/images\//\.\/images\//g' @
+#grep -rli '/images/' * | xargs -I@ sed -i '' 's/\/images\//\.\/images\//g' @
 #grep -rli '/videos/' * | xargs -I@ sed -i '' 's/\/videos\//\.\/videos\//g' @
-grep -rli '/images_avif/' * | xargs -I@ sed -i '' 's/\/images_avif\//\.\/images_avif\//g' @
+#grep -rli '/images_avif/' * | xargs -I@ sed -i '' 's/\/images_avif\//\.\/images_avif\//g' @
 grep -rli '.css"' * | xargs -I@ sed -i '' "s/\.css\"/\.css?v=${timestamp}\"/g" @
 grep -rli '.js"' * | xargs -I@ sed -i '' "s/\.js\"/\.js?v=${timestamp}\"/g" @
 
