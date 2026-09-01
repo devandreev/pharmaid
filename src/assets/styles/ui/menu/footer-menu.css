@@ -1,3 +1,81 @@
 .footer-menu {
+  display: grid;
+  grid-template-columns: 176px 1fr;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: 6px;
 
+  @media (--tablet) {
+    grid-template-columns: auto auto;
+    gap: 24px;
+  }
+
+  @media (--tablet-landscape) {
+    width: 330px;
+    grid-template-columns: 128px auto;
+    gap: 64px;
+  }
+
+  @media (--laptop) {
+    width: 411px;
+    gap: 100px;
+  }
+
+  @media (--desktop) {
+    width: 596px;
+    grid-template-columns: 290px 290px;
+    gap: 16px;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet) {
+      gap: 12px;
+    }
+
+    @media (--tablet-landscape) {
+      gap: 16px;
+    }
+
+    @media (--desktop) {
+      gap: 32px;
+    }
+  }
+
+  &__link {
+    @mixin font Inter;
+
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-cyan);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 12px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 14px;
+    }
+
+    @media (--desktop) {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

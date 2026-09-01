@@ -1,0 +1,224 @@
+.news {
+  padding: 40px 0;
+
+  @media (--tablet) {
+    padding: 60px 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (--tablet) {
+      align-items: flex-start;
+    }
+
+    @media (--tablet-landscape) {
+      display: grid;
+      grid-template-columns: var(--section-col) 1fr;
+      gap: 12px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+      row-gap: 40px;
+    }
+
+    @media (--desktop) {
+      row-gap: 60px;
+    }
+  }
+
+  &__list {
+    @media (--tablet-landscape) {
+      grid-column: 2;
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--color-gray-border);
+    text-decoration: none;
+    color: inherit;
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-gray-border);
+    }
+
+    @media (--tablet) {
+      gap: 40px;
+    }
+
+    @media (--tablet-landscape) {
+      position: relative;
+      padding: 24px 0;
+    }
+
+    &-photo {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+
+      @media (--tablet-landscape) {
+        position: absolute;
+        top: 50%;
+        left: calc(-1 * (var(--section-col) + 12px));
+        transform: translateY(-50%);
+        width: 155px;
+        height: 155px;
+        border-radius: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      @media (--laptop) {
+        left: calc(-1 * (var(--section-col) + 16px));
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    &:hover &-photo {
+      @media (--tablet-landscape) {
+        opacity: 1;
+      }
+    }
+
+    &:hover &-title {
+      @media (--tablet-landscape) {
+        text-decoration: underline;
+      }
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @media (--tablet) {
+        flex: 1;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      @media (--desktop) {
+        gap: 200px;
+      }
+    }
+
+    &-date {
+      @mixin font Inter;
+
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      height: 20px;
+      padding: 0 10px;
+      border: 1px solid var(--color-red);
+      border-radius: 32px;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.2;
+      color: var(--color-red);
+      white-space: nowrap;
+
+      @media (--tablet) {
+        order: 1;
+        height: 24px;
+        font-size: 12px;
+      }
+
+      @media (--tablet-landscape) {
+        font-size: 14px;
+      }
+    }
+
+    &-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1;
+      color: var(--color-blue);
+
+      @media (--tablet) {
+        flex: 1;
+        font-size: 16px;
+      }
+
+      @media (--tablet-landscape) {
+        font-size: 18px;
+      }
+
+      @media (--laptop) {
+        font-size: 20px;
+      }
+
+      @media (--desktop) {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  &__button {
+    @mixin font Inter;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background: var(--color-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      width: 238px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 2;
+      width: 329px;
+    }
+
+    @media (--laptop) {
+      width: 410px;
+      height: 56px;
+      border-radius: 16px;
+      font-size: 18px;
+    }
+
+    @media (--desktop) {
+      width: 290px;
+      height: 64px;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

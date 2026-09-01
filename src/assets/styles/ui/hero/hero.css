@@ -1,11 +1,16 @@
 .hero {
   position: relative;
-  height: calc(100svh - var(--body-offset));
+  height: calc(100svh);
   display: flex;
   flex-direction: column;
 
   @media (--tablet) {
     height: auto;
+    min-height: 50svh;
+  }
+
+  @media (--tablet-landscape) {
+    min-height: 95svh;
   }
 
   /* Контент */
@@ -14,6 +19,8 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    padding-top: var(--body-offset);
   }
 
   /* Фон */
@@ -26,7 +33,11 @@
 
     &-picture {
       display: block;
-      height: 100%;
+      height: 85%;
+
+      @media (--tablet) {
+        height: 100%;
+      }
     }
 
     &-image {
@@ -51,15 +62,28 @@
         @media (--tablet) {
           height: 149px;
         }
+
+        @media (--desktop) {
+          height: 211px;
+        }
       }
 
       &--bottom {
         bottom: 0;
         height: 163px;
-        background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+        background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 45%);
 
         @media (--tablet) {
           height: 90px;
+          background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
+        }
+
+        @media (--tablet-landscape) {
+          height: 129px;
+        }
+
+        @media (--desktop) {
+          height: 160px;
         }
       }
     }
@@ -88,6 +112,24 @@
       letter-spacing: 0.02em;
     }
 
+    @media (--tablet-landscape) {
+      gap: 16px;
+      line-height: .7;
+      font-size: 64px;
+    }
+
+    @media (--laptop) {
+      gap: 24px;
+      font-size: 84px;
+      letter-spacing: 0;
+    }
+
+    @media (--desktop) {
+      gap: 30px;
+      font-size: 130px;
+      letter-spacing: 0.02em;
+    }
+
     &-blue {
       color: var(--color-blue);
     }
@@ -105,6 +147,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: end;
+
+    @media (--tablet) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   /* Блок компании */
@@ -114,6 +160,10 @@
     flex-direction: column;
     gap: 16px;
 
+    @media (--laptop) {
+      gap: 24px;
+    }
+
     &-info {
       display: flex;
       flex-direction: column;
@@ -122,12 +172,24 @@
       @media (--tablet) {
         gap: 12px;
       }
+
+      @media (--laptop) {
+        gap: 16px;
+      }
     }
 
     &-icon {
       font-size: 32px;
       color: var(--color-red);
       cursor: default;
+
+      @media (--tablet-landscape) {
+        font-size: 40px;
+      }
+
+      @media (--laptop) {
+        font-size: 56px;
+      }
     }
 
     &-text {
@@ -144,6 +206,18 @@
       @media (--tablet) {
         font-size: 20px;
       }
+
+      @media (--tablet-landscape) {
+        font-size: 24px;
+      }
+
+      @media (--laptop) {
+        font-size: 32px;
+      }
+
+      @media (--desktop) {
+        font-size: 40px;
+      }
     }
 
     &-desc {
@@ -153,6 +227,14 @@
 
       @media (--tablet) {
         font-size: 14px;
+      }
+
+      @media (--tablet-landscape) {
+        font-size: 16px;
+      }
+
+      @media (--laptop) {
+        font-size: 20px;
       }
     }
 
@@ -167,6 +249,10 @@
       @media (--tablet) {
         font-size: 12px;
       }
+
+      @media (--tablet-landscape) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -180,6 +266,19 @@
     flex-direction: column;
     gap: 16px;
     justify-content: flex-end;
+
+    @media (--tablet) {
+      grid-column: 3;
+      justify-self: end;
+    }
+
+    @media (--tablet-landscape) {
+      gap: 24px;
+    }
+
+    @media (--desktop) {
+      gap: 40px;
+    }
   }
 
   &__feature {
@@ -191,11 +290,23 @@
       gap: 12px;
     }
 
+    @media (--laptop) {
+      gap: 16px;
+    }
+
     &-icon {
       font-size: 20px;
       color: var(--color-red);
       cursor: default;
       flex-shrink: 0;
+
+      @media (--tablet-landscape) {
+        font-size: 24px;
+      }
+
+      @media (--laptop) {
+        font-size: 32px;
+      }
     }
 
     &-text {
@@ -205,6 +316,18 @@
       text-transform: uppercase;
       color: var(--color-blue);
       white-space: nowrap;
+
+      @media (--tablet-landscape) {
+        font-size: 16px;
+      }
+
+      @media (--laptop) {
+        font-size: 20px;
+      }
+
+      @media (--desktop) {
+        font-size: 24px;
+      }
     }
   }
 }

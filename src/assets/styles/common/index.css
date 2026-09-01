@@ -15,9 +15,9 @@
   }
 
   @media (--desktop) {
-    --side-padding: 30px;
+    --side-padding: 40px;
     --body-offset: 170px;
-    --wrapper-max-width: 1330px;
+    --wrapper-max-width: 1900px;
     --media-screen: desktop;
   }
 }
@@ -103,10 +103,6 @@ html {
   @media (--tablet) {
     display: none !important;
   }
-}
-
-.section {
-  margin-bottom: 40px;
 }
 
 c-popup:not(:defined) {
