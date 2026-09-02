@@ -1,3 +1,199 @@
 .page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-top: 10px;
+  transition: opacity .3s ease, transform .3s ease;
 
+  &.headroom--faded {
+    opacity: 0;
+  }
+
+  &.headroom--unpinned {
+    transform: translateY(-100%);
+  }
+
+  &.headroom--pinned {
+    transform: translateY(0);
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 0 4px 0 8px;
+    height: 40px;
+
+    @media (--tablet-landscape) {
+      gap: 32px;
+    }
+
+    @media (--laptop) {
+      height: 56px;
+      border-radius: 12px;
+      padding: 0 8px 0 16px;
+    }
+
+    @media (--desktop) {
+      height: 64px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    & img {
+      display: block;
+      height: 16px;
+      width: auto;
+
+      @media (--tablet) {
+        height: 20px;
+      }
+
+      @media (--laptop) {
+        height: 28px;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media (--tablet-landscape) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+  }
+
+  &__nav-link {
+    @mixin font;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-blue);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 8px;
+
+    @media (--laptop) {
+      font-size: 16px;
+      padding: 5px 16px;
+    }
+  }
+
+  &__nav-chevron {
+    @mixin icon chevron-down-small, 16px;
+
+    width: 16px;
+    height: 16px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    @media (--tablet) {
+      gap: 12px;
+    }
+
+  }
+
+  &__burger {
+    @media (--tablet-landscape) {
+      display: none;
+    }
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    color: var(--color-blue);
+
+    @media (--laptop) {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+  }
+
+  &__search-icon {
+    @mixin icon search, 16px;
+
+    width: 16px;
+    height: 16px;
+
+    @media (--laptop) {
+      @mixin icon search, 20px;
+
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__lang {
+    @mixin font;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 4px 0 8px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-blue);
+    letter-spacing: -0.02em;
+
+    @media (--laptop) {
+      border-radius: 12px;
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+  }
 }

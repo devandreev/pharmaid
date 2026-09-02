@@ -1,4 +1,33 @@
-<header style="position: fixed;" id="header" class="page-header">
+<header style="position: fixed;" id="header" class="page-header headroom--faded">
   <div class="wrapper">
+    <div class="page-header__bar">
+      <a class="page-header__logo" href="/">
+        <img src="./images/logo.svg" alt="PharmAid" width="98" height="16">
+      </a>
+
+      <nav class="page-header__nav">
+        <a class="page-header__nav-link" href="#">О нас</a>
+        <button class="page-header__nav-link page-header__nav-link--dropdown" type="button">
+          Продукты
+          <span class="page-header__nav-chevron"></span>
+        </button>
+        <a class="page-header__nav-link" href="#">Партнерам</a>
+        <a class="page-header__nav-link" href="#">Карьера</a>
+        <a class="page-header__nav-link" href="#">Новости</a>
+        <a class="page-header__nav-link" href="#">Контакты</a>
+      </nav>
+
+      <div class="page-header__actions">
+        <div class="page-header__group">
+          <button class="page-header__search" type="button" aria-label="Поиск">
+            <span class="page-header__search-icon"></span>
+          </button>
+
+          <button class="page-header__lang" type="button">EN</button>
+        </div>
+
+        <c-burger-button class="page-header__burger" id="burger-button"></c-burger-button>
+      </div>
+    </div>
   </div>
 </header>

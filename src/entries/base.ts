@@ -1,4 +1,8 @@
 import App from '@/app/App'
+// @ts-ignore
+import CBurgerButton from '@/components/c-burger-button/c-burger-button.js'
+// @ts-ignore
+import header from '@/plugins/header.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -11,19 +15,12 @@ class MyApp extends App {
     }, 500)
   }
 
-  initHeadroom(): void {
-    // const header = document.querySelector('#header')
-    // const options = { offset: 10 }
-    // this.headroom = new Headroom(header, options)
-    // this.headroom.init()
-  }
-
   onload(): void {
-    this.initHeadroom()
+    header.init()
     this.initScrollBehavior()
   }
 }
 
 const app = new MyApp({
-  components: {},
+  components: { CBurgerButton },
 })
