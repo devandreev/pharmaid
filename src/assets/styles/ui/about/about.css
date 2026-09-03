@@ -191,12 +191,13 @@
       height: 155px;
       padding: 0 16px;
       margin-bottom: 0;
-      max-width: 37%;
+      max-width: 75%;
     }
 
     @media (--laptop) {
       height: 192px;
       padding: 0 24px;
+      max-width: 45%;
     }
 
     @media (--desktop) {

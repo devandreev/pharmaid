@@ -122,12 +122,16 @@
       gap: 24px;
       font-size: 84px;
       letter-spacing: 0;
+      white-space: nowrap;
     }
 
     @media (--desktop) {
       gap: 30px;
-      font-size: 130px;
       letter-spacing: 0.02em;
+    }
+
+    @media (min-width: 1500px) {
+      font-size: 130px;
     }
 
     &-blue {
