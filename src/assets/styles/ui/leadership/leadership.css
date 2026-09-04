@@ -21,7 +21,10 @@
     @media (--tablet) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    }
+
+    @media (--desktop) {
+      gap: 16px;
     }
   }
 
@@ -35,6 +38,11 @@
     backdrop-filter: blur(12px);
     border: 1px solid var(--color-gray-border);
     border-radius: 16px;
+
+    @media (--desktop) {
+      padding: 24px 40px 48px;
+      justify-content: flex-start;
+    }
   }
 
   &__value {
@@ -45,6 +53,10 @@
     text-transform: uppercase;
     white-space: nowrap;
     margin-bottom: 16px;
+
+    @media (--desktop) {
+      margin-bottom: 14px;
+    }
   }
 
   &__number {
@@ -53,12 +65,20 @@
     font-size: 48px;
     line-height: 1;
     letter-spacing: -0.03em;
+
+    @media (--desktop) {
+      font-size: 100px;
+    }
   }
 
   &__prefix {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.03em;
+
+    @media (--desktop) {
+      font-size: 40px;
+    }
   }
 
   &__unit {
@@ -67,6 +87,10 @@
     font-size: 16px;
     line-height: 1.2;
     letter-spacing: -0.03em;
+
+    @media (--desktop) {
+      font-size: 40px;
+    }
   }
 
   &__desc {
@@ -74,5 +98,9 @@
     line-height: 1.2;
     color: var(--color-blue);
     margin: 0;
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
   }
 }

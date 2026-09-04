@@ -12,7 +12,8 @@
   }
 
   @media (--desktop) {
-    --section-col: 500px;
+    --section-col: 596px;
+    padding-bottom: 0px;
   }
 
   &__header {
@@ -28,7 +29,7 @@
     }
 
     @media (--desktop) {
-      margin-bottom: 32px;
+      margin-bottom: 38px;
     }
   }
 

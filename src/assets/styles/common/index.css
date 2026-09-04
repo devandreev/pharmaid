@@ -16,7 +16,7 @@
 
   @media (--desktop) {
     --side-padding: 40px;
-    --body-offset: 170px;
+    --body-offset: 108px;
     --wrapper-max-width: 1900px;
     --media-screen: desktop;
   }

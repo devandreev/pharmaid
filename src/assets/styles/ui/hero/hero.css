@@ -10,7 +10,8 @@
   }
 
   @media (--tablet-landscape) {
-    min-height: 95svh;
+    min-height: 96svh;
+    padding-bottom: 60px;
   }
 
   /* Контент */
@@ -179,6 +180,7 @@
 
       @media (--laptop) {
         gap: 16px;
+        max-width: 320px;
       }
     }
 
