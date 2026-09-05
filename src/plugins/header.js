@@ -25,6 +25,8 @@ export default {
         burger = document.querySelector('#burger-button'),
         header = document.querySelector('#header')
 
+    if (!burger || !menu) return
+
     burger.addEventListener('click', () => {
       // menu.toggle(burger.opened)
 

@@ -1,0 +1,138 @@
+.products {
+  padding: 40px 0;
+
+  &__heading-accent {
+    color: var(--color-teal);
+  }
+
+  &__slider {
+    margin-bottom: 24px;
+  }
+
+  &__swiper {
+    overflow: visible !important;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  &__description {
+    @mixin font;
+
+    flex: 1;
+    margin: 0;
+    min-height: calc(1.1em * 7);
+    font-size: 12px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-blue-300);
+  }
+
+  &__nav {
+    position: relative;
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 50%;
+      background: var(--color-blue);
+    }
+  }
+
+  &__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-blue);
+    cursor: pointer;
+
+    &--prev {
+
+      & .products__nav-icon {
+        @mixin icon chevron-down-small, 24px;
+
+        width: 24px;
+        height: 24px;
+        color: var(--color-white);
+        transform: rotate(90deg);
+      }
+    }
+
+    &--next {
+
+      & .products__nav-icon {
+        @mixin icon chevron-down-small, 24px;
+
+        width: 24px;
+        height: 24px;
+        color: var(--color-white);
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+.product-slide {
+  position: relative;
+  width: calc(100vw - 80px);
+  padding: 67px 55px 67px;
+
+  &__frame {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__frame-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    height: 160px;
+    transition: filter 0.3s ease;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &.swiper-slide-active {
+
+    & .product-slide__frame {
+      opacity: 1;
+      transition: opacity 0.3s ease 0.5s;
+    }
+  }
+
+  &:not(.swiper-slide-active) {
+
+    & .product-slide__image {
+      filter: blur(5px);
+    }
+  }
+}
