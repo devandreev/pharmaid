@@ -2,6 +2,10 @@
   padding: 40px 0;
 
   @media (--tablet) {
+    padding: 10px 0 60px;
+  }
+
+  @media (--laptop) {
     padding: 60px 0;
   }
 

@@ -21,11 +21,11 @@
       display: grid;
       grid-template-columns: var(--section-col) 1fr;
       gap: 12px;
-      margin-bottom: 40px;
+      margin-bottom: 34px;
     }
 
     @media (--laptop) {
-      gap: 16px;
+      gap: 24px;
     }
 
     @media (--desktop) {
@@ -65,6 +65,7 @@
 
     @media (--tablet-landscape) {
       font-size: 40px;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 0;
     }

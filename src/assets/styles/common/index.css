@@ -9,7 +9,7 @@
   --scrollbar-gap: 0px;
 
   @media (--tablet) {
-    --side-padding: 34px;
+    --side-padding: 16px;
     --body-offset: 95px;
     --media-screen: tablet;
   }

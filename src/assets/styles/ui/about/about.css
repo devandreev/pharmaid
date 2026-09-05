@@ -197,12 +197,13 @@
     @media (--laptop) {
       height: 192px;
       padding: 0 24px;
-      max-width: 49%;
+      max-width: 89%;
     }
 
     @media (--desktop) {
       height: 290px;
       padding: 0 32px;
+      max-width: 69%;
     }
 
     &-bracket {

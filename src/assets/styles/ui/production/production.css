@@ -6,10 +6,10 @@
   }
 
   & .section__heading {
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
 
     @media (--tablet) {
-      margin-bottom: 12px;
+      /*margin-bottom: 12px;*/
     }
 
     @media (--tablet-landscape) {
@@ -34,6 +34,7 @@
     }
 
     @media (--tablet-landscape) {
+       line-height: 1.55;
        grid-column: 2;
        max-width: 47%;
        margin-top: 8px;
