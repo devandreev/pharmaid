@@ -1,5 +1,5 @@
 .leadership {
-  padding: 40px 0;
+  padding: 25px 0 40px;
 
   @media (--tablet) {
     padding: 60px 0;
@@ -52,7 +52,7 @@
     color: var(--color-green);
     text-transform: uppercase;
     white-space: nowrap;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
 
     @media (--desktop) {
       margin-bottom: 14px;

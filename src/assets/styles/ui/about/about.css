@@ -99,6 +99,7 @@
 
     @media (--tablet-landscape) {
       margin-bottom: 0;
+      padding-right: 24%;
     }
 
     @media (--laptop) {
@@ -141,11 +142,13 @@
 
     &-list {
       margin: 0;
-      padding-left: 21px;
+      padding-left: 0;
       list-style: disc;
+      padding-right: 30%;
 
       @media (--laptop) {
-        padding-left: 24px;
+        padding-left: 0;
+        padding-right: 42%;
       }
     }
 

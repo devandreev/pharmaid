@@ -99,7 +99,7 @@
     padding-top: 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 2px;
     font-weight: 400;
     font-size: 40px;
     line-height: 0.95;
@@ -173,6 +173,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      max-width: 123px;
 
       @media (--tablet) {
         gap: 12px;
@@ -251,6 +252,7 @@
       letter-spacing: -0.03em;
       text-transform: uppercase;
       color: var(--color-red);
+      max-width: 123px;
 
       @media (--tablet) {
         font-size: 12px;
