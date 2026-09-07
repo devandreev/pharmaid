@@ -1,5 +1,5 @@
 import Swiper from 'swiper'
-import { EffectCreative } from 'swiper/modules'
+import { Autoplay, EffectCreative } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-creative'
 
@@ -28,9 +28,13 @@ export default {
     }
 
     const swiper = new Swiper(container, {
-      modules: [EffectCreative],
+      modules: [Autoplay, EffectCreative],
       effect: 'creative',
       loop: false,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
       creativeEffect: {
         limitProgress: 2,
         prev: {
