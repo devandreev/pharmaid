@@ -3,11 +3,11 @@
   padding: 67px 55px 67px;
 
   @media (--tablet) {
-    padding-bottom: 36px;
+    padding: 56px 68px 58px;
   }
 
   @media (--tablet-landscape) {
-    padding: 86px 10px 58px;
+    padding: 86px 48px 58px;
   }
 
   @media (--laptop) {
@@ -32,7 +32,7 @@
     }
 
     @media (--tablet-landscape) {
-      height: 186px;
+      height: 187px;
     }
 
     @media (--laptop) {

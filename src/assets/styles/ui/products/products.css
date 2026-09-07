@@ -1,5 +1,21 @@
 .products {
-  padding: 40px 0;
+  padding: 18px 0 40px;
+
+  @media (--tablet) {
+    padding: 6px 0 40px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 26px 0 40px;
+  }
+
+  @media (--laptop) {
+    padding: 26px 0 40px;
+  }
+
+  @media (--desktop) {
+    padding: 40px 0;
+  }
 
   &__heading-accent {
     color: var(--color-teal);
@@ -7,7 +23,7 @@
 
   .section__heading {
 
-    @media (--laptop) {
+    @media (--tablet-landscape) {
       line-height: 1.1;
     }
   }
@@ -31,11 +47,12 @@
       padding-left: var(--section-col);
       margin-left: 0;
       margin-right: 0;
+      padding-right: 4vw;
     }
 
     @media (--laptop) {
       /*max-width: 608px;*/
-      padding-right: 10vw;
+      padding-right: 14vw;
       padding-top: 32px;
     }
 
@@ -101,13 +118,13 @@
 
     @media (--laptop) {
       width: 202px;
+      position: relative;
+      left: -20px;
     }
 
     @media (--desktop) {
       gap: 32px;
       width: 291px;
-      position: relative;
-      left: -20px;
     }
   }
 
@@ -191,18 +208,17 @@
     &--prev {
 
       & .products__nav-icon {
-        @mixin icon chevron-down-small, 24px;
+        @mixin icon chevron-down, 24px;
 
         width: 24px;
         height: 24px;
         color: var(--color-white);
-        transform: rotate(90deg);
+        transform: rotate(0deg);
 
         @media (--tablet) {
-          width: 16px;
-          height: 16px;
-          mask-size: 16px;
-          -webkit-mask-size: 16px;
+          width: 32px;
+          height: 32px;
+          mask-size: 32px;
         }
       }
     }
@@ -210,18 +226,17 @@
     &--next {
 
       & .products__nav-icon {
-        @mixin icon chevron-down-small, 24px;
+        @mixin icon chevron-down, 24px;
 
         width: 24px;
         height: 24px;
         color: var(--color-white);
-        transform: rotate(-90deg);
+        transform: rotate(180deg);
 
         @media (--tablet) {
-          width: 16px;
-          height: 16px;
-          mask-size: 16px;
-          -webkit-mask-size: 16px;
+          width: 32px;
+          height: 32px;
+          mask-size: 32px;
         }
       }
     }

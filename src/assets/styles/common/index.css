@@ -10,8 +10,20 @@
 
   @media (--tablet) {
     --side-padding: 16px;
-    --body-offset: 95px;
+    --body-offset: 48px;
     --media-screen: tablet;
+  }
+
+  @media (--tablet-landscape) {
+    --side-padding: 16px;
+    --body-offset: 65px;
+    --media-screen: tablet-landscape;
+  }
+
+  @media (--laptop) {
+    --side-padding: 24px;
+    --body-offset: 95px;
+    --media-screen: laptop;
   }
 
   @media (--desktop) {

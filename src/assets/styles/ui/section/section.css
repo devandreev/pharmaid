@@ -62,13 +62,14 @@
 
     @media (--tablet) {
       font-size: 32px;
+      line-height: 1;
     }
 
     @media (--tablet-landscape) {
       font-size: 40px;
-      line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 0;
+      line-height: 1;
     }
 
     @media (--laptop) {
