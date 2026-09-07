@@ -16,19 +16,19 @@
 
   @media (--tablet-landscape) {
     --side-padding: 16px;
-    --body-offset: 65px;
+    --body-offset: 53px;
     --media-screen: tablet-landscape;
   }
 
   @media (--laptop) {
     --side-padding: 24px;
-    --body-offset: 95px;
+    --body-offset: 85px;
     --media-screen: laptop;
   }
 
   @media (--desktop) {
     --side-padding: 40px;
-    --body-offset: 108px;
+    --body-offset: 86px;
     --wrapper-max-width: 1900px;
     --media-screen: desktop;
   }

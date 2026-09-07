@@ -131,20 +131,22 @@
     }
 
     @media (--tablet-landscape) {
-      gap: 16px;
-      line-height: 1.1;
+      gap: 0px;
+      line-height: 1;
       font-size: 64px;
     }
 
     @media (--laptop) {
-      gap: 32px;
+      gap: 8px;
       font-size: 84px;
+      line-height: 1;
       letter-spacing: 0;
       white-space: nowrap;
     }
 
     @media (--desktop) {
-      gap: 30px;
+      gap: 0px;
+      line-height: .95;
       letter-spacing: 0.02em;
     }
 
