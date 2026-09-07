@@ -10,12 +10,12 @@
     padding: 86px 10px 58px;
   }
 
-  @media (--desktop) {
+  @media (--laptop) {
     padding: 92px 24px 89px 0px;
   }
 
-  @media (--laptop) {
-    padding: 100px 24px 130px 0px;
+  @media (--desktop) {
+    padding: 100px 0 130px 0px;
   }
 
   &__image {

@@ -400,6 +400,7 @@
   &__icon {
     @mixin icon chevron-down-small;
 
+    display: none;
     width: 16px;
     height: 16px;
     color: var(--color-white);

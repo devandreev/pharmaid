@@ -2,7 +2,19 @@
   padding: 25px 0 40px;
 
   @media (--tablet) {
-    padding: 60px 0;
+    padding: 44px 0 30px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 0px 0 60px;
+  }
+
+  @media (--laptop) {
+    padding: 15px 0 60px;
+  }
+
+  @media (--desktop) {
+    padding: 51px 0 60px;
   }
 
   &__label {
@@ -11,6 +23,14 @@
     color: var(--color-gray);
     text-transform: uppercase;
     margin-bottom: 24px;
+
+    @media (--tablet) {
+      font-size: 12px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 14px;
+    }
   }
 
   &__list {
@@ -23,7 +43,7 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (--desktop) {
+    @media (--laptop) {
       gap: 16px;
     }
   }
@@ -31,7 +51,7 @@
   &__card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 24px;
     min-height: 125px;
     background: rgba(255, 255, 255, 0.4);
@@ -39,9 +59,20 @@
     border: 1px solid var(--color-gray-border);
     border-radius: 16px;
 
+    @media (--tablet) {
+      padding: 26px 20px 34px 32px;
+    }
+
+    @media (--tablet-landscape) {
+      padding: 19px 20px 34px 32px;
+    }
+
+    @media (--laptop) {
+      padding: 17px 32px 74px;
+    }
+
     @media (--desktop) {
       padding: 24px 40px 48px;
-      justify-content: flex-start;
     }
   }
 
@@ -53,6 +84,18 @@
     text-transform: uppercase;
     white-space: nowrap;
     margin-bottom: 5px;
+
+    @media (--tablet) {
+      margin-bottom: 20px;
+    }
+
+    @media (--tablet-landscape) {
+      margin-bottom: 20px;
+    }
+
+    @media (--laptop) {
+      margin-bottom: 16px;
+    }
 
     @media (--desktop) {
       margin-bottom: 14px;
@@ -66,6 +109,14 @@
     line-height: 1;
     letter-spacing: -0.03em;
 
+    @media (--tablet-landscape) {
+      font-size: 64px;
+    }
+
+    @media (--laptop) {
+      font-size: 80px;
+    }
+
     @media (--desktop) {
       font-size: 100px;
     }
@@ -76,7 +127,7 @@
     font-weight: 400;
     letter-spacing: -0.03em;
 
-    @media (--desktop) {
+    @media (--laptop) {
       font-size: 40px;
     }
   }
@@ -87,6 +138,14 @@
     font-size: 16px;
     line-height: 1.2;
     letter-spacing: -0.03em;
+
+    @media (--tablet-landscape) {
+      font-size: 24px;
+    }
+
+    @media (--laptop) {
+      font-size: 32px;
+    }
 
     @media (--desktop) {
       font-size: 40px;
@@ -99,8 +158,16 @@
     color: var(--color-blue);
     margin: 0;
 
-    @media (--desktop) {
+    @media (--tablet-landscape) {
+      font-size: 16px;
+    }
+
+    @media (--laptop) {
       font-size: 20px;
+    }
+
+    @media (--desktop) {
+      padding-right: 20%;
     }
   }
 }

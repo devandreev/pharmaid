@@ -5,6 +5,10 @@
     padding: 30px 0 48px;
   }
 
+  @media (--desktop) {
+    padding-top: 40px;
+  }
+
   &__body {
     @media (--tablet) {
       display: grid;
@@ -137,14 +141,19 @@
 
       @media (--tablet-landscape) {
         font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 6px;
       }
     }
 
     &-list {
       margin: 0;
-      padding-left: 0;
       list-style: disc;
+      padding-left: 16px;
       padding-right: 30%;
+
+      @media (--tablet) {
+      }
 
       @media (--laptop) {
         padding-left: 0;
@@ -194,19 +203,22 @@
       height: 155px;
       padding: 0 16px;
       margin-bottom: 0;
-      max-width: 75%;
+      max-width: 96%;
+    }
+
+    @media (--tablet-landscape) {
+      aspect-ratio: 1/1;
+      max-width: none;
     }
 
     @media (--laptop) {
       height: 192px;
       padding: 0 24px;
-      max-width: 89%;
     }
 
     @media (--desktop) {
       height: 290px;
       padding: 0 32px;
-      max-width: 69%;
     }
 
     &-bracket {
@@ -286,6 +298,7 @@
     text-decoration: none;
     cursor: pointer;
     transition: opacity 0.2s ease;
+    white-space: nowrap;
 
     @media (--tablet) {
       height: 48px;

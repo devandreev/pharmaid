@@ -25,7 +25,7 @@
     }
 
     @media (--laptop) {
-      gap: 24px;
+      gap: 8px 16px;
     }
 
     @media (--desktop) {
@@ -38,6 +38,7 @@
     line-height: 1.1;
     color: var(--color-gray);
     text-transform: uppercase;
+    margin-top: 4px;
     margin-bottom: 16px;
 
     @media (--tablet) {
@@ -72,6 +73,7 @@
 
     @media (--laptop) {
       font-size: 48px;
+      line-height: 1;
     }
 
     @media (--desktop) {

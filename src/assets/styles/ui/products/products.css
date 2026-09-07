@@ -5,6 +5,13 @@
     color: var(--color-teal);
   }
 
+  .section__heading {
+
+    @media (--laptop) {
+      line-height: 1.1;
+    }
+  }
+
   &__slider {
     margin-bottom: 0;
 
@@ -35,6 +42,7 @@
     @media (--desktop) {
       /*max-width: 905px;*/
       /*margin-right: 306px;*/
+      padding-right: 15vw;
       padding-top: 5px;
     }
   }
@@ -98,6 +106,8 @@
     @media (--desktop) {
       gap: 32px;
       width: 291px;
+      position: relative;
+      left: -20px;
     }
   }
 
