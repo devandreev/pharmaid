@@ -1,0 +1,294 @@
+.products-catalog {
+  padding-top: 64px;
+
+  @media (--tablet-landscape) {
+    padding-top: 16px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      gap: 32px;
+    }
+
+    @media (--laptop) {
+      gap: 48px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet-landscape) {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+    text-transform: uppercase;
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+  }
+
+  &__title-accent {
+    color: var(--color-teal);
+  }
+
+  &__subtitle {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      max-width: 487px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 16px;
+      max-width: 322px;
+    }
+
+    @media (--laptop) {
+      font-size: 20px;
+      max-width: 400px;
+    }
+
+    @media (--desktop) {
+      font-size: 24px;
+      max-width: 596px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    @media (--tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 12px;
+      align-items: start;
+    }
+
+    @media (--tablet-landscape) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (--laptop) {
+      gap: 24px 16px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 358px;
+    width: 100%;
+
+    @media (--tablet) {
+      max-width: none;
+    }
+
+    @media (--laptop) {
+      gap: 24px;
+    }
+  }
+
+  &__card-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 240px;
+    padding: 8px;
+    background: var(--color-gray-100);
+    border-radius: 12px;
+
+    @media (--tablet-landscape) {
+      padding: 16px;
+    }
+
+    @media (--laptop) {
+      height: 300px;
+      border-radius: 16px;
+    }
+
+    @media (--desktop) {
+      height: 380px;
+    }
+  }
+
+  &__card-image {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+
+    & > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__card-placeholder {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__card-placeholder-icon {
+    @mixin icon camera;
+
+    width: 40px;
+    height: 40px;
+    color: var(--color-blue-300);
+  }
+
+  &__card-placeholder-text {
+    @mixin font Inter;
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+    text-align: center;
+  }
+
+  &__card-tags {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__tag {
+    @mixin font Inter;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 32px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--color-white);
+    white-space: nowrap;
+
+    &--prescription {
+      background: var(--color-red-400);
+    }
+
+    &--vital {
+      background: var(--color-green-700);
+    }
+
+    &--developing {
+      background: var(--color-teal);
+    }
+  }
+
+  &__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__card-title {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+
+    @media (--tablet-landscape) {
+      font-size: 18px;
+    }
+
+    @media (--laptop) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  }
+
+  &__card-description {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-gray-500);
+
+    @media (--desktop) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__card-link {
+    @mixin font Inter;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-red);
+  }
+
+  &__card-link-arrow {
+    @mixin icon arrow-right;
+
+    width: 16px;
+    height: 16px;
+  }
+}

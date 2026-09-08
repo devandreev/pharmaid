@@ -210,7 +210,7 @@
     cursor: pointer;
     transition: opacity 0.2s ease;
 
-    margin-top: 47px;
+    margin-top: 25px;
 
     @media (--tablet) {
       width: 238px;

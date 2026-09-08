@@ -1,0 +1,154 @@
+.products-principles {
+  padding-top: 61px;
+
+  @media (--tablet-landscape) {
+    padding-top: 76px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (--tablet-landscape) {
+      flex-direction: row;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+  }
+
+  &__label {
+    @mixin font;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.1;
+    color: var(--color-gray);
+    text-transform: uppercase;
+
+    @media (--tablet) {
+      font-size: 12px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 14px;
+      width: 322px;
+      flex-shrink: 0;
+    }
+
+    @media (--laptop) {
+      width: 400px;
+    }
+
+    @media (--desktop) {
+      width: 595px;
+    }
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet-landscape) {
+      gap: 24px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-gray-border);
+
+    @media (--tablet) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+  }
+
+  &__number {
+    @mixin font;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.03em;
+    color: var(--color-blue-200);
+
+    @media (--tablet) {
+      line-height: 40px;
+      width: 236px;
+      flex-shrink: 0;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 16px;
+      width: 322px;
+    }
+
+    @media (--laptop) {
+      font-size: 18px;
+      width: 400px;
+    }
+
+    @media (--desktop) {
+      width: 595px;
+    }
+  }
+
+  &__text {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-blue);
+
+    @media (--tablet-landscape) {
+      font-size: 20px;
+    }
+
+    @media (--desktop) {
+      font-size: 24px;
+    }
+  }
+}
