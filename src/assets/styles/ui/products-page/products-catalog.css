@@ -106,7 +106,7 @@
     }
 
     @media (--tablet-landscape) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(6, 1fr);
     }
 
     @media (--laptop) {
@@ -123,6 +123,14 @@
 
     @media (--tablet) {
       max-width: none;
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: span 2;
+
+      &:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
     }
 
     @media (--laptop) {
