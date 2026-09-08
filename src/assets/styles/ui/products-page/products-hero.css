@@ -1,0 +1,93 @@
+.products-hero {
+  position: relative;
+  min-height: 460px;
+  padding-top: var(--body-offset);
+  background: linear-gradient(180deg, var(--color-light-teal) 11.6%, var(--color-white) 96.3%);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 49px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+
+  &__composition {
+    position: relative;
+    height: 209px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--color-blue);
+    text-transform: uppercase;
+    padding-top: 69px;
+    padding-left: 4px;
+    padding-right: 6px;
+
+    &-word {
+      &--left {
+        align-self: flex-start;
+      }
+
+      &--right {
+        align-self: flex-end;
+        position: relative;
+        z-index: 22;
+      }
+    }
+  }
+
+  &__vial {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-59%);
+    z-index: 2;
+    pointer-events: none;
+
+    &-image {
+      display: block;
+      width: 175px;
+      height: auto;
+    }
+  }
+
+  &__button {
+    @mixin font Inter;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 10px 16px;
+    background: var(--color-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    margin-top: 47px;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
