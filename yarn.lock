@@ -4734,6 +4734,11 @@ typescript@^5.9.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
+typograf@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/typograf/-/typograf-7.8.0.tgz#986b5e07dc859eb03d9c7932c3c5a924f7e37454"
+  integrity sha512-Eo+Fu7iM0ASkYOgsI3veGtdkxI+QhMgJBmyftB16Or+g6B2pC4NgsAPT7nP36BzVx7720IMmvkWf7N9O33HNHg==
+
 undici-types@~5.26.4:
   version "5.26.5"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
