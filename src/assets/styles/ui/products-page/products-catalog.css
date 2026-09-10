@@ -25,11 +25,16 @@
     gap: 12px;
 
     @media (--tablet) {
-      gap: 20px;
+      gap: 16px;
     }
 
     @media (--tablet-landscape) {
       align-items: center;
+      gap: 8px;
+    }
+
+    @media (--laptop) {
+      gap: 4px;
     }
   }
 
@@ -50,7 +55,7 @@
 
     @media (--tablet-landscape) {
       font-size: 40px;
-      text-align: center;
+      text-indent: 33%;
     }
 
     @media (--laptop) {
@@ -138,7 +143,7 @@
     }
 
     @media (--laptop) {
-      gap: 24px;
+      gap: 12px;
     }
   }
 
@@ -244,6 +249,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media (--laptop) {
+      gap: 4px;
+    }
   }
 
   &__card-title {
@@ -267,6 +276,8 @@
     @media (--laptop) {
       font-size: 20px;
       line-height: 1.4;
+      height: auto;
+      margin-top: 12px;
     }
   }
 

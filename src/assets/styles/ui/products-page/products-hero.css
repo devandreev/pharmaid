@@ -42,6 +42,7 @@
 
     @media (--desktop) {
       padding-top: 84px;
+      padding-bottom: 0;
     }
   }
 
@@ -67,7 +68,7 @@
     }
 
     @media (--desktop) {
-      height: 816px;
+      height: 780px;
       padding-left: 87px;
     }
   }
