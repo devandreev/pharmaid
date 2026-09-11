@@ -1,0 +1,109 @@
+.breadcrumbs {
+  padding-top: var(--body-offset);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 7px;
+    padding-bottom: 12px;
+
+    @media (--tablet) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    @media (--desktop) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__back {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--color-blue);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-blue);
+    cursor: pointer;
+    text-decoration: none;
+
+    @media (--desktop) {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    &::before {
+      @mixin icon arrow-left, 16px;
+
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (--tablet) {
+      gap: 4px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    @media (--tablet) {
+      gap: 4px;
+    }
+
+    &:not(:last-child)::after {
+      @mixin icon chevron-right, 100%;
+
+      width: 12px;
+      height: 12px;
+      color: var(--color-blue-300);
+
+      @media (--tablet) {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__link {
+    @mixin font;
+
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-blue);
+    text-decoration: none;
+    white-space: nowrap;
+
+    @media (--tablet) {
+      font-size: 12px;
+    }
+
+    @media (--desktop) {
+      font-size: 14px;
+    }
+  }
+}

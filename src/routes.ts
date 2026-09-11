@@ -14,6 +14,10 @@ const baseRoutes: Route[] = [
     title: 'Наши продукты',
     filename: 'products.html',
   },
+  {
+    title: 'Продукт',
+    filename: 'product.html',
+  },
 ]
 
 export default [

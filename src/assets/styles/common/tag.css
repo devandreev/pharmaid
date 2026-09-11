@@ -1,0 +1,32 @@
+.tag {
+  @mixin font Inter;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 16px;
+  border-radius: 32px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--color-white);
+  white-space: nowrap;
+
+  @media (--tablet-landscape) {
+    height: 32px;
+    font-size: 14px;
+  }
+
+  &--prescription {
+    background: var(--color-red-400);
+  }
+
+  &--vital {
+    background: var(--color-green-700);
+  }
+
+  &--developing {
+    background: var(--color-teal);
+  }
+}
