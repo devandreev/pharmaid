@@ -104,20 +104,22 @@
     @media (--tablet-landscape) {
       border-radius: 24px;
       margin-top: -68px;
-      padding-left: 6px;
-      padding-right: 6px;
+      padding-left: 32px;
+      padding-right: 32px;
+      padding-top: 24px;
+      gap: 0;
     }
 
     @media (--laptop) {
       height: 400px;
-      padding: 24px 0 17px;
+      padding: 0px 24px 17px;
       margin-top: -84px;
       gap: 0;
     }
 
     @media (--desktop) {
       height: 596px;
-      padding: 24px 0;
+      padding: 24px 48px;
       margin-top: -130px;
       gap: 0px;
     }
@@ -128,7 +130,13 @@
     min-height: 0;
     overflow: hidden;
 
-    & > img {
+    & picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    & img {
       display: block;
       width: 100%;
       height: 100%;
@@ -155,8 +163,6 @@
 
     @media (--laptop) {
       margin-top: -17px;
-      padding-left: 24px;
-      padding-right: 24px;
     }
 
     @media (--desktop) {
@@ -182,7 +188,7 @@
 
     @media (--tablet-landscape) {
       gap: 12px;
-      margin-top: -104px;
+      margin-top: -84px;
     }
 
     @media (--laptop) {
