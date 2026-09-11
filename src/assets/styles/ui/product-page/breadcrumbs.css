@@ -28,8 +28,9 @@
     }
 
     @media (--desktop) {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      grid-template-columns: 596px 1fr 1fr;
+      padding-top: 14px;
+      padding-bottom: 11px;
     }
   }
 
@@ -123,8 +124,5 @@
       font-size: 12px;
     }
 
-    @media (--desktop) {
-      font-size: 14px;
-    }
   }
 }

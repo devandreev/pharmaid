@@ -64,6 +64,13 @@
     font-size: 14px;
   }
 
+  @media (--desktop) {
+    height: 64px;
+    border-radius: 16px;
+    font-size: 18px;
+    gap: 16px;
+  }
+
   &:hover {
     opacity: 0.85;
   }
@@ -95,6 +102,13 @@
     height: 48px;
     border-radius: 12px;
     font-size: 14px;
+  }
+
+  @media (--desktop) {
+    height: 64px;
+    border-radius: 16px;
+    font-size: 16px;
+    gap: 16px;
   }
 
   &:hover {
