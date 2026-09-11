@@ -9,8 +9,22 @@
     padding-bottom: 12px;
 
     @media (--tablet) {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      display: grid;
+      grid-template-columns: 237px 1fr;
+      align-items: center;
+      padding-top: 18px;
+      padding-bottom: 12px;
+    }
+
+    @media (--tablet-landscape) {
+      grid-template-columns: 323px 1fr 1fr;
+      padding-top: 20px;
+    }
+
+    @media (--laptop) {
+      grid-template-columns: 400px 1fr 1fr;
+      gap: 16px;
+      padding-top: 5px;
     }
 
     @media (--desktop) {
@@ -33,9 +47,9 @@
     cursor: pointer;
     text-decoration: none;
 
-    @media (--desktop) {
-      width: 40px;
-      height: 40px;
+    @media (--laptop) {
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
     }
 
@@ -44,6 +58,13 @@
 
       width: 16px;
       height: 16px;
+
+      @media (--laptop) {
+        @mixin icon arrow-left, 24px;
+
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 

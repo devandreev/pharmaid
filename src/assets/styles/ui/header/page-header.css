@@ -76,6 +76,10 @@
       border-radius: 6px;
       padding-right: 5%;
     }
+
+    @media (--laptop) {
+      padding-right: 8%;
+    }
   }
 
   &__nav-link {

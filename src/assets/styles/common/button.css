@@ -53,11 +53,12 @@
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
+  white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
 
-  @media (--tablet) {
+  @media (--tablet-landscape) {
     height: 48px;
     border-radius: 12px;
     font-size: 14px;
@@ -85,11 +86,12 @@
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
+  white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
 
-  @media (--tablet) {
+  @media (--tablet-landscape) {
     height: 48px;
     border-radius: 12px;
     font-size: 14px;
