@@ -14,6 +14,14 @@
     min-height: 624px;
   }
 
+  @media (min-width: 1150px) {
+    min-height: 820px;
+  }
+
+  @media (min-width: 1200px) {
+    min-height: 893px;
+  }
+
   @media (--laptop) {
     padding-bottom: 60px;
     min-height: 693px;
@@ -21,6 +29,11 @@
 
   @media (--desktop) {
     min-height: 1075px;
+  }
+
+  @media (min-width: 2000px) {
+    min-height: 80vh;
+    height: 1200px;
   }
 
   /* Контент */
@@ -64,6 +77,10 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
+
+      @media (min-width: 1920px) {
+        object-position: center;
+      }
     }
 
     &-gradient {
@@ -101,6 +118,7 @@
         }
 
         @media (--laptop) {
+          background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 55%);
           height: 160px;
         }
 
