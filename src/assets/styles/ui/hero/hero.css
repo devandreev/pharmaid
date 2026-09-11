@@ -6,17 +6,21 @@
 
   @media (--tablet) {
     height: auto;
-    min-height: 41svh;
+    min-height: 416px;
   }
 
   @media (--tablet-landscape) {
-    min-height: 81svh;
     padding-bottom: 60px;
+    min-height: 624px;
   }
 
   @media (--laptop) {
-    min-height: 96svh;
     padding-bottom: 60px;
+    min-height: 693px;
+  }
+
+  @media (--desktop) {
+    min-height: 1075px;
   }
 
   /* Контент */
