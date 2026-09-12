@@ -20,6 +20,7 @@ class MyApp extends App {
   onload(): void {
     header.init()
     products.init()
+
     this.initScrollBehavior()
   }
 }
