@@ -111,12 +111,14 @@
       gap: 148px;
       font-size: 130px;
       padding-top: 143px;
+      transition: gap 0.4s ease;
     }
 
     @media (--desktop) {
       gap: 228px;
       font-size: 180px;
       padding-top: 232px;
+      transition: gap 0.4s ease;
     }
 
     &-word {
@@ -183,11 +185,118 @@
 
       @media (--laptop) {
         width: 256px;
+        transition: transform 0.4s ease;
       }
 
       @media (--desktop) {
         width: 388px;
+        transition: transform 0.4s ease;
       }
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @media (--laptop) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      padding-top: 24px;
+      list-style: none;
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 32px;
+    }
+
+    &-link {
+      @mixin font Inter;
+
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: -0.03em;
+      color: var(--color-red);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+
+      &::before {
+        @mixin icon arrow-right;
+
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &-badge {
+      @mixin font Inter;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      height: 24px;
+      background: var(--color-teal);
+      color: var(--color-white);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.2;
+      border-radius: 32px;
+      white-space: nowrap;
+    }
+  }
+
+  @media (--laptop) {
+    &:hover &__title {
+      gap: 450px;
+    }
+
+    &:hover &__vial-image {
+      transform: scale(1.27);
+    }
+
+    &:hover &__links {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  @media (--desktop) {
+    &:hover &__title {
+      gap: 690px;
+    }
+
+    &:hover &__vial-image {
+      transform: scale(1.27);
+    }
+
+    &:hover &__links {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
   }
 
