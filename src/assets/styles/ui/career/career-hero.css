@@ -1,0 +1,89 @@
+.career-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 458px;
+
+  @media (--tablet) {
+    min-height: 416px;
+  }
+
+  @media (--tablet-landscape) {
+    min-height: 554px;
+  }
+
+  @media (--laptop) {
+    min-height: 692px;
+  }
+
+  @media (--desktop) {
+    min-height: 900px;
+  }
+
+  /* Фон */
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &-picture {
+      display: block;
+      height: 100%;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  /* Контент */
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--body-offset);
+  }
+
+  /* Заголовок */
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-blue);
+    text-shadow:
+      0 0 20px var(--color-white),
+      0 0 40px var(--color-white),
+      0 0 60px var(--color-white);
+
+    @media (--tablet) {
+      font-size: 80px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 100px;
+    }
+
+    @media (--laptop) {
+      font-size: 130px;
+    }
+
+    @media (--desktop) {
+      font-size: 180px;
+    }
+  }
+}
