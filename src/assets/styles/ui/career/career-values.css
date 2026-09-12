@@ -34,7 +34,7 @@
     margin-bottom: 16px;
 
     @media (--tablet) {
-      gap: 22px;
+      gap: 8px;
       margin-bottom: 24px;
     }
 
@@ -163,7 +163,7 @@
   &__corporate {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
 
     @media (--tablet) {
       gap: 24px;
@@ -215,10 +215,12 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    margin-top: 10px;
 
     @media (--tablet) {
       justify-content: space-between;
+      margin-top: -4px;
     }
 
     @media (--laptop) {

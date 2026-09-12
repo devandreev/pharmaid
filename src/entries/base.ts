@@ -5,6 +5,8 @@ import CBurgerButton from '@/components/c-burger-button/c-burger-button.js'
 import header from '@/plugins/header.js'
 // @ts-ignore
 import products from '@/plugins/products.js'
+// @ts-ignore
+import forms from '@/plugins/forms.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -20,6 +22,7 @@ class MyApp extends App {
   onload(): void {
     header.init()
     products.init()
+    forms.init()
 
     this.initScrollBehavior()
   }

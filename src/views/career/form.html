@@ -1,0 +1,106 @@
+<section class="career-form section" id="career-form">
+  <div class="career-form__wrapper wrapper">
+    <div class="section__header">
+      <p class="section__label">Свяжитесь с&nbsp;нами</p>
+
+      <h2 class="section__heading">
+        Хотите стать частью ФАРМ&nbsp;ЭЙД?
+      </h2>
+    </div>
+
+    <div class="career-form__content">
+      <div class="career-form__sidebar">
+        <a class="career-form__hh button-outline" href="#" target="_blank" rel="noopener noreferrer">
+          Мы на HH.ru
+        </a>
+
+        <div class="career-form__desc">
+          <p class="career-form__desc-text">
+            Даже если сейчас на&nbsp;сайте нет открытой вакансии по&nbsp;вашему
+            профилю, вы&nbsp;можете отправить резюме через форму ниже.
+          </p>
+          <p class="career-form__desc-text">
+            Мы внимательно рассматриваем все заявки и&nbsp;связываемся
+            с&nbsp;кандидатами при появлении подходящих возможностей.
+          </p>
+        </div>
+      </div>
+
+      <form class="career-form__form js-career-form">
+        <div class="career-form__fields">
+          <label class="career-form__label career-form__label--required">
+            <input
+              class="career-form__input career-form__name"
+              type="text"
+              placeholder="Имя"
+            />
+          </label>
+
+          <label class="career-form__label career-form__label--required">
+            <input
+              class="career-form__input career-form__phone"
+              type="tel"
+            />
+          </label>
+
+          <label class="career-form__label career-form__label--required">
+            <input
+              class="career-form__input career-form__city"
+              type="text"
+              placeholder="Город"
+            />
+          </label>
+
+          <label class="career-form__label">
+            <input
+              class="career-form__input career-form__email"
+              type="email"
+              placeholder="Электронная почта"
+            />
+          </label>
+
+          <label class="career-form__label career-form__label--file career-form__label--required">
+            <span class="career-form__file-icon"></span>
+            <span class="career-form__file-text">Резюме:</span>
+            <span class="career-form__file-placeholder js-file-placeholder">Word или PDF до 20 мб</span>
+            <input
+              class="career-form__resume"
+              type="file"
+              accept=".doc,.docx,.pdf"
+            />
+          </label>
+
+          <label class="career-form__label career-form__label--textarea">
+            <textarea
+              class="career-form__textarea career-form__message"
+              placeholder="Сообщение"
+            ></textarea>
+          </label>
+        </div>
+
+        <div class="career-form__bottom">
+          <label class="career-form__agreement">
+            <input
+              class="career-form__agreement-input"
+              type="checkbox"
+              checked
+              required
+              name="agreement"
+            />
+
+            <span class="career-form__agreement-box"></span>
+
+            <span class="career-form__agreement-text">
+              Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие
+              на&nbsp;обработку <a href="/policy" class="career-form__agreement-link js-policy">персональных данных</a>
+            </span>
+          </label>
+
+          <button class="career-form__submit button-blue" type="submit">
+            Отправить резюме
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

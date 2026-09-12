@@ -1,5 +1,5 @@
 .career-about {
-  padding: 24px 0 40px;
+  padding: 60px 0 40px;
 
   &__heading-accent {
     color: var(--color-teal);
@@ -121,7 +121,11 @@
     display: block;
     width: 40px;
     height: 40px;
-    margin-bottom: auto;
+    margin-bottom: 22px;
+
+    @media (--tablet) {
+      margin-bottom: 18px;
+    }
 
     @media (--laptop) {
       width: 64px;
@@ -148,6 +152,7 @@
     line-height: 1.2;
     letter-spacing: -0.03em;
     color: var(--color-red);
+    min-height: 2.4em;
 
     @media (--tablet) {
       font-size: 16px;

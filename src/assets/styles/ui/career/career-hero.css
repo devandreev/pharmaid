@@ -70,8 +70,15 @@
       0 0 40px var(--color-white),
       0 0 60px var(--color-white);
 
+    padding-left: 12%;
+    padding-right: 15%;
+    margin-top: -62px;
+
     @media (--tablet) {
       font-size: 80px;
+      
+      padding-left: 0;
+      padding-right: 0;
     }
 
     @media (--tablet-landscape) {
