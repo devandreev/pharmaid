@@ -1,0 +1,33 @@
+.career-bottom {
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    display: none;
+
+    @media (--tablet) {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -167px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (--tablet-landscape) {
+      bottom: -245px;
+    }
+
+    @media (--laptop) {
+      bottom: -355px;
+    }
+
+    @media (--desktop) {
+      bottom: -573px;
+    }
+  }
+
+  &__bg-image {
+    display: block;
+  }
+}

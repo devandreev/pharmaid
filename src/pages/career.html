@@ -14,8 +14,18 @@
   <main class="page-career page">
     <%= require('../views/career/hero.html').default %>
     <%= require('../views/career/about.html').default %>
-    <%= require('../views/career/values.html').default %>
-    <%= require('../views/career/form.html').default %>
+
+    <div class="career-bottom">
+      <picture class="career-bottom__bg">
+        <source srcset="./images/career/career-bg-desktop.avif" media="(min-width: 1380px)" type="image/avif">
+        <source srcset="./images/career/career-bg-laptop.avif" media="(min-width: 1280px)" type="image/avif">
+        <source srcset="./images/career/career-bg-tablet-landscape.avif" media="(min-width: 1024px)" type="image/avif">
+        <source srcset="./images/career/career-bg-tablet.avif" media="(min-width: 768px)" type="image/avif">
+        <img class="career-bottom__bg-image" src="./images/career/career-bg-tablet.avif" alt="" loading="lazy">
+      </picture>
+      <%= require('../views/career/values.html').default %>
+      <%= require('../views/career/form.html').default %>
+    </div>
   </main>
 
   <%= require('../views/footer.html').default %>
