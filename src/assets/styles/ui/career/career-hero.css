@@ -87,10 +87,12 @@
 
     @media (--laptop) {
       font-size: 130px;
+      margin-top: -104px;
     }
 
     @media (--desktop) {
       font-size: 180px;
+      margin-top: -129px;
     }
   }
 }
