@@ -1,0 +1,392 @@
+.about-info {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Шапка */
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (--tablet-landscape) {
+      flex-direction: row;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+  }
+
+  &__label {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-gray);
+
+    @media (--tablet-landscape) {
+      flex-shrink: 0;
+      width: 155px;
+      font-size: 14px;
+    }
+
+    @media (--laptop) {
+      width: 192px;
+    }
+
+    @media (--desktop) {
+      width: 290px;
+    }
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+      text-indent: 150px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+      text-indent: 186px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+      text-indent: 277px;
+    }
+
+    &-accent {
+      color: var(--color-teal);
+    }
+
+    &-last {
+      @media (--tablet-landscape) {
+        display: block;
+        text-indent: 168px;
+      }
+
+      @media (--laptop) {
+        display: inline;
+        text-indent: 0;
+      }
+    }
+  }
+
+  /* Верхний ряд */
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: 380px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 360px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+      height: 404px;
+    }
+
+    @media (--desktop) {
+      height: 596px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  /* Фото */
+
+  &__photo {
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+
+    @media (--laptop) {
+      border-radius: 24px;
+    }
+  }
+
+  &__photo-picture {
+    display: block;
+    height: 100%;
+  }
+
+  &__photo-image {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+  }
+
+  /* Превью */
+
+  &__thumb {
+    display: none;
+
+    @media (--tablet) {
+      display: block;
+      border-radius: 16px;
+      overflow: hidden;
+      width: 113px;
+      height: 113px;
+    }
+
+    @media (--tablet-landscape) {
+      width: 155px;
+      height: 155px;
+    }
+
+    @media (--laptop) {
+      width: 192px;
+      height: 192px;
+      border-radius: 24px;
+    }
+
+    @media (--desktop) {
+      width: 290px;
+      height: 290px;
+    }
+  }
+
+  &__thumb-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  /* Описание */
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__desc {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  /* Нижний ряд */
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: 380px;
+    }
+
+    @media (--tablet-landscape) {
+      height: auto;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+
+    @media (--desktop) {
+      padding-left: 306px;
+      grid-template-columns: 596px 1fr;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    @media (--tablet-landscape) {
+      justify-content: flex-start;
+      gap: 24px;
+    }
+  }
+
+  /* Проект */
+
+  &__project {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (--tablet-landscape) {
+      gap: 16px;
+    }
+  }
+
+  &__project-title {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 20px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 24px;
+    }
+
+    @media (--laptop) {
+      font-size: 28px;
+    }
+
+    @media (--desktop) {
+      font-size: 32px;
+    }
+  }
+
+  &__project-desc {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  /* Цитата */
+
+  &__quote {
+    padding: 12px;
+    background: var(--color-teal);
+    border-radius: 12px;
+
+    @media (--tablet-landscape) {
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    @media (--desktop) {
+      padding: 24px;
+    }
+  }
+
+  &__quote-text {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-white);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  /* Фабрика */
+
+  &__factory {
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+
+    @media (--laptop) {
+      border-radius: 24px;
+    }
+  }
+
+  &__factory-picture {
+    display: block;
+    height: 100%;
+  }
+
+  &__factory-image {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+  }
+}

@@ -22,6 +22,10 @@ const baseRoutes: Route[] = [
     title: 'Карьера',
     filename: 'career.html',
   },
+  {
+    title: 'О компании',
+    filename: 'about.html',
+  },
 ]
 
 export default [

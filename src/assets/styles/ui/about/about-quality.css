@@ -1,0 +1,216 @@
+.about-quality {
+  padding-bottom: 64px;
+
+  @media (--laptop) {
+    padding-bottom: 80px;
+  }
+
+  @media (--desktop) {
+    padding-bottom: 100px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Качество */
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (--tablet-landscape) {
+      flex-direction: row;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+  }
+
+  &__label {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-gray);
+
+    @media (--tablet-landscape) {
+      flex-shrink: 0;
+      width: 155px;
+      font-size: 14px;
+    }
+
+    @media (--laptop) {
+      width: 192px;
+    }
+
+    @media (--desktop) {
+      width: 290px;
+    }
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+      text-indent: 168px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+      text-indent: 206px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+      text-indent: 306px;
+    }
+  }
+
+  &__title-accent {
+    color: var(--color-red);
+  }
+
+  /* Экология */
+
+  &__ecology {
+    position: relative;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media (--tablet) {
+      height: 307px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 414px;
+      border-radius: 24px;
+    }
+
+    @media (--laptop) {
+      height: 515px;
+    }
+
+    @media (--desktop) {
+      height: 760px;
+    }
+  }
+
+  &__ecology-picture {
+    display: block;
+    height: 100%;
+  }
+
+  &__ecology-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__ecology-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &__ecology-content {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--color-white);
+
+    @media (--tablet) {
+      left: auto;
+      bottom: 20px;
+      width: 220px;
+      gap: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      bottom: 32px;
+      right: 24px;
+      width: 296px;
+    }
+
+    @media (--laptop) {
+      bottom: 40px;
+      right: 32px;
+      width: 368px;
+      gap: 24px;
+    }
+
+    @media (--desktop) {
+      bottom: 56px;
+      right: 56px;
+      width: 543px;
+    }
+  }
+
+  &__ecology-title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+  }
+
+  &__ecology-desc {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+}
