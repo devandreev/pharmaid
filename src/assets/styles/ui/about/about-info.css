@@ -335,6 +335,7 @@
     @media (--tablet-landscape) {
       padding: 16px;
       border-radius: 16px;
+      margin-top: auto;
     }
 
     @media (--desktop) {
