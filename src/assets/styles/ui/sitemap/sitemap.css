@@ -1,0 +1,174 @@
+.sitemap {
+  padding-top: 24px;
+  padding-bottom: 60px;
+
+  @media (--tablet) {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  @media (--laptop) {
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
+  /* Заголовок */
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0 0 32px;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 80px;
+      margin-bottom: 48px;
+    }
+
+    @media (--laptop) {
+      font-size: 100px;
+      margin-bottom: 60px;
+    }
+
+    @media (--desktop) {
+      font-size: 180px;
+    }
+  }
+
+  /* Сетка */
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    @media (--desktop) {
+      gap: 16px;
+    }
+  }
+
+  /* Колонка */
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      flex: 1 0 0;
+      min-width: 0;
+      gap: 32px;
+    }
+
+    &--news {
+      @media (--tablet) {
+        flex: 0 0 120px;
+      }
+
+      @media (--desktop) {
+        flex: 0 0 290px;
+      }
+    }
+  }
+
+  /* Группа с подсписком */
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (--desktop) {
+      gap: 12px;
+    }
+  }
+
+  /* Ссылка категории */
+
+  &__link {
+    display: block;
+    padding: 5px 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-blue);
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 13px;
+    }
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
+
+    a& {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  /* Подсписок */
+
+  &__sublist {
+    margin: 8px 0 0;
+    padding: 0 0 0 8px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (--desktop) {
+      padding-left: 16px;
+    }
+  }
+
+  /* Ссылка подпункта */
+
+  &__sublink {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    color: var(--color-blue);
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 13px;
+    }
+
+    @media (--laptop) {
+      font-size: 14px;
+    }
+
+    @media (--desktop) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

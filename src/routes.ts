@@ -26,6 +26,10 @@ const baseRoutes: Route[] = [
     title: 'О компании',
     filename: 'about.html',
   },
+  {
+    title: 'Карта сайта',
+    filename: 'sitemap.html',
+  },
 ]
 
 export default [
