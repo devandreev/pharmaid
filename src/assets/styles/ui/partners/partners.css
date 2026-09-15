@@ -1,0 +1,13 @@
+.page-partners {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  @media (--laptop) {
+    gap: 80px;
+  }
+
+  @media (--desktop) {
+    gap: 100px;
+  }
+}

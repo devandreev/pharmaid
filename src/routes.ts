@@ -27,6 +27,10 @@ const baseRoutes: Route[] = [
     filename: 'about.html',
   },
   {
+    title: 'Партнерам',
+    filename: 'partners.html',
+  },
+  {
     title: 'Карта сайта',
     filename: 'sitemap.html',
   },

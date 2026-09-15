@@ -1,0 +1,95 @@
+.partners-cooperation {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--laptop) {
+      gap: 40px;
+    }
+  }
+
+  /* Описание */
+
+  &__desc {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-indent: calc(-0.45 * 18px);
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 20px;
+      text-indent: calc(-0.45 * 20px);
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 2;
+      font-size: 24px;
+      text-indent: calc(-0.45 * 24px);
+    }
+
+    @media (--laptop) {
+      font-size: 28px;
+      text-indent: calc(-0.45 * 28px);
+    }
+
+    @media (--desktop) {
+      font-size: 32px;
+      text-indent: calc(-0.45 * 32px);
+    }
+  }
+
+  /* Кнопка */
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background: var(--color-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      width: 238px;
+      align-self: center;
+    }
+
+    @media (--tablet-landscape) {
+      width: var(--section-col);
+    }
+
+    @media (--laptop) {
+      width: 399px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      width: 596px;
+      height: 64px;
+      border-radius: 16px;
+      font-size: 18px;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
