@@ -19,12 +19,29 @@ class MyApp extends App {
     }, 500)
   }
 
+  initCookieAgreement(): void {
+    if (localStorage.getItem('cookie-agreement')) return
+
+    const banner = document.querySelector('.cookie-agreement')
+    const button = banner?.querySelector('.cookie-agreement__button')
+
+    if (!banner || !button) return
+
+    banner.classList.add('is-visible')
+
+    button.addEventListener('click', () => {
+      localStorage.setItem('cookie-agreement', '1')
+      banner.classList.remove('is-visible')
+    })
+  }
+
   onload(): void {
     header.init()
     products.init()
     forms.init()
 
     this.initScrollBehavior()
+    this.initCookieAgreement()
   }
 }
 
