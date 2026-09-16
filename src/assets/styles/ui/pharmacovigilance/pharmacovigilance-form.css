@@ -13,6 +13,18 @@
     padding: 48px 0 200px;
   }
 
+  &__wrapper {
+
+    @media (--tablet-landscape) {
+      max-width: 657px;
+      margin: auto;
+    }
+
+    @media (--laptop) {
+      max-width: none;
+    }
+  }
+
   /* Заголовок секции */
 
   &__title {
@@ -37,12 +49,21 @@
 
     @media (--laptop) {
       font-size: 48px;
-      text-align: center;
+      text-indent: 32%;
+      padding-right: 20%;
     }
 
     @media (--desktop) {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
       font-size: 64px;
+      text-indent: 19.5%;
+      text-align: center;
+      padding-right: 0;
       letter-spacing: 0.04em;
+      position: relative;
+      left: 6.5%;
     }
   }
 
