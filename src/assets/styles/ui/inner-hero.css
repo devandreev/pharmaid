@@ -1,0 +1,98 @@
+.inner-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+
+  @media (--tablet) {
+    min-height: 416px;
+  }
+
+  @media (--tablet-landscape) {
+    min-height: 556px;
+  }
+
+  @media (--laptop) {
+    min-height: 693px;
+  }
+
+  @media (--desktop) {
+    min-height: 900px;
+  }
+
+  /* Модификатор — картинка с отступами и скруглением */
+
+  &--inset &__bg {
+    top: var(--body-offset);
+    left: var(--side-padding);
+    right: var(--side-padding);
+    border-radius: 16px;
+
+    @media (--tablet-landscape) {
+      border-radius: 24px;
+    }
+  }
+
+  /* Фон */
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &-picture {
+      display: block;
+      height: 100%;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  /* Контент */
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--body-offset);
+  }
+
+  /* Заголовок */
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 80px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 100px;
+    }
+
+    @media (--laptop) {
+      font-size: 130px;
+    }
+
+    @media (--desktop) {
+      font-size: 180px;
+    }
+  }
+}

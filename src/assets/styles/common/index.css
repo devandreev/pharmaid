@@ -1,7 +1,7 @@
 :root {
   --side-padding: 16px;
   /* --body-offset: 50px; */
-  --body-offset: 60px;
+  --body-offset: 66px;
   --wrapper-max-width: 100%;
   --media-screen: mobile;
 
@@ -10,25 +10,23 @@
 
   @media (--tablet) {
     --side-padding: 16px;
-    --body-offset: 48px;
     --media-screen: tablet;
   }
 
   @media (--tablet-landscape) {
     --side-padding: 16px;
-    --body-offset: 53px;
     --media-screen: tablet-landscape;
   }
 
   @media (--laptop) {
     --side-padding: 24px;
-    --body-offset: 85px;
+    --body-offset: 82px;
     --media-screen: laptop;
   }
 
   @media (--desktop) {
     --side-padding: 40px;
-    --body-offset: 86px;
+    --body-offset: 90px;
     --wrapper-max-width: 1900px;
     --media-screen: desktop;
   }
