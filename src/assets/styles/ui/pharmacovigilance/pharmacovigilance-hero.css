@@ -1,0 +1,117 @@
+.pharmacovigilance-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+
+  @media (--tablet) {
+    min-height: 416px;
+  }
+
+  @media (--tablet-landscape) {
+    min-height: 556px;
+  }
+
+  @media (--laptop) {
+    min-height: 693px;
+  }
+
+  @media (--desktop) {
+    min-height: 900px;
+  }
+
+  /* Фон */
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &-picture {
+      display: block;
+      height: 100%;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  /* Градиент */
+
+  &__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 49px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 5%, var(--color-white) 85%);
+
+    @media (--tablet) {
+      height: 44px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 59px;
+    }
+
+    @media (--laptop) {
+      height: 73px;
+    }
+
+    @media (--desktop) {
+      height: 105px;
+    }
+  }
+
+  /* Контент */
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--body-offset);
+  }
+
+  /* Заголовок */
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-blue);
+    text-shadow:
+      0 0 100px var(--color-white),
+      8px 8px 30px rgba(255, 255, 255, 0.6);
+
+    @media (--tablet) {
+      font-size: 80px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 100px;
+    }
+
+    @media (--laptop) {
+      font-size: 130px;
+    }
+
+    @media (--desktop) {
+      font-size: 180px;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 80px rgba(255, 255, 255, 0.6);
+    }
+  }
+}

@@ -1,0 +1,163 @@
+<section class="pharmacovigilance-form">
+  <div class="pharmacovigilance-form__wrapper wrapper">
+    <h2 class="pharmacovigilance-form__title">
+      В&nbsp;компании &laquo;Фарм&nbsp;Эйд&raquo; организована система фармаконадзора
+      в&nbsp;соответствии с&nbsp;российскими и&nbsp;международными требованиями
+    </h2>
+
+    <div class="pharmacovigilance-form__content">
+      <div class="pharmacovigilance-form__info">
+        <p class="pharmacovigilance-form__desc">
+          Если вам стало известно о&nbsp;нежелательной реакции, возникшей при&nbsp;применении
+          нашего препарата, пожалуйста, сообщите нам об&nbsp;этом любым удобным способом:
+        </p>
+
+        <ul class="pharmacovigilance-form__contacts">
+          <li class="pharmacovigilance-form__contacts-item">
+            <span class="pharmacovigilance-form__contacts-icon"></span>
+            <span class="pharmacovigilance-form__contacts-text">
+              Заполнив форму обратной связи на&nbsp;нашем сайте;
+            </span>
+          </li>
+          <li class="pharmacovigilance-form__contacts-item">
+            <span class="pharmacovigilance-form__contacts-icon"></span>
+            <span class="pharmacovigilance-form__contacts-text">
+              Позвонив по&nbsp;бесплатному телефону &ldquo;горячей&rdquo; линии
+              <a class="pharmacovigilance-form__contacts-link" href="tel:88003508024">8&nbsp;(800)&nbsp;350-80-24</a>
+            </span>
+          </li>
+          <li class="pharmacovigilance-form__contacts-item">
+            <span class="pharmacovigilance-form__contacts-icon"></span>
+            <span class="pharmacovigilance-form__contacts-text">
+              По&nbsp;электронной почте
+              <a class="pharmacovigilance-form__contacts-link" href="mailto:pv@pharmaid.com">pv@pharmaid.com</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pharmacovigilance-form__body">
+        <h3 class="pharmacovigilance-form__heading">
+          Сообщить о&nbsp;нежелательной реакции
+        </h3>
+
+        <form class="pharmacovigilance-form__form js-pharmacovigilance-form">
+          <div class="pharmacovigilance-form__fields">
+            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <select class="pharmacovigilance-form__select pharmacovigilance-form__type">
+                <option value="" disabled selected>Тип заявителя</option>
+                <option value="patient">Пациент</option>
+                <option value="doctor">Врач</option>
+                <option value="pharmacist">Фармацевт</option>
+                <option value="other">Другое</option>
+              </select>
+            </label>
+
+            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <input
+                class="pharmacovigilance-form__input pharmacovigilance-form__name"
+                type="text"
+                placeholder="ФИО заявителя"
+              />
+            </label>
+
+            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <input
+                class="pharmacovigilance-form__input pharmacovigilance-form__phone"
+                type="tel"
+              />
+            </label>
+
+            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <input
+                class="pharmacovigilance-form__input pharmacovigilance-form__email"
+                type="email"
+                placeholder="Электронная почта"
+              />
+            </label>
+          </div>
+
+          <div class="pharmacovigilance-form__group">
+            <p class="pharmacovigilance-form__group-title">Информация о пациенте</p>
+
+            <div class="pharmacovigilance-form__fields">
+              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+                <input
+                  class="pharmacovigilance-form__input pharmacovigilance-form__patient-name"
+                  type="text"
+                  placeholder="ФИО пациента"
+                />
+              </label>
+
+              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+                <input
+                  class="pharmacovigilance-form__input pharmacovigilance-form__drug"
+                  type="text"
+                  placeholder="Лекарственный препарат"
+                />
+              </label>
+
+              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+                <input
+                  class="pharmacovigilance-form__input pharmacovigilance-form__manufacturer"
+                  type="text"
+                  placeholder="Производитель лекарственного препарата"
+                />
+              </label>
+
+              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+                <input
+                  class="pharmacovigilance-form__input pharmacovigilance-form__batch"
+                  type="text"
+                  placeholder="Номер серии лекарственного препарата"
+                />
+              </label>
+
+              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--textarea pharmacovigilance-form__label--required">
+                <textarea
+                  class="pharmacovigilance-form__textarea pharmacovigilance-form__reaction"
+                  placeholder="Описание нежелательной реакции"
+                ></textarea>
+              </label>
+            </div>
+          </div>
+
+          <label class="pharmacovigilance-form__label pharmacovigilance-form__label--file pharmacovigilance-form__label--required">
+            <span class="pharmacovigilance-form__file-box">
+              <span class="pharmacovigilance-form__file-icon"></span>
+              <span class="pharmacovigilance-form__file-text">Прикрепите фото или файл:</span>
+              <span class="pharmacovigilance-form__file-placeholder js-pv-file-placeholder">до 20 мб</span>
+            </span>
+            <input
+              class="pharmacovigilance-form__file"
+              type="file"
+              accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            />
+          </label>
+
+          <div class="pharmacovigilance-form__bottom">
+            <label class="pharmacovigilance-form__agreement">
+              <input
+                class="pharmacovigilance-form__agreement-input"
+                type="checkbox"
+                required
+                name="pv-agreement"
+              />
+
+              <span class="pharmacovigilance-form__agreement-box"></span>
+
+              <span class="pharmacovigilance-form__agreement-text">
+                Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие
+                на&nbsp;обработку <a href="/policy" class="pharmacovigilance-form__agreement-link js-policy">персональных данных</a>
+              </span>
+            </label>
+
+            <button class="pharmacovigilance-form__submit button-blue" type="submit">
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

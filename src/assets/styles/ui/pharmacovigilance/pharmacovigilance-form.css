@@ -1,0 +1,568 @@
+.pharmacovigilance-form {
+  padding: 24px 0 64px;
+
+  @media (--tablet) {
+    padding: 24px 0 80px;
+  }
+
+  @media (--laptop) {
+    padding: 36px 0 80px;
+  }
+
+  @media (--desktop) {
+    padding: 48px 0 200px;
+  }
+
+  /* Заголовок секции */
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0 0 24px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+      text-align: center;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  /* Контент (инфо + форма) */
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (--laptop) {
+      max-width: 596px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Информационный блок */
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__desc {
+    @mixin font;
+
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.67;
+    color: var(--color-blue-300);
+
+    @media (--tablet) {
+      font-size: 14px;
+      line-height: 1.43;
+    }
+
+    @media (--desktop) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  /* Список контактов */
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (--tablet) {
+      gap: 4px;
+    }
+  }
+
+  &__contacts-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  &__contacts-icon {
+    @mixin icon check-read;
+
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    color: var(--color-green-700);
+
+    @media (--tablet) {
+      width: 24px;
+      height: 24px;
+      margin-top: 0;
+    }
+  }
+
+  &__contacts-text {
+    @mixin font;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.67;
+    color: var(--color-blue-300);
+
+    @media (--tablet) {
+      font-size: 14px;
+      line-height: 1.43;
+    }
+
+    @media (--desktop) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  &__contacts-link {
+    color: var(--color-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Тело формы */
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__heading {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 20px;
+    }
+
+    @media (--desktop) {
+      font-size: 24px;
+    }
+  }
+
+  /* Форма */
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Группа полей */
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__group-title {
+    @mixin font;
+
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.67;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+
+    @media (--tablet) {
+      font-size: 14px;
+      line-height: 1.43;
+    }
+  }
+
+  /* Лейблы */
+
+  &__label {
+    position: relative;
+    display: block;
+
+    &--required {
+
+      &::after {
+        @mixin font Manrope;
+
+        content: '*';
+        position: absolute;
+        right: 12px;
+        top: 22px;
+        transform: translateY(-50%);
+        color: var(--color-red);
+        font-size: 16px;
+        line-height: 30px;
+        pointer-events: none;
+
+        @media (--laptop) {
+          top: 30px;
+        }
+      }
+    }
+
+    &--textarea&--required::after {
+      top: 20px;
+      transform: none;
+    }
+
+    &--file {
+      cursor: pointer;
+    }
+
+    &--error {
+
+      & .pharmacovigilance-form__input,
+      & .pharmacovigilance-form__select,
+      & .pharmacovigilance-form__textarea {
+        border-color: var(--color-red);
+      }
+
+      & .pharmacovigilance-form__file-box {
+        border-color: var(--color-red);
+      }
+    }
+  }
+
+  &__label-error {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-red);
+  }
+
+  /* Инпуты */
+
+  &__input {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 56px;
+    }
+
+    &::placeholder {
+      color: var(--color-blue);
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Селект */
+
+  &__select {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 56px;
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Textarea */
+
+  &__textarea {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 4px 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      height: 108px;
+    }
+
+    &::placeholder {
+      color: var(--color-blue);
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Файл */
+
+  &__file-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 40px;
+    padding: 0 8px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet-landscape) {
+      height: 56px;
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+  }
+
+  &__file-icon {
+    @mixin icon paperclip;
+
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--color-blue);
+
+    @media (--laptop) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__file-text {
+    @mixin font;
+
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__file-placeholder {
+    @mixin font;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--color-gray-border);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__file {
+    @mixin visually-hidden;
+  }
+
+  /* Нижняя часть */
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Согласие */
+
+  &__agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  &__agreement-input {
+    @mixin visually-hidden;
+
+    &:checked ~ .pharmacovigilance-form__agreement-box {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+    }
+
+    &:checked ~ .pharmacovigilance-form__agreement-box::after {
+      opacity: 1;
+    }
+  }
+
+  &__agreement-box {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    border: 1px solid var(--color-blue-200);
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 8px;
+      width: 6px;
+      height: 10px;
+      border: solid var(--color-white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  &__agreement-text {
+    @mixin font;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.14;
+    color: var(--color-blue-300);
+  }
+
+  &__agreement-link {
+    color: var(--color-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Кнопка отправки */
+
+  &__submit {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 16px;
+
+    @media (--tablet-landscape) {
+      height: 64px;
+      border-radius: 16px;
+      font-size: 18px;
+    }
+  }
+
+  /* Сообщение об успехе */
+
+  &__success {
+    @mixin font;
+
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-blue);
+
+    @media (--laptop) {
+      font-size: 18px;
+    }
+  }
+}
