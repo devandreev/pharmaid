@@ -38,6 +38,10 @@ const baseRoutes: Route[] = [
     title: 'Карта сайта',
     filename: 'sitemap.html',
   },
+  {
+    title: 'Страница не найдена',
+    filename: '404.html',
+  },
 ]
 
 export default [
