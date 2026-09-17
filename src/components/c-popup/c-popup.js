@@ -25,26 +25,27 @@ export default class CPopup extends CElement {
 
     if (!this.slotContent) return
 
-    const cross = this.$find('.c-popup__cross')
-    if (cross) {
-      cross.addEventListener('click', () => this.hide())
-    }
-
-    this.root.addEventListener('click', (e) => {
-      const container = this.$find('.c-popup__container')
-
-      if (container && !container.contains(e.target)) {
-        this.hide()
+    if (!this.hasAttribute('persistent')) {
+      const cross = this.$find('.c-popup__cross')
+      if (cross) {
+        cross.addEventListener('click', () => this.hide())
       }
-    })
+      this.root.addEventListener('click', (e) => {
+        const container = this.$find('.c-popup__container')
 
-    this._onKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        this.hide()
+        if (container && !container.contains(e.target)) {
+          this.hide()
+        }
+      })
+
+      this._onKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          this.hide()
+        }
       }
-    }
 
-    document.addEventListener('keydown', this._onKeyDown)
+      document.addEventListener('keydown', this._onKeyDown)
+    }
   }
 
   disconnectedCallback() {

@@ -9,6 +9,8 @@ import header from '@/plugins/header.js'
 import products from '@/plugins/products.js'
 // @ts-ignore
 import forms from '@/plugins/forms.js'
+// @ts-ignore
+import productDisclaimer from '@/plugins/product-disclaimer.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -41,6 +43,7 @@ class MyApp extends App {
     header.init()
     products.init()
     forms.init()
+    productDisclaimer.init()
 
     this.initScrollBehavior()
     this.initCookieAgreement()

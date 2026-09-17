@@ -80,6 +80,10 @@
     animation: popupContainerAppearance 0.8s ease forwards;
   }
 
+  :host([persistent]) &__cross {
+    display: none;
+  }
+
   &__cross {
     @mixin icon cross;
 
