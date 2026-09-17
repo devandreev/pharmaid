@@ -422,20 +422,6 @@
     text-underline-offset: 2px;
   }
 
-  &__success {
-    @mixin font;
-
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--color-blue);
-
-    @media (--laptop) {
-      font-size: 18px;
-    }
-  }
-
   &__submit {
     width: 100%;
     height: 48px;

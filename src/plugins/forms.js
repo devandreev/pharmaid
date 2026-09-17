@@ -175,6 +175,13 @@ export default {
     return isValid
   },
 
+  openSuccessPopup() {
+    const popup = document.querySelector('#success-popup')
+    if (!popup) return
+
+    popup.show()
+  },
+
   onCareerFormSubmit(e, form) {
     e.preventDefault()
     e.stopImmediatePropagation()
@@ -187,8 +194,7 @@ export default {
       phoneInput.value = phoneInput._mask.unmaskedValue
     }
 
-    form.classList.add('career-form__form--success')
-    form.innerHTML = '<p class="career-form__success">Спасибо! Ваше резюме отправлено. Мы свяжемся с вами при появлении подходящей вакансии.</p>'
+    this.openSuccessPopup()
   },
 
   /* Фармаконадзор */
@@ -312,7 +318,6 @@ export default {
       phoneInput.value = phoneInput._mask.unmaskedValue
     }
 
-    form.classList.add(`${prefix}__form--success`)
-    form.innerHTML = `<p class="${prefix}__success">Спасибо! Ваше сообщение отправлено. Мы рассмотрим его в кратчайшие сроки.</p>`
+    this.openSuccessPopup()
   },
 }

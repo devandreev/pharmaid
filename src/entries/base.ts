@@ -2,6 +2,8 @@ import App from '@/app/App'
 // @ts-ignore
 import CBurgerButton from '@/components/c-burger-button/c-burger-button.js'
 // @ts-ignore
+import CPopup from '@/components/c-popup/c-popup.js'
+// @ts-ignore
 import header from '@/plugins/header.js'
 // @ts-ignore
 import products from '@/plugins/products.js'
@@ -46,5 +48,5 @@ class MyApp extends App {
 }
 
 const app = new MyApp({
-  components: { CBurgerButton },
+  components: { CBurgerButton, CPopup },
 })

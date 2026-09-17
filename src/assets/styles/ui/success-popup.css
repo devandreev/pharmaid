@@ -1,0 +1,38 @@
+.success-popup {
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    background-color: var(--color-white);
+    border-radius: 16px;
+    padding: 64px 24px;
+
+    @media (--tablet) {
+      padding: 64px 80px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+
+  &__text {
+    @mixin font;
+
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 24px;
+    }
+  }
+}
