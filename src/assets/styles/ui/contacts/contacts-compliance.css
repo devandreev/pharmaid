@@ -1,0 +1,201 @@
+.contacts-compliance {
+  padding-bottom: 63px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (--desktop) {
+      gap: 40px;
+    }
+  }
+
+  /* Контент — две колонки */
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet-landscape) {
+      flex-direction: row;
+      gap: 16px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet-landscape) {
+      flex-shrink: 0;
+      width: 323px;
+    }
+
+    @media (--laptop) {
+      width: 400px;
+      gap: 24px;
+    }
+
+    @media (--desktop) {
+      width: 596px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__heading {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+      letter-spacing: -0.03em;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+  }
+
+  /* Текст левой колонки */
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__paragraph {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  /* Текст правой колонки */
+
+  &__note {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+  }
+
+  &__link {
+    color: var(--color-teal);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Футер с email */
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 0 12px;
+    border-top: 1px solid var(--color-gray-border);
+    border-bottom: 1px solid var(--color-gray-border);
+
+    @media (--tablet-landscape) {
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+
+    @media (--desktop) {
+      padding: 40px 0;
+    }
+  }
+
+  &__footer-label {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    color: var(--color-blue-200);
+
+    @media (--tablet-landscape) {
+      flex-shrink: 0;
+      width: 323px;
+    }
+
+    @media (--laptop) {
+      font-size: 16px;
+      width: 400px;
+    }
+
+    @media (--desktop) {
+      width: 596px;
+    }
+  }
+
+  &__footer-email {
+    @mixin font Inter;
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--color-red-400);
+    text-decoration: none;
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

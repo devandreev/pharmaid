@@ -1,5 +1,7 @@
 /// <reference path="./src/types/webpack-vendors.d.ts" />
 import path from 'path'
+import webpack from 'webpack'
+import dotenv from 'dotenv'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -10,6 +12,8 @@ import type { Configuration } from 'webpack'
 import 'webpack-dev-server'
 
 import routes from './src/routes'
+
+const env = dotenv.config().parsed || {}
 
 const getPath = (p: string) => path.resolve(__dirname, p)
 
@@ -200,6 +204,9 @@ export default (_env: unknown, options: { mode: string }): Configuration => {
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].bundle.css'
+      }),
+      new webpack.EnvironmentPlugin({
+        YANDEX_MAPS_API_KEY: env.YANDEX_MAPS_API_KEY || '',
       })
     ]
   }

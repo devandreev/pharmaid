@@ -35,6 +35,10 @@ const baseRoutes: Route[] = [
     filename: 'pharmacovigilance.html',
   },
   {
+    title: 'Контакты',
+    filename: 'contacts.html',
+  },
+  {
     title: 'Карта сайта',
     filename: 'sitemap.html',
   },

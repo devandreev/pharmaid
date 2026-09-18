@@ -11,6 +11,8 @@ import products from '@/plugins/products.js'
 import forms from '@/plugins/forms.js'
 // @ts-ignore
 import productDisclaimer from '@/plugins/product-disclaimer.js'
+// @ts-ignore
+import contactsMaps from '@/plugins/contacts-maps.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -44,6 +46,7 @@ class MyApp extends App {
     products.init()
     forms.init()
     productDisclaimer.init()
+    contactsMaps.init()
 
     this.initScrollBehavior()
     this.initCookieAgreement()

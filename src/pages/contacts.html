@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" name="viewport">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <%= require('../views/preload.html').default %>
+
+</head>
+<body>
+<%= require('../views/header.html').default %>
+
+  <main class="page-contacts page">
+    <%= require('../views/contacts/hero.html').default %>
+    <%= require('../views/contacts/office.html').default %>
+    <%= require('../views/contacts/production.html').default %>
+    <%= require('../views/contacts/compliance.html').default %>
+  </main>
+
+  <%= require('../views/footer.html').default %>
+
+  <%= require('../views/popups.html').default %>
+</body>
+</html>
