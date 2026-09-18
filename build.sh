@@ -7,7 +7,7 @@ timestamp() {
 }
 
 cp -r ./public/images ./public/dist/images
-#cp -r ./public/videos ./public/dist/videos
+cp -r ./public/videos ./public/dist/videos
 cp -r ./public/images_avif ./public/dist/images_avif
 #cp ./public/site.webmanifest ./public/dist/site.webmanifest
 #cp ./public/favicon.ico ./public/dist/favicon.ico

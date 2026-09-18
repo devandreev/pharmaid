@@ -13,6 +13,8 @@ import forms from '@/plugins/forms.js'
 import productDisclaimer from '@/plugins/product-disclaimer.js'
 // @ts-ignore
 import contactsMaps from '@/plugins/contacts-maps.js'
+// @ts-ignore
+import heroVideo from '@/plugins/hero-video.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -43,6 +45,7 @@ class MyApp extends App {
 
   onload(): void {
     header.init()
+    heroVideo.init()
     products.init()
     forms.init()
     productDisclaimer.init()

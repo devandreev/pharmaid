@@ -1,13 +1,17 @@
 <section class="inner-hero career-hero">
   <div class="inner-hero__bg">
-    <picture class="inner-hero__bg-picture">
-      <source srcset="./images/career/career-hero-bg-desktop.avif" media="(min-width: 1380px)" type="image/avif">
-      <source srcset="./images/career/career-hero-bg-laptop.avif" media="(min-width: 1280px)" type="image/avif">
-      <source srcset="./images/career/career-hero-bg-tablet-landscape.avif" media="(min-width: 1024px)" type="image/avif">
-      <source srcset="./images/career/career-hero-bg-tablet.avif" media="(min-width: 768px)" type="image/avif">
-      <source srcset="./images/career/career-hero-bg.avif" type="image/avif">
-      <img class="inner-hero__bg-image" src="./images/career/career-hero-bg.avif" alt="">
-    </picture>
+    <video
+      class="inner-hero__bg-video js-hero-video"
+      poster="./images/career/career-hero-bg.avif"
+      data-src-390="./videos/career/career-hero-390.mp4"
+      data-src-768="./videos/career/career-hero-768.mp4"
+      data-src-1024="./videos/career/career-hero-1024.mp4"
+      data-src-1280="./videos/career/career-hero-1280.mp4"
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
   </div>
 
   <div class="inner-hero__wrapper wrapper">

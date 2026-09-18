@@ -1,13 +1,18 @@
 <section class="inner-hero partners-hero">
   <div class="inner-hero__bg">
-    <picture class="inner-hero__bg-picture">
-      <source srcset="./images/partners/partners-hero-bg-desktop.avif 1x, ./images/partners/partners-hero-bg-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
-      <source srcset="./images/partners/partners-hero-bg-laptop.avif 1x, ./images/partners/partners-hero-bg-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
-      <source srcset="./images/partners/partners-hero-bg-tablet-landscape.avif 1x, ./images/partners/partners-hero-bg-tablet-landscape@2x.avif 2x" media="(min-width: 1024px)" type="image/avif">
-      <source srcset="./images/partners/partners-hero-bg-tablet.avif" media="(min-width: 768px)" type="image/avif">
-      <source srcset="./images/partners/partners-hero-bg.avif" type="image/avif">
-      <img class="inner-hero__bg-image" src="./images/partners/partners-hero-bg.avif" alt="">
-    </picture>
+    <video
+      class="inner-hero__bg-video js-hero-video"
+      poster="./images/partners/partners-hero-bg.avif"
+      data-src-390="./videos/partners/partners-hero-390.mp4"
+      data-src-768="./videos/partners/partners-hero-768.mp4"
+      data-src-1024="./videos/partners/partners-hero-1024.mp4"
+      data-src-1280="./videos/partners/partners-hero-1280.mp4"
+      data-src-1920="./videos/partners/partners-hero-1920.mp4"
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
   </div>
 
   <div class="inner-hero__wrapper wrapper">
