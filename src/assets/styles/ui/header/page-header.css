@@ -25,11 +25,11 @@
     justify-content: space-between;
     background: var(--color-white);
     border-radius: 8px;
-    padding: 0 4px 0 8px;
     height: 40px;
 
     @media (--tablet-landscape) {
       gap: 32px;
+      padding: 0 4px 0 8px;
     }
 
     @media (--laptop) {
@@ -266,6 +266,222 @@
 
       width: 20px;
       height: 20px;
+    }
+  }
+
+  &__search-form {
+    display: none;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__search-field {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 32px;
+
+    @media (--laptop) {
+      height: 40px;
+    }
+  }
+
+  &__search-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-500);
+    border-radius: 8px;
+
+    @media (--laptop) {
+      border-radius: 12px;
+    }
+  }
+
+  &__search-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    padding: 0 8px;
+
+    @media (--laptop) {
+      height: 38px;
+    }
+  }
+
+  &__search-field-icon {
+    @mixin icon search, 20px;
+
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-blue);
+  }
+
+  &__search-input {
+    @mixin font;
+
+    flex: 1;
+    min-width: 0;
+    appearance: none;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-blue);
+
+    &::placeholder {
+      color: var(--color-blue-300);
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &__search-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin: 0;
+    padding: 0 8px 8px 0;
+    list-style: none;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__search-suggestion-button {
+    @mixin font;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    padding: 4px 8px;
+    border: none;
+    border-left: 2px solid transparent;
+    border-radius: 0 6px 6px 0;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__search-suggestion-icon {
+    @mixin icon clock, 20px;
+
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-gray);
+  }
+
+  &__search-suggestion-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+    color: var(--color-gray-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__search-suggestion--active &__search-suggestion-button,
+  &__search-suggestion-button:hover {
+    border-left-color: var(--color-red);
+    background: var(--color-gray-150);
+  }
+
+  &__search-suggestion--active &__search-suggestion-match {
+    font-weight: 400;
+  }
+
+  &__search-suggestion--active &__search-suggestion-rest {
+    font-weight: 700;
+  }
+
+  &__search-close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-red);
+    color: var(--color-white);
+    cursor: pointer;
+
+    @media (--laptop) {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    &::before {
+      @mixin icon cross, 24px;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--search-open {
+    /* поле прижимается к крестику, крестик встаёт на место лупы */
+    & .page-header__bar {
+      gap: 2px;
+    }
+
+    & .page-header__nav,
+    & .page-header__search {
+      display: none;
+    }
+
+    & .page-header__search-form {
+      display: flex;
+    }
+
+    /* радиус 6px у группы срезал бы углы крестика */
+    & .page-header__group {
+      overflow: visible;
+    }
+
+    & .page-header__search-close {
+      display: flex;
+    }
+
+    /* до десктопной раскладки поле забирает всю шапку, соседи уходят */
+    & .page-header__logo,
+    & .page-header__lang,
+    & .page-header__burger {
+      display: none;
+    }
+
+    @media (--tablet-landscape) {
+      & .page-header__logo,
+      & .page-header__lang {
+        display: flex;
+      }
+
+      & .page-header__search-form {
+        margin-left: 30px;
+      }
     }
   }
 

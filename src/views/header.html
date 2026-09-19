@@ -39,11 +39,26 @@
         <a class="page-header__nav-link" href="contacts.html">Контакты</a>
       </nav>
 
+      <form class="page-header__search-form" action="search.html" method="get" role="search">
+        <div class="page-header__search-field">
+          <div class="page-header__search-box">
+            <div class="page-header__search-row">
+              <span class="page-header__search-field-icon"></span>
+              <input class="page-header__search-input" type="search" name="query" placeholder="Поиск" autocomplete="off" spellcheck="false">
+            </div>
+
+            <ul class="page-header__search-suggestions" hidden></ul>
+          </div>
+        </div>
+      </form>
+
       <div class="page-header__actions">
         <div class="page-header__group">
           <button class="page-header__search" type="button" aria-label="Поиск">
             <span class="page-header__search-icon"></span>
           </button>
+
+          <button class="page-header__search-close" type="button" aria-label="Закрыть поиск"></button>
 
           <button class="page-header__lang" type="button">EN</button>
         </div>

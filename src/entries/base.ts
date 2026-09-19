@@ -6,6 +6,8 @@ import CPopup from '@/components/c-popup/c-popup.js'
 // @ts-ignore
 import header from '@/plugins/header.js'
 // @ts-ignore
+import headerSearch from '@/plugins/header-search.js'
+// @ts-ignore
 import products from '@/plugins/products.js'
 // @ts-ignore
 import forms from '@/plugins/forms.js'
@@ -47,6 +49,7 @@ class MyApp extends App {
 
   onload(): void {
     header.init()
+    headerSearch.init()
     heroVideo.init()
     products.init()
     forms.init()
