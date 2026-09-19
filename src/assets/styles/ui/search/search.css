@@ -1,0 +1,350 @@
+.search {
+  --search-col: 290px;
+
+  padding-top: 8px;
+  padding-bottom: 64px;
+
+  @media (--tablet) {
+    padding-top: 0;
+  }
+
+  @media (--desktop) {
+    padding-top: 8px;
+    padding-bottom: 100px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    @media (--tablet) {
+      gap: 24px;
+    }
+
+    @media (--desktop) {
+      display: grid;
+      grid-template-columns: var(--search-col) 1fr var(--search-col);
+      column-gap: 16px;
+      row-gap: 32px;
+    }
+  }
+
+  /* Строка поиска */
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (--desktop) {
+      display: contents;
+    }
+  }
+
+  &__back {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid var(--color-blue);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-blue);
+    cursor: pointer;
+
+    @media (--desktop) {
+      grid-column: 1;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+
+    &::before {
+      @mixin icon arrow-left, 20px;
+
+      width: 20px;
+      height: 20px;
+
+      @media (--desktop) {
+        @mixin icon arrow-left, 24px;
+
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__field {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 32px;
+
+    @media (--desktop) {
+      grid-column: 2;
+      height: 48px;
+    }
+  }
+
+  &__field-inner {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    padding: 0 8px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 8px;
+    background: var(--color-white);
+
+    @media (--desktop) {
+      border-radius: 12px;
+    }
+  }
+
+  &__field-icon {
+    @mixin icon search, 20px;
+
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-blue);
+  }
+
+  &__input {
+    @mixin font;
+
+    flex: 1;
+    min-width: 0;
+    appearance: none;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color-blue);
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
+
+    &::placeholder {
+      color: var(--color-blue-300);
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &__clear {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-red);
+    color: var(--color-white);
+    cursor: pointer;
+
+    @media (--desktop) {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+
+    &::before {
+      @mixin icon cross, 24px;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Шапка результатов */
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    /* В макете зазор до строки поиска 40px против 32px у остальных блоков */
+    @media (--desktop) {
+      grid-column: 2;
+      margin-top: 8px;
+    }
+  }
+
+  &__count {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media (--tablet) {
+      flex-shrink: 0;
+    }
+  }
+
+  &__sort-label {
+    @mixin font;
+
+    flex: 1;
+    min-width: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      flex: none;
+      white-space: nowrap;
+    }
+
+    @media (--desktop) {
+      font-size: 16px;
+    }
+  }
+
+  /* Размеры пилюли из макета; остальное — в ui/selectbox.css */
+  &__sort-select {
+    @mixin font;
+
+    --ss-main-height: 32px;
+
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+
+    @media (--desktop) {
+      --ss-main-height: 40px;
+
+      font-size: 16px;
+    }
+
+    &.ss-main {
+      padding: 5px 12px 5px 16px;
+    }
+
+    & .ss-arrow {
+      color: var(--color-red);
+    }
+
+    & .ss-option {
+      font-size: 14px;
+
+      @media (--desktop) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* Список результатов */
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--desktop) {
+      grid-column: 2;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray-border);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item-title {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
+  }
+
+  &__item-text {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+  }
+
+  &__item-date {
+    @mixin font;
+
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 32px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--color-red);
+    white-space: nowrap;
+  }
+
+  &__highlight {
+    font-weight: 600;
+    color: var(--color-teal);
+  }
+}

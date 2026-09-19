@@ -15,6 +15,8 @@ import productDisclaimer from '@/plugins/product-disclaimer.js'
 import contactsMaps from '@/plugins/contacts-maps.js'
 // @ts-ignore
 import heroVideo from '@/plugins/hero-video.js'
+// @ts-ignore
+import select from '@/plugins/select.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -50,9 +52,14 @@ class MyApp extends App {
     forms.init()
     productDisclaimer.init()
     contactsMaps.init()
+    select.init()
 
     this.initScrollBehavior()
     this.initCookieAgreement()
+  }
+
+  onresize(): void {
+    select.onResize()
   }
 }
 

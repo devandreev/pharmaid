@@ -1,0 +1,115 @@
+/* Скин для slim-select. Библиотека копирует классы исходного <select>
+   и на кнопку (.ss-main), и на выпадающий список (.ss-content),
+   поэтому один блок красит обе части */
+.selectbox {
+  --ss-bg-color: var(--color-white);
+  --ss-font-color: var(--color-blue);
+  --ss-font-placeholder-color: var(--color-blue-300);
+  --ss-border-color: var(--color-blue);
+  --ss-primary-color: var(--color-blue);
+  --ss-disabled-color: var(--color-gray-border);
+  --ss-border-radius: 24px;
+  --ss-animation-timing: 0.2s;
+  --ss-content-height: 320px;
+  --ss-spacing-s: 0;
+  --ss-spacing-m: 8px;
+  --ss-spacing-l: 12px;
+
+  /* Кнопка */
+  &.ss-main {
+    width: max-content;
+    max-width: 100%;
+    padding: 0;
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    /* Вендор обнуляет скругление с той стороны, куда раскрылся список */
+    &.ss-open-below,
+    &.ss-open-above {
+      border-radius: var(--ss-border-radius);
+    }
+  }
+
+  & .ss-values {
+    flex-wrap: nowrap;
+  }
+
+  & .ss-single {
+    margin: auto 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* .ss-arrow — это сам <svg viewBox="0 0 100 100">, а не контейнер с иконкой,
+     поэтому ::after на нём не отрисовывается: прячем вендорный path
+     и вешаем иконку проекта маской прямо на svg */
+  & .ss-arrow {
+    @mixin icon chevron-down-small, 16px;
+
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    /* Ширина кнопки подгоняется под самый длинный пункт, поэтому у короткого
+       значения зазор появляется сам собой, а у длинного — нет. Задаём явно */
+    margin: auto 0 auto 4px;
+    transition: transform var(--ss-animation-timing) ease;
+
+    & path {
+      display: none;
+    }
+  }
+
+  &.ss-open-below .ss-arrow,
+  &.ss-open-above .ss-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Выпадающий список */
+  &.ss-content {
+    width: max-content;
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    &.ss-open-below,
+    &.ss-open-above {
+      border-radius: 12px;
+    }
+  }
+
+  & .ss-list {
+    @mixin hide-scrollbar;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  & .ss-option {
+    @mixin font;
+
+    align-items: center;
+    min-height: 32px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+    transition: background-color var(--ss-animation-timing) ease, color var(--ss-animation-timing) ease;
+
+    &:hover,
+    &.ss-highlighted,
+    &:not(.ss-disabled).ss-selected {
+      background-color: var(--color-blue);
+      color: var(--color-white);
+    }
+  }
+}

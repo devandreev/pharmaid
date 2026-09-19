@@ -39,6 +39,10 @@ const baseRoutes: Route[] = [
     filename: 'contacts.html',
   },
   {
+    title: 'Результаты поиска',
+    filename: 'search.html',
+  },
+  {
     title: 'Карта сайта',
     filename: 'sitemap.html',
   },
