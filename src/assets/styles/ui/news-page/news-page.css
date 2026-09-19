@@ -1,0 +1,416 @@
+/* Страница новостей. Mobile-first: колонка карточек на мобильном,
+   горизонтальные карточки с планшета, сетка 2×N с --tablet-landscape */
+.news-page {
+  /* Отступы сверху отмеряны от капители Bebas Neue: у строки заголовка над
+     буквами есть свободное поле (11px на 60px, 34px на 180px), которое
+     вычитается из зазора макета */
+  padding-top: 3px;
+  padding-bottom: 64px;
+
+  @media (--tablet) {
+    padding-top: 1px;
+  }
+
+  @media (--tablet-landscape) {
+    padding-top: 7px;
+  }
+
+  @media (--laptop) {
+    padding-top: 4px;
+    padding-bottom: 80px;
+  }
+
+  @media (--desktop) {
+    padding-top: 2px;
+    padding-bottom: 150px;
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0 0 21px;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      margin-bottom: 19px;
+      font-size: 80px;
+    }
+
+    @media (--tablet-landscape) {
+      margin-bottom: 35px;
+      font-size: 100px;
+    }
+
+    @media (--laptop) {
+      margin-bottom: 28px;
+      font-size: 130px;
+    }
+
+    @media (--desktop) {
+      margin-bottom: 18px;
+      font-size: 180px;
+    }
+  }
+
+  /* Фильтр по году */
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__filter-label {
+    @mixin font;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 14px;
+    }
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+  }
+
+  /* Размеры пилюли из макета; остальное — в ui/selectbox.css */
+  &__filter-select {
+    @mixin font;
+
+    --ss-main-height: 24px;
+
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+
+    /* Высота пилюли 24px набирается 16px шеврона, вертикальными отступами
+       и рамкой, поэтому padding здесь меньше, чем на странице поиска */
+    &.ss-main {
+      padding: 3px 12px 3px 16px;
+    }
+
+    & .ss-option {
+      font-size: 13px;
+    }
+
+    @media (--tablet) {
+      --ss-main-height: 32px;
+
+      font-size: 14px;
+
+      /* С 32px высоту держит --ss-main-height, padding как на поиске */
+      &.ss-main {
+        padding: 5px 12px 5px 16px;
+      }
+
+      & .ss-option {
+        font-size: 14px;
+      }
+    }
+
+    @media (--laptop) {
+      --ss-main-height: 40px;
+
+      font-size: 16px;
+
+      & .ss-option {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* Список новостей */
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* Сетка в две колонки: крупная карточка занимает левую колонку
+       и растягивается на две строки обычных карточек */
+    @media (--tablet-landscape) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    background: var(--color-white);
+    text-decoration: none;
+    color: inherit;
+
+    /* С планшета карточка горизонтальная: фото слева, контент справа */
+    @media (--tablet) {
+      flex-direction: row;
+      gap: 12px;
+      min-height: 240px;
+      padding-right: 24px;
+    }
+
+    @media (--tablet-landscape) {
+      min-height: 160px;
+      padding-right: 12px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+      min-height: 182px;
+      padding-right: 16px;
+    }
+
+    @media (--desktop) {
+      min-height: 280px;
+      padding-right: 24px;
+    }
+
+    &-picture {
+      display: block;
+
+      /* Фото растягивается на высоту карточки, поэтому изображение
+         позиционируем абсолютно — иначе высоту диктует его собственный размер */
+      @media (--tablet) {
+        position: relative;
+        flex-shrink: 0;
+        align-self: stretch;
+        width: 237px;
+      }
+
+      @media (--tablet-landscape) {
+        width: 155px;
+      }
+
+      @media (--laptop) {
+        width: 192px;
+      }
+
+      @media (--desktop) {
+        width: 290px;
+      }
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+
+      @media (--tablet) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px;
+
+      /* Горизонтальные отступы уходят в gap и padding-right карточки */
+      @media (--tablet) {
+        flex: 1;
+        min-width: 0;
+        padding: 24px 0;
+      }
+
+      @media (--tablet-landscape) {
+        gap: 8px;
+        padding: 12px 0;
+      }
+
+      @media (--laptop) {
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      @media (--desktop) {
+        padding: 24px 0;
+      }
+    }
+
+    &-title {
+      @mixin font;
+
+      margin: 0;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.2;
+      color: var(--color-blue);
+
+      @media (--tablet-landscape) {
+        font-size: 13px;
+      }
+
+      @media (--laptop) {
+        font-size: 14px;
+      }
+
+      @media (--desktop) {
+        font-size: 24px;
+      }
+    }
+
+    &-text {
+      @mixin font;
+
+      display: -webkit-box;
+      overflow: hidden;
+      margin: 0;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.1;
+      color: var(--color-blue-300);
+
+      @media (--tablet-landscape) {
+        font-size: 12px;
+      }
+
+      @media (--laptop) {
+        font-size: 14px;
+      }
+    }
+
+    &-date {
+      @mixin font;
+
+      display: flex;
+      align-items: center;
+      min-height: 20px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.2;
+      color: var(--color-red);
+
+      /* В макете контент карточки — space-between: дата прижата к низу */
+      @media (--tablet) {
+        margin-top: auto;
+      }
+    }
+
+    /* Крупная первая карточка: фото на всю площадь, контент прижат вниз */
+    &--hero {
+      position: relative;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 480px;
+      padding: 16px;
+
+      @media (--tablet) {
+        min-height: 492px;
+        padding: 24px;
+      }
+
+      @media (--tablet-landscape) {
+        grid-row: span 2;
+        min-height: 0;
+        padding: 12px;
+      }
+
+      @media (--laptop) {
+        padding: 16px;
+      }
+
+      @media (--desktop) {
+        padding: 24px;
+      }
+    }
+
+    /* width сбрасываем — у обычной карточки фото с планшета фиксированной ширины */
+    &--hero &-picture,
+    &--hero &-overlay {
+      position: absolute;
+      inset: 0;
+      width: auto;
+    }
+
+    &--hero &-image {
+      height: 100%;
+    }
+
+    /* Белый градиент под текстом, --color-white с прозрачностью */
+    &--hero &-overlay {
+      background: linear-gradient(to top, rgba(254, 254, 255, 0.9) 0%, rgba(254, 254, 255, 0) 78.8%);
+    }
+
+    &--hero &-content {
+      position: relative;
+      padding: 0;
+
+      /* flex: 1 обычной карточки растянул бы контент на всю высоту,
+         а у крупной он прижат к низу */
+      @media (--tablet) {
+        flex: none;
+        max-width: 600px;
+      }
+
+      /* У крупной карточки зазор до лида остаётся 16px */
+      @media (--tablet-landscape) {
+        gap: 16px;
+      }
+    }
+
+    &--hero &-title {
+      font-size: 24px;
+
+      @media (--tablet-landscape) {
+        font-size: 13px;
+      }
+
+      @media (--laptop) {
+        font-size: 14px;
+      }
+
+      @media (--desktop) {
+        font-size: 24px;
+      }
+    }
+
+    /* В макете у крупной карточки зазор до даты 32px против 16px у обычных */
+    &--hero &-date {
+      margin-top: 16px;
+    }
+  }
+
+  &__more {
+    width: 100%;
+    margin-top: 32px;
+    font-size: 14px;
+
+    @media (--tablet-landscape) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+}
