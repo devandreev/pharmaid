@@ -43,6 +43,10 @@ const baseRoutes: Route[] = [
     filename: 'news.html',
   },
   {
+    title: 'Новости — вариант с баннером',
+    filename: 'news-banner.html',
+  },
+  {
     title: 'Результаты поиска',
     filename: 'search.html',
   },

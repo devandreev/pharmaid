@@ -230,18 +230,18 @@
     &-content {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      padding: 16px;
+      gap: 8px;
+      padding: 14px 16px 16px;
 
       /* Горизонтальные отступы уходят в gap и padding-right карточки */
       @media (--tablet) {
         flex: 1;
         min-width: 0;
-        padding: 24px 0;
+        padding: 20px 0 24px;
       }
 
       @media (--tablet-landscape) {
-        gap: 8px;
+        gap: 12px;
         padding: 12px 0;
       }
 
@@ -309,6 +309,7 @@
       font-size: 12px;
       line-height: 1.2;
       color: var(--color-red);
+      margin-top: 12px;
 
       /* В макете контент карточки — space-between: дата прижата к низу */
       @media (--tablet) {
@@ -394,9 +395,193 @@
       }
     }
 
-    /* В макете у крупной карточки зазор до даты 32px против 16px у обычных */
+    /* В макете у крупной карточки зазор до даты 28px против 16px у обычных */
     &--hero &-date {
-      margin-top: 16px;
+      margin-top: 28px;
+    }
+  }
+
+  /* Второй макет: вместо крупной карточки — баннер во всю ширину,
+     список вертикальных карточек без лида. Включается с --tablet-landscape,
+     ниже вариант совпадает с основной страницей.
+     Колонки: 3 → 4 (--desktop) */
+
+  &--banner {
+    @media (--desktop) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &--banner &__list {
+    @media (--tablet-landscape) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (--desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &--banner &__item {
+    @media (--tablet-landscape) {
+      flex-direction: column;
+      gap: 24px;
+      min-height: 0;
+      padding: 0 0 24px;
+      border-radius: 16px;
+    }
+  }
+
+  /* Фото возвращается в поток: в обычной карточке оно растянуто абсолютом */
+  &--banner &__item-picture {
+    @media (--tablet-landscape) {
+      position: static;
+      width: auto;
+    }
+  }
+
+  &--banner &__item-image {
+    @media (--tablet-landscape) {
+      position: static;
+      height: auto;
+      aspect-ratio: 443 / 340;
+      border-radius: 12px;
+    }
+  }
+
+  &--banner &__item-content {
+    @media (--tablet-landscape) {
+      gap: 24px;
+      padding: 0 24px;
+    }
+  }
+
+  &--banner &__item-title {
+    @media (--tablet-landscape) {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      font-size: 24px;
+    }
+  }
+
+  /* В карточках этого макета лида нет */
+  &--banner &__item-text {
+    @media (--tablet-landscape) {
+      display: none;
+    }
+  }
+
+  &--banner &__item-date {
+    @media (--tablet-landscape) {
+      margin-top: 0;
+    }
+  }
+
+  /* Баннер: фото слева отдельной колонкой, текст справа */
+  &--banner &__item--hero {
+    @media (--tablet-landscape) {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-row: auto;
+      grid-template-columns: 902fr 854fr;
+      gap: 12px;
+      min-height: 320px;
+      padding: 0 24px 0 0;
+      border-radius: 16px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+      min-height: 400px;
+      padding-right: 32px;
+      border-radius: 24px;
+    }
+
+    @media (--desktop) {
+      min-height: 591px;
+      padding-right: 48px;
+    }
+  }
+
+  &--banner &__item--hero &__item-picture {
+    @media (--tablet-landscape) {
+      position: static;
+      inset: auto;
+      width: auto;
+    }
+  }
+
+  &--banner &__item--hero &__item-image {
+    @media (--tablet-landscape) {
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+    }
+  }
+
+  /* У баннера фото не подложка, поэтому градиент не нужен */
+  &--banner &__item--hero &__item-overlay {
+    @media (--tablet-landscape) {
+      display: none;
+    }
+  }
+
+  &--banner &__item--hero &__item-content {
+    @media (--tablet-landscape) {
+      gap: 24px;
+      max-width: none;
+      padding: 24px 0;
+    }
+
+    @media (--laptop) {
+      gap: 32px;
+      padding: 32px 0;
+    }
+
+    @media (--desktop) {
+      padding: 48px 0;
+    }
+  }
+
+  &--banner &__item--hero &__item-title {
+    @media (--tablet-landscape) {
+      display: block;
+      font-size: 28px;
+    }
+
+    @media (--laptop) {
+      font-size: 36px;
+    }
+
+    @media (--desktop) {
+      font-size: 48px;
+    }
+  }
+
+  &--banner &__item--hero &__item-text {
+    @media (--tablet-landscape) {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    @media (--laptop) {
+      -webkit-line-clamp: 5;
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      max-width: 640px;
+      font-size: 18px;
+    }
+  }
+
+  &--banner &__item--hero &__item-date {
+    @media (--tablet-landscape) {
+      margin-top: auto;
     }
   }
 
