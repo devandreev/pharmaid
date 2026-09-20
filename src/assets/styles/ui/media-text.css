@@ -1,0 +1,247 @@
+/* Блок «текст + большая картинка»: два ряда по две колонки.
+   В ряду --media-first картинка слева, текст справа (снизу — квадратное превью);
+   в ряду --text-first наоборот, а на десктопе текстовая колонка сдвинута
+   на одну колонку сетки (306px) */
+.media-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (--tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: 380px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+
+    &--media-first {
+
+      @media (--tablet-landscape) {
+        height: 360px;
+      }
+
+      @media (--laptop) {
+        height: 404px;
+      }
+
+      @media (--desktop) {
+        height: 596px;
+      }
+    }
+
+    &--text-first {
+
+      @media (--tablet-landscape) {
+        height: auto;
+      }
+
+      @media (--desktop) {
+        grid-template-columns: 596px 1fr;
+        padding-left: 306px;
+      }
+    }
+  }
+
+  /* Картинка */
+
+  &__media {
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+
+    @media (--laptop) {
+      border-radius: 24px;
+    }
+  }
+
+  &__media-picture {
+    display: block;
+    height: 100%;
+  }
+
+  &__media-image {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    @media (--tablet) {
+      height: 100%;
+    }
+  }
+
+  /* Текстовая колонка первого ряда */
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Квадратное превью под текстом */
+
+  &__thumb {
+    display: none;
+
+    @media (--tablet) {
+      display: block;
+      width: 113px;
+      height: 113px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    @media (--tablet-landscape) {
+      width: 155px;
+      height: 155px;
+    }
+
+    @media (--laptop) {
+      width: 192px;
+      height: 192px;
+      border-radius: 24px;
+    }
+
+    @media (--desktop) {
+      width: 290px;
+      height: 290px;
+    }
+  }
+
+  &__thumb-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  /* Текстовая колонка второго ряда */
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--tablet) {
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    @media (--tablet-landscape) {
+      justify-content: flex-start;
+      gap: 24px;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (--tablet-landscape) {
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    @mixin font Inter;
+
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 20px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 24px;
+    }
+
+    @media (--laptop) {
+      font-size: 28px;
+    }
+
+    @media (--desktop) {
+      font-size: 32px;
+    }
+  }
+
+  &__paragraph {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  /* Врезка на бирюзовом фоне */
+
+  &__note {
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--color-teal);
+
+    @media (--tablet-landscape) {
+      margin-top: auto;
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    @media (--desktop) {
+      padding: 24px;
+    }
+  }
+
+  &__note-text {
+    @mixin font Inter;
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-white);
+
+    @media (--laptop) {
+      font-size: 16px;
+    }
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+}

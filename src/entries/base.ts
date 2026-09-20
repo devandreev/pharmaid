@@ -19,6 +19,8 @@ import contactsMaps from '@/plugins/contacts-maps.js'
 import heroVideo from '@/plugins/hero-video.js'
 // @ts-ignore
 import select from '@/plugins/select.js'
+// @ts-ignore
+import otherNews from '@/plugins/other-news.js'
 
 class MyApp extends App {
   initScrollBehavior(): void {
@@ -56,6 +58,7 @@ class MyApp extends App {
     productDisclaimer.init()
     contactsMaps.init()
     select.init()
+    otherNews.init()
 
     this.initScrollBehavior()
     this.initCookieAgreement()

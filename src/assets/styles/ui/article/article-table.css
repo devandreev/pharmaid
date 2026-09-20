@@ -1,0 +1,113 @@
+/* Таблица в теле статьи. С --tablet — обычная таблица с синей шапкой
+   и чередующимися строками; на мобильном разворачивается в стопку пар
+   «заголовок колонки / значение» (заголовок берётся из data-label у ячейки) */
+.article {
+
+  &__table {
+
+    @media (--tablet-landscape) {
+      grid-column: 2 / 6;
+    }
+
+    & table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+
+      /* Колонки в макете равной ширины */
+      @media (--tablet) {
+        table-layout: fixed;
+      }
+    }
+
+    & th,
+    & td {
+      @mixin font;
+
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    /* Мобильный: каждая строка — стопка пар «заголовок / значение» */
+
+    @media (--mobile) {
+
+      & thead {
+        display: none;
+      }
+
+      & table,
+      & tbody,
+      & tr,
+      & td {
+        display: block;
+      }
+
+      /* Заливка лежит на карточке-строке, поэтому зазоры между парами
+         внутри неё остаются серыми, как в макете */
+      & tbody tr:nth-child(odd) {
+        background: var(--color-gray-150);
+      }
+
+      & td {
+        padding: 8px 16px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--color-blue);
+      }
+
+      & td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+
+      & td + td,
+      & tr + tr {
+        margin-top: 4px;
+      }
+    }
+
+    /* Планшет и шире: таблица */
+
+    @media (--tablet) {
+
+      & th {
+        height: 53px;
+        padding: 0 16px;
+        background: var(--color-blue);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: normal;
+        color: var(--color-white);
+        border-bottom: 2px solid transparent;
+      }
+
+      & td {
+        height: 104px;
+        padding: 16px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--color-blue);
+      }
+
+      /* Зазор между колонками из макета — 16px сверх внутренних отступов */
+      & th + th,
+      & td + td {
+        padding-left: 32px;
+      }
+
+      & tbody tr:nth-child(odd) {
+        background: var(--color-gray-150);
+      }
+    }
+  }
+}

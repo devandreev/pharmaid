@@ -1,0 +1,351 @@
+/* Тело статьи. Потоковый текст (заголовки, абзацы, списки, ссылки) размечен
+   тегами внутри .article — контент приходит цельным куском; составные блоки
+   остаются БЭМ-элементами (см. article-blocks.css и article-table.css).
+
+   Сетка: 6 колонок, контент смещён на одну колонку (167/208/306px).
+   До --tablet-landscape — обычный поток на всю ширину */
+.article {
+  padding-top: 24px;
+
+  @media (--tablet) {
+    padding-top: 32px;
+  }
+
+  @media (--laptop) {
+    padding-top: 48px;
+  }
+
+  @media (--desktop) {
+    padding-top: 40px;
+  }
+
+  /* Заголовки */
+
+  &__wrapper > h2,
+  &__banner > h2,
+  &__block > h2 {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 32px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 40px;
+    }
+
+    @media (--laptop) {
+      font-size: 48px;
+    }
+
+    @media (--desktop) {
+      font-size: 64px;
+    }
+  }
+
+  &__wrapper > h3,
+  &__block > h3 {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 24px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 32px;
+    }
+
+    @media (--laptop) {
+      font-size: 40px;
+    }
+
+    @media (--desktop) {
+      font-size: 56px;
+    }
+  }
+
+  &__wrapper > h4,
+  &__block > h4 {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 18px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 24px;
+    }
+
+    @media (--laptop) {
+      font-size: 28px;
+    }
+
+    @media (--desktop) {
+      font-size: 40px;
+    }
+  }
+
+  /* Абзац */
+
+  &__wrapper > p,
+  &__block > p,
+  &__media-text > p {
+    @mixin font;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 18px;
+    }
+
+    @media (--desktop) {
+      font-size: 20px;
+    }
+  }
+
+  /* Списки */
+
+  &__wrapper > ul,
+  &__wrapper > ol {
+    @mixin font;
+
+    margin: 0;
+    padding-left: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-blue);
+  }
+
+  &__wrapper > ul {
+    list-style: disc;
+  }
+
+  &__wrapper > ol {
+    list-style: decimal;
+  }
+
+  &__wrapper > ul > li + li,
+  &__wrapper > ol > li + li {
+    margin-top: 8px;
+  }
+
+  /* Ссылки */
+
+  & a {
+    font-weight: 600;
+    color: var(--color-teal);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: var(--color-teal-300);
+    }
+  }
+
+  /* Сетка */
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (--tablet) {
+      gap: 64px;
+    }
+
+    @media (--tablet-landscape) {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 12px;
+      row-gap: 64px;
+    }
+
+    @media (--laptop) {
+      column-gap: 16px;
+      row-gap: 80px;
+    }
+
+    /* Потоковые элементы верхнего уровня занимают 4 колонки со смещением */
+    & > p,
+    & > ul,
+    & > ol {
+
+      @media (--tablet-landscape) {
+        grid-column: 2 / 6;
+      }
+    }
+  }
+
+  /* Акцидентный заголовок и H1 — во всю ширину, лид под ними — 4 колонки */
+
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (--tablet) {
+      gap: 22px;
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 12px;
+      row-gap: 16px;
+    }
+
+    @media (--laptop) {
+      column-gap: 16px;
+    }
+
+    @media (--desktop) {
+      row-gap: 32px;
+    }
+
+    &--h1 {
+      gap: 24px;
+
+      @media (--tablet-landscape) {
+        row-gap: 24px;
+      }
+
+      @media (--desktop) {
+        row-gap: 40px;
+      }
+    }
+
+    & .article__accent-title {
+      font-size: 60px;
+      letter-spacing: 0.02em;
+      text-align: center;
+
+      @media (--tablet) {
+        font-size: 80px;
+      }
+
+      @media (--tablet-landscape) {
+        grid-column: 1 / -1;
+        font-size: 100px;
+      }
+
+      @media (--laptop) {
+        font-size: 130px;
+      }
+
+      @media (--desktop) {
+        font-size: 180px;
+      }
+    }
+
+    & .article__title {
+      font-size: 40px;
+      letter-spacing: 0.02em;
+
+      @media (--tablet) {
+        font-size: 48px;
+      }
+
+      @media (--tablet-landscape) {
+        grid-column: 1 / -1;
+        font-size: 64px;
+      }
+
+      @media (--laptop) {
+        font-size: 84px;
+      }
+
+      @media (--desktop) {
+        font-size: 130px;
+      }
+    }
+
+    & .article__lead {
+      @mixin font;
+
+      margin: 0;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.2;
+      color: var(--color-blue);
+
+      @media (--tablet-landscape) {
+        grid-column: 2 / 6;
+      }
+    }
+
+    & .article__lead--accent {
+      font-weight: 500;
+
+      @media (--desktop) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  /* Группа «заголовок + абзац» */
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (--tablet) {
+      gap: 16px;
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 2 / 6;
+    }
+
+    /* Блок с H2 шире остальных — пять колонок */
+    &--wide {
+      gap: 16px;
+
+      @media (--tablet) {
+        gap: 24px;
+      }
+
+      @media (--tablet-landscape) {
+        grid-column: 2 / -1;
+      }
+    }
+  }
+}

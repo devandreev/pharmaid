@@ -1,0 +1,141 @@
+/* Блок «Другие новости»: подпись + кнопки в шапке, под ними слайдер
+   вертикальных карточек (фото сверху, заголовок, дата) */
+.other-news {
+  padding-top: 64px;
+  padding-bottom: 32px;
+
+  @media (--tablet) {
+    padding-bottom: 24px;
+  }
+
+  @media (--tablet-landscape) {
+    padding-top: 80px;
+    padding-bottom: 32px;
+  }
+
+  @media (--desktop) {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 38px;
+    margin-bottom: 16px;
+  }
+
+  &__label {
+    @mixin font;
+
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+  }
+
+  /* Ширину слайда задаёт Swiper, кроме мобильного: там карточка
+     фиксированной ширины из макета и следующая выглядывает за край */
+  &__slide {
+    height: auto;
+
+    @media (--mobile) {
+      width: 237px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    padding-bottom: 16px;
+    border: 1px solid var(--color-gray-border);
+    border-radius: 16px;
+    background: var(--color-white);
+    text-decoration: none;
+    color: inherit;
+
+    @media (--tablet-landscape) {
+      gap: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__card-picture {
+    display: block;
+  }
+
+  &__card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 237 / 190;
+    border-radius: 12px;
+    object-fit: cover;
+
+    @media (--tablet-landscape) {
+      aspect-ratio: 323 / 260;
+    }
+
+    @media (--laptop) {
+      aspect-ratio: 400 / 340;
+    }
+
+    @media (--desktop) {
+      aspect-ratio: 443 / 340;
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+
+    @media (--tablet-landscape) {
+      gap: 24px;
+      padding: 0 24px;
+    }
+  }
+
+  /* Обрезка в 4 строки, min-height держит даты соседних карточек на одной линии */
+  &__card-title {
+    @mixin font;
+
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    min-height: 4.8em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-blue);
+
+    @media (--tablet-landscape) {
+      font-size: 20px;
+    }
+
+    @media (--laptop) {
+      font-size: 24px;
+    }
+  }
+
+  &__card-date {
+    @mixin font;
+
+    display: flex;
+    align-items: center;
+    min-height: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--color-red);
+  }
+}

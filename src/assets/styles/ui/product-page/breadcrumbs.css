@@ -34,6 +34,31 @@
     }
   }
 
+  /* Детальная новость — отступы одинаковы на всех брейкпоинтах */
+
+  &--news &__wrapper {
+    padding-top: 8px;
+    padding-bottom: 24px;
+
+    @media (--tablet) {
+      padding-top: 8px;
+      padding-bottom: 24px;
+    }
+
+    @media (--tablet-landscape) {
+      padding-top: 8px;
+    }
+
+    @media (--laptop) {
+      padding-top: 8px;
+    }
+
+    @media (--desktop) {
+      padding-top: 8px;
+      padding-bottom: 24px;
+    }
+  }
+
   &__back {
     flex-shrink: 0;
     display: flex;
