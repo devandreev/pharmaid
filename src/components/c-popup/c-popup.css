@@ -10,6 +10,16 @@
   }
 }
 
+@keyframes popupMenuAppearance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes popupOverlayAppearance {
   0% {
     opacity: 0;
@@ -107,5 +117,36 @@
         color: var(--color-blue-300);
       }
     }
+  }
+
+  /* Выпадающее меню под шапкой: без подложки, ниже шапки по z-index */
+  &.c-popup--offset-header {
+    z-index: 50;
+    padding-right: 0;
+
+    transition: opacity 150ms ease-in-out;
+  }
+
+  &.c-popup--offset-header &__overlay {
+    display: none;
+  }
+
+  &.c-popup--offset-header &__cross {
+    display: none;
+  }
+
+  &.c-popup--offset-header &__wrapper {
+    align-items: flex-start;
+
+    /* --scrollbar-gap сдвинул бы карточку относительно фиксированной шапки */
+    padding-right: 0;
+  }
+
+  &.c-popup--offset-header &__container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+
+    animation: popupMenuAppearance .3s ease forwards;
   }
 }

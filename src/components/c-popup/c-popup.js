@@ -1,6 +1,7 @@
 import { html } from 'lit-html'
 import { fadeIn, fadeOut } from '@/directives/fade'
 import { toggleBodyLock } from '@/directives/body-lock'
+import { inlineClasses } from '@/utils/template'
 
 import styles from './c-popup.css'
 import CElement from '@/components/c-element/c-element'
@@ -31,7 +32,11 @@ export default class CPopup extends CElement {
         cross.addEventListener('click', () => this.hide())
       }
       this.root.addEventListener('click', (e) => {
-        const container = this.$find('.c-popup__container')
+        // В режиме offset-header контейнер растянут на весь экран,
+        // поэтому границей служит сам слот с карточкой
+        const container = this.offsetHeader
+          ? this.slotContent
+          : this.$find('.c-popup__container')
 
         if (container && !container.contains(e.target)) {
           this.hide()
@@ -109,13 +114,24 @@ export default class CPopup extends CElement {
     this.$set('opened', value, true)
   }
 
+  get offsetHeader() {
+    return this.$get('offset-header', true)
+  }
+
+  get classes() {
+    return inlineClasses({
+      'c-popup': true,
+      'c-popup--offset-header': this.offsetHeader,
+    })
+  }
+
   get styles() {
     return styles
   }
 
   get template() {
     return html`
-      <div class="c-popup" style="display: none; opacity: 0;">
+      <div class="${this.classes}" style="display: none; opacity: 0;">
         <div class="c-popup__overlay"></div>
         <div class="c-popup__wrapper">
           <div class="c-popup__container">

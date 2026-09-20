@@ -47,6 +47,11 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    margin-left: 8px;
+
+    @media (--tablet) {
+      margin-left: 16px;
+    }
 
     & img {
       display: block;
@@ -222,6 +227,10 @@
   }
 
   &__burger {
+    @media (--tablet) {
+      margin-right: 12px;
+    }
+
     @media (--tablet-landscape) {
       display: none;
     }
@@ -508,7 +517,10 @@
     }
   }
 
-  &--fixed {
+  /* пока открыто мобильное меню, headroom не должен прятать шапку */
+  &.page-header--fixed {
     position: fixed;
+    transform: translateY(0);
+    opacity: 1;
   }
 }

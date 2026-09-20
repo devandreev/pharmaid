@@ -1,3 +1,211 @@
-.mobile-menu {
+/* Меню видно только там, где виден бургер */
+.mobile-menu-popup {
 
+  @media (--tablet-landscape) {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  /* 10px — padding-top шапки: карточка встаёт ровно под её бар */
+  margin: 10px var(--side-padding);
+  /* 40px сверху перекрываются баром шапки */
+  padding: 50px 16px 12px;
+
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.05);
+
+  @media (--tablet) {
+    gap: 32px;
+  }
+
+  &__nav {
+    display: grid;
+    row-gap: 12px;
+
+    /* на планшете колонки независимы: правая не тянется за «Продуктами» */
+    @media (--tablet) {
+      grid-template-columns: 2fr 1fr;
+      column-gap: 32px;
+      align-items: start;
+    }
+  }
+
+  &__list {
+    display: grid;
+    align-content: start;
+    row-gap: 12px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list + &__list {
+
+    @media (--tablet) {
+      row-gap: 20px;
+    }
+  }
+
+  &__link {
+    @mixin font;
+
+    display: block;
+    padding: 5px 0;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-blue);
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-blue-300);
+    }
+  }
+
+  &__details {
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 0.4s ease, content-visibility 0.4s ease allow-discrete;
+    }
+
+    &[open]::details-content {
+      height: auto;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__summary &__link {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__chevron {
+    @mixin icon chevron-down-small, 20px;
+
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-blue);
+
+    transition: transform 0.3s ease;
+  }
+
+  &__details[open] &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__sublist {
+    display: grid;
+    row-gap: 7px;
+
+    margin: 0;
+    padding: 8px 0 0 8px;
+    list-style: none;
+  }
+
+  &__sublink {
+    @mixin font;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    color: var(--color-blue);
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-blue-300);
+    }
+  }
+
+  &__badge {
+    /* в макете плашка уже, чем базовый .tag */
+    padding: 0 10px;
+  }
+
+  &__footer {
+    display: grid;
+    row-gap: 11px;
+
+    @media (--tablet) {
+      row-gap: 32px;
+    }
+  }
+
+  &__contacts {
+    display: grid;
+    row-gap: 10px;
+
+    @media (--tablet) {
+      row-gap: 24px;
+    }
+  }
+
+  &__phone,
+  &__email {
+    @mixin font;
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--color-red-400);
+
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 40px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  /* .button-primary растёт на --tablet, в макете кнопка одинаковая */
+  &__button {
+    height: 32px;
+    border-radius: 8px;
+    font-size: 14px;
+
+    @media (--tablet) {
+      height: 32px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+  }
 }

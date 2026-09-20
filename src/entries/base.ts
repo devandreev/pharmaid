@@ -66,6 +66,7 @@ class MyApp extends App {
 
   onresize(): void {
     select.onResize()
+    header.onResize()
   }
 }
 

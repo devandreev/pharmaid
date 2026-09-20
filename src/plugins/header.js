@@ -28,7 +28,7 @@ export default {
     if (!burger || !menu) return
 
     burger.addEventListener('click', () => {
-      // menu.toggle(burger.opened)
+      menu.toggle(burger.opened)
 
       header.classList.toggle('page-header--fixed', burger.opened)
     })
@@ -38,5 +38,22 @@ export default {
 
       header.classList.toggle('page-header--fixed', false)
     })
+
+    // Открытый поиск прячет бургер, поэтому меню под ним стало бы не закрыть
+    const search = header.querySelector('.page-header__search')
+
+    if (search) {
+      search.addEventListener('click', () => menu.hide())
+    }
+  },
+
+  // Выше 1024px бургер скрыт — открытое меню осталось бы висеть с заблокированным скроллом
+  onResize() {
+    const menu = document.querySelector('#mobile-menu')
+
+    if (!menu || !menu.opened) return
+    if (window.matchMedia('(max-width: 1023px)').matches) return
+
+    menu.hide()
   },
 }

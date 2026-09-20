@@ -1,5 +1,5 @@
 .c-burger-button {
-  --time: 550ms;
+  --time: 250ms;
 
   display: block;
 
@@ -19,38 +19,48 @@
 
   position: relative;
 
-  &__burger {
-    height: .5em;
-    width: .5em;
+  /* обе иконки по макету 20px и лежат друг на друге */
+  &__burger,
+  &__close {
+    height: .625em;
+    width: .625em;
 
     position: absolute;
-    top: calc(50% - .25em);
-    left: calc(50% - .25em);
+    top: calc(50% - .3125em);
+    left: calc(50% - .3125em);
+
+    transition: opacity var(--time) ease, transform var(--time) ease;
   }
 
-  &__line {
+  &__line,
+  &__close-path {
     fill: none;
-    stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: transform var(--time) ease;
     stroke: var(--button-color, var(--color-blue));
   }
 
-  &__line:nth-child(1) {
-    transform-origin: 12px 8px;
+  /* viewBox 24 при отрисовке в 20px даёт те же 1.5px, что и у крестика */
+  &__line {
+    stroke-width: 1.8px;
   }
 
-  &__line:nth-child(2) {
-    transform-origin: 12px 16px;
+  &__close-path {
+    stroke-width: 1.5px;
   }
 
-  &--active &__line:nth-child(1) {
-    transform: translateY(4px) rotate(-45deg);
+  &__close {
+    opacity: 0;
+    transform: rotate(-90deg);
   }
 
-  &--active &__line:nth-child(2) {
-    transform: translateY(-4px) rotate(45deg);
+  &--active &__burger {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  &--active &__close {
+    opacity: 1;
+    transform: rotate(0);
   }
 }
-

@@ -1,5 +1,5 @@
 import { TruthyObject, truthyValues } from '@/utils/object'
-import { unsafeHTML } from 'lit-html/directives/unsafe-html'
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 
 interface DataToInterpolate {
   [key: string]: string
