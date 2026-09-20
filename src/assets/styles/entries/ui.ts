@@ -1,3 +1,5 @@
+import '@/assets/styles/form/form.css'
+import '@/assets/styles/ui/form-popup.css'
 import '@/assets/styles/ui/footer/page-footer.css'
 import '@/assets/styles/ui/menu/mobile-menu.css'
 import '@/assets/styles/ui/menu/footer-menu.css'

@@ -1,0 +1,77 @@
+/* Карточка всплывающего окна с формой.
+   Общая для попапов «Обсудить сотрудничество», «Хотите стать частью ФАРМ ЭЙД?»
+   и «Связаться с ФАРМ ЭЙД?». Поля берутся из общего form/form.css */
+
+.form-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  /* Сверху 16px паддинга + 24px под крестик c-popup + 8px до заголовка */
+  width: calc(100vw - var(--side-padding) * 2);
+  padding: 40px 16px 16px;
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.05);
+
+  @media (--tablet) {
+    width: 620px;
+    max-width: calc(100vw - var(--side-padding) * 2);
+    padding: 48px 24px 24px;
+    border-radius: 24px;
+  }
+
+  /* Шапка */
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    @mixin font Bebas Neue;
+
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 40px;
+    }
+  }
+
+  &__desc {
+    @mixin font;
+
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-blue-300);
+
+    @media (--tablet) {
+      font-size: 16px;
+      line-height: 1;
+    }
+  }
+
+  /* Форма */
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}

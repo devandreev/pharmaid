@@ -38,7 +38,11 @@ export default class CPopup extends CElement {
           ? this.slotContent
           : this.$find('.c-popup__container')
 
-        if (container && !container.contains(e.target)) {
+        if (!container) return
+
+        // contains() не проходит сквозь границу Shadow DOM, поэтому клики
+        // по содержимому слота считались бы кликами «мимо» — сверяемся по composedPath
+        if (!e.composedPath().includes(container)) {
           this.hide()
         }
       })

@@ -70,8 +70,274 @@
         <a class="mobile-menu__email" href="mailto:info@pharmaid.com">info@pharmaid.com</a>
       </div>
 
-      <a class="mobile-menu__button button-primary" href="#">Связаться с нами</a>
+      <a class="mobile-menu__button button-primary" href="contacts.html" data-popup="contact-popup">Связаться с нами</a>
     </div>
+  </div>
+</c-popup>
+
+<c-popup id="cooperation-popup">
+  <div class="form-popup">
+    <div class="form-popup__header">
+      <h2 class="form-popup__title">Обсудить сотрудничество</h2>
+
+      <p class="form-popup__desc">
+        Расскажите о&nbsp;вашей компании и&nbsp;предложении. Наш специалист свяжется
+        с&nbsp;вами для&nbsp;обсуждения деталей.
+      </p>
+    </div>
+
+    <form class="form-popup__form js-form" novalidate>
+      <div class="form-fields">
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="text"
+            name="name"
+            placeholder="Имя"
+            data-rule="required"
+            data-error="Пожалуйста, введите ваше имя"
+          />
+        </label>
+
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="text"
+            name="company"
+            placeholder="Компания"
+            data-rule="required"
+            data-error="Пожалуйста, введите название компании"
+          />
+        </label>
+
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="tel"
+            name="phone"
+            data-rule="required phone"
+            data-error="Пожалуйста, введите номер телефона"
+          />
+        </label>
+
+        <label class="form-field">
+          <input
+            class="form-field__input"
+            type="email"
+            name="email"
+            placeholder="Электронная почта"
+            data-rule="email"
+            data-error="Неверный формат почты"
+          />
+        </label>
+
+        <label class="form-field form-field--textarea">
+          <textarea
+            class="form-field__textarea"
+            name="message"
+            placeholder="Кратко опишите предложение и предполагаемый формат сотрудничества"
+          ></textarea>
+        </label>
+      </div>
+
+      <div class="form-popup__bottom">
+        <label class="form-agreement">
+          <input
+            class="form-agreement__input"
+            type="checkbox"
+            name="agreement"
+            data-rule="required"
+            data-error="Необходимо согласие на обработку персональных данных"
+          />
+
+          <span class="form-agreement__box"></span>
+
+          <span class="form-agreement__text">
+            Я&nbsp;согласен на&nbsp;обработку
+            <a href="/policy" class="form-agreement__link js-policy">персональных данных</a>
+          </span>
+        </label>
+
+        <button class="form-submit button-blue" type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
+</c-popup>
+
+<c-popup id="career-popup">
+  <div class="form-popup">
+    <div class="form-popup__header">
+      <h2 class="form-popup__title">Хотите стать частью ФАРМ&nbsp;ЭЙД?</h2>
+    </div>
+
+    <form class="form-popup__form js-form" novalidate>
+      <div class="form-fields">
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="text"
+            name="name"
+            placeholder="Имя"
+            data-rule="required"
+            data-error="Пожалуйста, введите ваше имя"
+          />
+        </label>
+
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="tel"
+            name="phone"
+            data-rule="required phone"
+            data-error="Пожалуйста, введите номер телефона"
+          />
+        </label>
+
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="text"
+            name="city"
+            placeholder="Город"
+            data-rule="required"
+            data-error="Пожалуйста, введите город"
+          />
+        </label>
+
+        <label class="form-field">
+          <input
+            class="form-field__input"
+            type="email"
+            name="email"
+            placeholder="Электронная почта"
+            data-rule="email"
+            data-error="Неверный формат почты"
+          />
+        </label>
+
+        <label class="form-field form-field--file form-field--required">
+          <span class="form-field__file-box">
+            <span class="form-field__file-icon"></span>
+            <span class="form-field__file-text">Резюме:</span>
+            <span class="form-field__file-placeholder" data-placeholder="Word или PDF до 20 мб">Word или PDF до 20 мб</span>
+          </span>
+
+          <input
+            class="form-field__file"
+            type="file"
+            name="resume"
+            accept=".doc,.docx,.pdf"
+            data-rule="required file"
+            data-max-size="20"
+            data-error="Пожалуйста, прикрепите резюме"
+            data-error-format="Допустимые форматы: Word или PDF"
+            data-error-size="Максимальный размер файла — 20 МБ"
+          />
+        </label>
+
+        <label class="form-field form-field--textarea">
+          <textarea
+            class="form-field__textarea"
+            name="message"
+            placeholder="Сообщение"
+          ></textarea>
+        </label>
+      </div>
+
+      <div class="form-popup__bottom">
+        <label class="form-agreement">
+          <input
+            class="form-agreement__input"
+            type="checkbox"
+            name="agreement"
+            data-rule="required"
+            data-error="Необходимо согласие на обработку персональных данных"
+          />
+
+          <span class="form-agreement__box"></span>
+
+          <span class="form-agreement__text">
+            Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие на&nbsp;обработку
+            <a href="/policy" class="form-agreement__link js-policy">персональных данных</a>
+          </span>
+        </label>
+
+        <button class="form-submit button-blue" type="submit">Отправить резюме</button>
+      </div>
+    </form>
+  </div>
+</c-popup>
+
+<c-popup id="contact-popup">
+  <div class="form-popup">
+    <div class="form-popup__header">
+      <h2 class="form-popup__title">Связаться с ФАРМ&nbsp;ЭЙД?</h2>
+    </div>
+
+    <form class="form-popup__form js-form" novalidate>
+      <div class="form-fields">
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="text"
+            name="name"
+            placeholder="Имя"
+            data-rule="required"
+            data-error="Пожалуйста, введите ваше имя"
+          />
+        </label>
+
+        <label class="form-field form-field--required">
+          <input
+            class="form-field__input"
+            type="tel"
+            name="phone"
+            data-rule="required phone"
+            data-error="Пожалуйста, введите номер телефона"
+          />
+        </label>
+
+        <label class="form-field">
+          <input
+            class="form-field__input"
+            type="email"
+            name="email"
+            placeholder="Электронная почта"
+            data-rule="email"
+            data-error="Неверный формат почты"
+          />
+        </label>
+
+        <label class="form-field form-field--textarea">
+          <textarea
+            class="form-field__textarea"
+            name="message"
+            placeholder="Сообщение"
+          ></textarea>
+        </label>
+      </div>
+
+      <div class="form-popup__bottom">
+        <label class="form-agreement">
+          <input
+            class="form-agreement__input"
+            type="checkbox"
+            name="agreement"
+            data-rule="required"
+            data-error="Необходимо согласие на обработку персональных данных"
+          />
+
+          <span class="form-agreement__box"></span>
+
+          <span class="form-agreement__text">
+            Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие на&nbsp;обработку
+            <a href="/policy" class="form-agreement__link js-policy">персональных данных</a>
+          </span>
+        </label>
+
+        <button class="form-submit button-blue" type="submit">Отправить сообщение</button>
+      </div>
+    </form>
   </div>
 </c-popup>
 

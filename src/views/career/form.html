@@ -26,79 +26,98 @@
         </div>
       </div>
 
-      <form class="career-form__form js-career-form">
-        <div class="career-form__fields">
-          <label class="career-form__label career-form__label--required">
+      <form class="career-form__form js-form" novalidate>
+        <div class="form-fields">
+          <label class="form-field form-field--required">
             <input
-              class="career-form__input career-form__name"
+              class="form-field__input"
               type="text"
+              name="name"
               placeholder="Имя"
+              data-rule="required"
+              data-error="Пожалуйста, введите ваше имя"
             />
           </label>
 
-          <label class="career-form__label career-form__label--required">
+          <label class="form-field form-field--required">
             <input
-              class="career-form__input career-form__phone"
+              class="form-field__input"
               type="tel"
+              name="phone"
+              data-rule="required phone"
+              data-error="Пожалуйста, введите номер телефона"
             />
           </label>
 
-          <label class="career-form__label career-form__label--required">
+          <label class="form-field form-field--required">
             <input
-              class="career-form__input career-form__city"
+              class="form-field__input"
               type="text"
+              name="city"
               placeholder="Город"
+              data-rule="required"
+              data-error="Пожалуйста, введите город"
             />
           </label>
 
-          <label class="career-form__label">
+          <label class="form-field">
             <input
-              class="career-form__input career-form__email"
+              class="form-field__input"
               type="email"
+              name="email"
               placeholder="Электронная почта"
+              data-rule="email"
+              data-error="Неверный формат почты"
             />
           </label>
 
-          <label class="career-form__label career-form__label--file career-form__label--required">
-            <span class="career-form__file-box">
-              <span class="career-form__file-icon"></span>
-              <span class="career-form__file-text">Резюме:</span>
-              <span class="career-form__file-placeholder js-file-placeholder">Word или PDF до 20 мб</span>
+          <label class="form-field form-field--file form-field--required">
+            <span class="form-field__file-box">
+              <span class="form-field__file-icon"></span>
+              <span class="form-field__file-text">Резюме:</span>
+              <span class="form-field__file-placeholder" data-placeholder="Word или PDF до 20 мб">Word или PDF до 20 мб</span>
             </span>
             <input
-              class="career-form__resume"
+              class="form-field__file"
               type="file"
+              name="resume"
               accept=".doc,.docx,.pdf"
+              data-rule="required file"
+              data-max-size="20"
+              data-error="Пожалуйста, прикрепите резюме"
+              data-error-format="Допустимые форматы: Word или PDF"
+              data-error-size="Максимальный размер файла — 20 МБ"
             />
           </label>
 
-          <label class="career-form__label career-form__label--textarea">
+          <label class="form-field form-field--textarea">
             <textarea
-              class="career-form__textarea career-form__message"
+              class="form-field__textarea"
+              name="message"
               placeholder="Сообщение"
             ></textarea>
           </label>
         </div>
 
         <div class="career-form__bottom">
-          <label class="career-form__agreement">
+          <label class="form-agreement">
             <input
-              class="career-form__agreement-input"
+              class="form-agreement__input"
               type="checkbox"
-              checked
-              required
               name="agreement"
+              data-rule="required"
+              data-error="Необходимо согласие на обработку персональных данных"
             />
 
-            <span class="career-form__agreement-box"></span>
+            <span class="form-agreement__box"></span>
 
-            <span class="career-form__agreement-text">
-              Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие
-              на&nbsp;обработку <a href="/policy" class="career-form__agreement-link js-policy">персональных данных</a>
+            <span class="form-agreement__text">
+              Я&nbsp;согласен на&nbsp;обработку
+              <a href="/policy" class="form-agreement__link js-policy">персональных данных</a>
             </span>
           </label>
 
-          <button class="career-form__submit button-blue" type="submit">
+          <button class="form-submit button-blue" type="submit">
             Отправить резюме
           </button>
         </div>

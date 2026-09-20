@@ -1,323 +1,267 @@
 import IMask from 'imask'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+/* Правила валидации.
+   Возвращают null, если поле корректно, иначе ключ сообщения:
+   ищется data-error-<ключ>, с откатом на data-error. */
+const RULES = {
+  required(input) {
+    if (input.type === 'checkbox') {
+      return input.checked ? null : 'error'
+    }
+
+    if (input.type === 'file') {
+      return input.files && input.files.length ? null : 'error'
+    }
+
+    return input.value.trim() ? null : 'error'
+  },
+
+  email(input) {
+    const value = input.value.trim()
+
+    // Пустое поле — забота правила required, если оно указано
+    if (!value) return null
+
+    return EMAIL_RE.test(value) ? null : 'email'
+  },
+
+  phone(input) {
+    const mask = input._mask
+
+    if (!input.value.trim()) return null
+    if (mask && !mask.masked.isComplete) return 'phone'
+
+    return null
+  },
+
+  file(input) {
+    if (!input.files || !input.files.length) return null
+
+    const file = input.files[0]
+
+    const accept = (input.accept || '')
+      .split(',')
+      .map(ext => ext.trim().toLowerCase())
+      .filter(Boolean)
+
+    if (accept.length) {
+      const name = file.name.toLowerCase()
+      const matched = accept.some(ext => name.endsWith(ext))
+
+      if (!matched) return 'format'
+    }
+
+    const maxSize = parseFloat(input.dataset.maxSize)
+
+    if (maxSize && file.size > maxSize * 1024 * 1024) return 'size'
+
+    return null
+  },
+}
+
+const CONTROL_SELECTOR = [
+  '.form-field__input',
+  '.form-field__select',
+  '.form-field__textarea',
+  '.form-field__file',
+  '.form-agreement__input',
+].join(', ')
+
 export default {
   init() {
-    this.initCareerForm()
-    this.initPharmacovigilanceForm()
-    this.initPhoneMask()
-    this.initFileInput()
+    document.querySelectorAll('.js-form').forEach(form => this.initForm(form))
+
+    this.initPhoneMasks()
+    this.initFileInputs()
+    this.initPopupTriggers()
   },
 
-  setError(inputEl, message, prefix) {
-    const label = inputEl.closest(`.${prefix}__label`)
-    if (!label) return
+  /* Вспомогательное */
 
-    label.classList.add(`${prefix}__label--error`)
+  // Обёртка поля: либо .form-field, либо .form-agreement у чекбокса согласия
+  getField(input) {
+    return input.closest('.form-field, .form-agreement')
+  },
 
-    let errorSpan = label.querySelector(`.${prefix}__label-error`)
-    if (!errorSpan) {
-      errorSpan = document.createElement('span')
-      errorSpan.className = `${prefix}__label-error`
-      label.appendChild(errorSpan)
+  getErrorModifier(field) {
+    return field.classList.contains('form-agreement')
+      ? 'form-agreement--error'
+      : 'form-field--error'
+  },
+
+  setError(input, message) {
+    const field = this.getField(input)
+    if (!field) return
+
+    field.classList.add(this.getErrorModifier(field))
+
+    let errorEl = field.querySelector('.form-field__error')
+
+    if (!errorEl) {
+      errorEl = document.createElement('span')
+      errorEl.className = 'form-field__error'
+      field.appendChild(errorEl)
     }
 
-    errorSpan.textContent = message
+    errorEl.textContent = message
   },
 
-  clearError(inputEl, prefix) {
-    const label = inputEl.closest(`.${prefix}__label`)
-    if (!label) return
+  clearError(input) {
+    const field = this.getField(input)
+    if (!field) return
 
-    label.classList.remove(`${prefix}__label--error`)
+    field.classList.remove(this.getErrorModifier(field))
 
-    const errorSpan = label.querySelector(`.${prefix}__label-error`)
-    if (errorSpan) {
-      errorSpan.remove()
+    const errorEl = field.querySelector('.form-field__error')
+    if (errorEl) errorEl.remove()
+  },
+
+  /* Валидация */
+
+  validateInput(input) {
+    const rules = (input.dataset.rule || '').split(/\s+/).filter(Boolean)
+
+    for (const name of rules) {
+      const rule = RULES[name]
+      if (!rule) continue
+
+      const key = rule(input)
+      if (!key) continue
+
+      const message = key === 'error'
+        ? input.dataset.error
+        : input.dataset[`error${key[0].toUpperCase()}${key.slice(1)}`] || input.dataset.error
+
+      this.setError(input, message || 'Проверьте это поле')
+
+      return false
     }
+
+    return true
   },
 
-  initPhoneMask() {
-    const inputs = document.querySelectorAll('.career-form__phone, .pharmacovigilance-form__phone')
-    if (!inputs.length) return
-
-    inputs.forEach(input => {
-      const mask = IMask(input, {
-        mask: '+{7} (000) 000-00-00',
-        lazy: false,
-      })
-
-      input._mask = mask
-    })
-  },
-
-  initFileInput() {
-    const fileInputs = document.querySelectorAll('.career-form__resume, .pharmacovigilance-form__file')
-    if (!fileInputs.length) return
-
-    fileInputs.forEach(input => {
-      const isPV = input.classList.contains('pharmacovigilance-form__file')
-      const prefix = isPV ? 'pharmacovigilance-form' : 'career-form'
-      const placeholderSel = isPV ? '.js-pv-file-placeholder' : '.js-file-placeholder'
-      const defaultText = isPV ? 'до 20 мб' : 'Word или PDF до 20 мб'
-
-      input.addEventListener('change', () => {
-        const label = input.closest(`.${prefix}__label`)
-        if (!label) return
-
-        const placeholder = label.querySelector(placeholderSel)
-        if (!placeholder) return
-
-        if (input.files && input.files.length > 0) {
-          const file = input.files[0]
-          placeholder.textContent = file.name
-          placeholder.style.color = 'var(--color-blue)'
-          this.clearError(input, prefix)
-        } else {
-          placeholder.textContent = defaultText
-          placeholder.style.color = ''
-        }
-      })
-    })
-  },
-
-  /* Карьера */
-
-  initCareerForm() {
-    const forms = document.querySelectorAll('.js-career-form')
-    if (!forms.length) return
-
-    forms.forEach(form => {
-      const nameInput = form.querySelector('.career-form__name')
-      const phoneInput = form.querySelector('.career-form__phone')
-      const cityInput = form.querySelector('.career-form__city')
-      const emailInput = form.querySelector('.career-form__email')
-
-      if (nameInput) {
-        nameInput.addEventListener('input', () => this.clearError(nameInput, 'career-form'))
-      }
-
-      if (phoneInput) {
-        phoneInput.addEventListener('input', () => this.clearError(phoneInput, 'career-form'))
-      }
-
-      if (cityInput) {
-        cityInput.addEventListener('input', () => this.clearError(cityInput, 'career-form'))
-      }
-
-      if (emailInput) {
-        emailInput.addEventListener('input', () => this.clearError(emailInput, 'career-form'))
-      }
-
-      form.addEventListener('submit', e => this.onCareerFormSubmit(e, form))
-    })
-  },
-
-  checkCareerFormValidation(form) {
+  validateForm(form) {
     let isValid = true
 
-    const nameInput = form.querySelector('.career-form__name')
-    if (nameInput && !nameInput.value.trim()) {
-      this.setError(nameInput, 'Пожалуйста, введите ваше имя', 'career-form')
-      isValid = false
-    }
-
-    const phoneInput = form.querySelector('.career-form__phone')
-    if (phoneInput) {
-      const mask = phoneInput._mask
-      if (!phoneInput.value.trim() || (mask && !mask.masked.isComplete)) {
-        this.setError(phoneInput, 'Пожалуйста, введите номер телефона', 'career-form')
-        isValid = false
-      }
-    }
-
-    const cityInput = form.querySelector('.career-form__city')
-    if (cityInput && !cityInput.value.trim()) {
-      this.setError(cityInput, 'Пожалуйста, введите город', 'career-form')
-      isValid = false
-    }
-
-    const emailInput = form.querySelector('.career-form__email')
-    if (emailInput) {
-      const emailValue = emailInput.value.trim()
-      if (emailValue) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(emailValue)) {
-          this.setError(emailInput, 'Неверный формат почты', 'career-form')
-          isValid = false
-        }
-      }
-    }
-
-    const fileInput = form.querySelector('.career-form__resume')
-    if (fileInput) {
-      if (!fileInput.files || !fileInput.files.length) {
-        this.setError(fileInput, 'Пожалуйста, прикрепите резюме', 'career-form')
-        isValid = false
-      } else {
-        const file = fileInput.files[0]
-        const allowedTypes = [
-          'application/pdf',
-          'application/msword',
-          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        ]
-        const maxSize = 20 * 1024 * 1024
-
-        if (!allowedTypes.includes(file.type)) {
-          this.setError(fileInput, 'Допустимые форматы: Word или PDF', 'career-form')
-          isValid = false
-        } else if (file.size > maxSize) {
-          this.setError(fileInput, 'Максимальный размер файла — 20 МБ', 'career-form')
-          isValid = false
-        }
-      }
-    }
+    form.querySelectorAll(CONTROL_SELECTOR).forEach(input => {
+      if (!this.validateInput(input)) isValid = false
+    })
 
     return isValid
   },
 
-  openSuccessPopup() {
+  /* Инициализация формы */
+
+  initForm(form) {
+    form.querySelectorAll(CONTROL_SELECTOR).forEach(input => {
+      const event = input.tagName === 'SELECT' || input.type === 'checkbox' || input.type === 'file'
+        ? 'change'
+        : 'input'
+
+      input.addEventListener(event, () => this.clearError(input))
+    })
+
+    form.addEventListener('submit', e => this.onSubmit(e, form))
+  },
+
+  onSubmit(e, form) {
+    e.preventDefault()
+    e.stopImmediatePropagation()
+
+    if (!this.validateForm(form)) return
+
+    // Телефон уезжает на бэкенд без форматирования
+    form.querySelectorAll('input[type="tel"]').forEach(input => {
+      if (input._mask) input.value = input._mask.unmaskedValue
+    })
+
+    this.openSuccessPopup(form)
+  },
+
+  /* Маска телефона */
+
+  initPhoneMasks() {
+    document.querySelectorAll('.js-form input[type="tel"]').forEach(input => {
+      input._mask = IMask(input, {
+        mask: '+{7} (000) 000-00-00',
+        lazy: false,
+      })
+    })
+  },
+
+  /* Имя выбранного файла */
+
+  initFileInputs() {
+    document.querySelectorAll('.js-form .form-field__file').forEach(input => {
+      const field = input.closest('.form-field')
+      if (!field) return
+
+      const placeholder = field.querySelector('.form-field__file-placeholder')
+      if (!placeholder) return
+
+      input.addEventListener('change', () => {
+        const file = input.files && input.files[0]
+
+        placeholder.textContent = file ? file.name : placeholder.dataset.placeholder
+        placeholder.classList.toggle('form-field__file-placeholder--filled', !!file)
+      })
+    })
+  },
+
+  /* Всплывающие окна */
+
+  initPopupTriggers() {
+    document.addEventListener('click', e => {
+      const trigger = e.target.closest('[data-popup]')
+      if (!trigger) return
+
+      const popup = document.querySelector(`#${trigger.dataset.popup}`)
+      if (!popup) return
+
+      e.preventDefault()
+
+      // Кнопка может лежать внутри другого попапа (например, в мобильном меню):
+      // закрываем его, иначе блокировка скролла насчитает два активных окна
+      const parentPopup = trigger.closest('c-popup')
+      if (parentPopup && parentPopup !== popup) parentPopup.hide()
+
+      popup.show()
+    })
+
+    // Попап открывается чистым: сбрасываем форму при закрытии
+    document.querySelectorAll('c-popup').forEach(popup => {
+      const form = popup.querySelector('.js-form')
+      if (!form) return
+
+      popup.addEventListener('hide', () => this.resetForm(form))
+    })
+  },
+
+  resetForm(form) {
+    form.querySelectorAll(CONTROL_SELECTOR).forEach(input => this.clearError(input))
+
+    form.reset()
+
+    form.querySelectorAll('input[type="tel"]').forEach(input => {
+      if (input._mask) input._mask.value = ''
+    })
+
+    form.querySelectorAll('.form-field__file-placeholder').forEach(placeholder => {
+      placeholder.textContent = placeholder.dataset.placeholder
+      placeholder.classList.remove('form-field__file-placeholder--filled')
+    })
+  },
+
+  openSuccessPopup(form) {
+    // Если форма лежит в попапе — закрываем его, чтобы не копить слои
+    const parentPopup = form.closest('c-popup')
+    if (parentPopup) parentPopup.hide()
+
     const popup = document.querySelector('#success-popup')
     if (!popup) return
 
     popup.show()
-  },
-
-  onCareerFormSubmit(e, form) {
-    e.preventDefault()
-    e.stopImmediatePropagation()
-
-    const isValid = this.checkCareerFormValidation(form)
-    if (!isValid) return
-
-    const phoneInput = form.querySelector('.career-form__phone')
-    if (phoneInput && phoneInput._mask) {
-      phoneInput.value = phoneInput._mask.unmaskedValue
-    }
-
-    this.openSuccessPopup()
-  },
-
-  /* Фармаконадзор */
-
-  initPharmacovigilanceForm() {
-    const forms = document.querySelectorAll('.js-pharmacovigilance-form')
-    if (!forms.length) return
-
-    const prefix = 'pharmacovigilance-form'
-
-    forms.forEach(form => {
-      const inputs = form.querySelectorAll(`.${prefix}__input, .${prefix}__select, .${prefix}__textarea`)
-      inputs.forEach(input => {
-        const event = input.tagName === 'SELECT' ? 'change' : 'input'
-        input.addEventListener(event, () => this.clearError(input, prefix))
-      })
-
-      form.addEventListener('submit', e => this.onPharmacovigilanceFormSubmit(e, form))
-    })
-  },
-
-  checkPharmacovigilanceFormValidation(form) {
-    const prefix = 'pharmacovigilance-form'
-    let isValid = true
-
-    const typeSelect = form.querySelector(`.${prefix}__type`)
-    if (typeSelect && !typeSelect.value) {
-      this.setError(typeSelect, 'Пожалуйста, выберите тип заявителя', prefix)
-      isValid = false
-    }
-
-    const nameInput = form.querySelector(`.${prefix}__name`)
-    if (nameInput && !nameInput.value.trim()) {
-      this.setError(nameInput, 'Пожалуйста, введите ФИО заявителя', prefix)
-      isValid = false
-    }
-
-    const phoneInput = form.querySelector(`.${prefix}__phone`)
-    if (phoneInput) {
-      const mask = phoneInput._mask
-      if (!phoneInput.value.trim() || (mask && !mask.masked.isComplete)) {
-        this.setError(phoneInput, 'Пожалуйста, введите номер телефона', prefix)
-        isValid = false
-      }
-    }
-
-    const emailInput = form.querySelector(`.${prefix}__email`)
-    if (emailInput) {
-      const emailValue = emailInput.value.trim()
-      if (!emailValue) {
-        this.setError(emailInput, 'Пожалуйста, введите электронную почту', prefix)
-        isValid = false
-      } else {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(emailValue)) {
-          this.setError(emailInput, 'Неверный формат почты', prefix)
-          isValid = false
-        }
-      }
-    }
-
-    const patientName = form.querySelector(`.${prefix}__patient-name`)
-    if (patientName && !patientName.value.trim()) {
-      this.setError(patientName, 'Пожалуйста, введите ФИО пациента', prefix)
-      isValid = false
-    }
-
-    const drug = form.querySelector(`.${prefix}__drug`)
-    if (drug && !drug.value.trim()) {
-      this.setError(drug, 'Пожалуйста, введите название препарата', prefix)
-      isValid = false
-    }
-
-    const manufacturer = form.querySelector(`.${prefix}__manufacturer`)
-    if (manufacturer && !manufacturer.value.trim()) {
-      this.setError(manufacturer, 'Пожалуйста, введите производителя', prefix)
-      isValid = false
-    }
-
-    const batch = form.querySelector(`.${prefix}__batch`)
-    if (batch && !batch.value.trim()) {
-      this.setError(batch, 'Пожалуйста, введите номер серии', prefix)
-      isValid = false
-    }
-
-    const reaction = form.querySelector(`.${prefix}__reaction`)
-    if (reaction && !reaction.value.trim()) {
-      this.setError(reaction, 'Пожалуйста, опишите нежелательную реакцию', prefix)
-      isValid = false
-    }
-
-    const fileInput = form.querySelector(`.${prefix}__file`)
-    if (fileInput) {
-      if (!fileInput.files || !fileInput.files.length) {
-        this.setError(fileInput, 'Пожалуйста, прикрепите файл', prefix)
-        isValid = false
-      } else {
-        const file = fileInput.files[0]
-        const maxSize = 20 * 1024 * 1024
-
-        if (file.size > maxSize) {
-          this.setError(fileInput, 'Максимальный размер файла — 20 МБ', prefix)
-          isValid = false
-        }
-      }
-    }
-
-    return isValid
-  },
-
-  onPharmacovigilanceFormSubmit(e, form) {
-    e.preventDefault()
-    e.stopImmediatePropagation()
-
-    const prefix = 'pharmacovigilance-form'
-    const isValid = this.checkPharmacovigilanceFormValidation(form)
-    if (!isValid) return
-
-    const phoneInput = form.querySelector(`.${prefix}__phone`)
-    if (phoneInput && phoneInput._mask) {
-      phoneInput.value = phoneInput._mask.unmaskedValue
-    }
-
-    this.openSuccessPopup()
   },
 }

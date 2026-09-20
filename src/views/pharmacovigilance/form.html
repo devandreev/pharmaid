@@ -22,7 +22,7 @@
           <li class="pharmacovigilance-form__contacts-item">
             <span class="pharmacovigilance-form__contacts-icon"></span>
             <span class="pharmacovigilance-form__contacts-text">
-              Позвонив по&nbsp;бесплатному телефону &ldquo;горячей&rdquo; линии
+              Позвонив по&nbsp;бесплатному телефону &ldquo;горячей&rdquo; линии <br/>
               <a class="pharmacovigilance-form__contacts-link" href="tel:88003508024">8&nbsp;(800)&nbsp;350-80-24</a>
             </span>
           </li>
@@ -41,10 +41,15 @@
           Сообщить о&nbsp;нежелательной реакции
         </h3>
 
-        <form class="pharmacovigilance-form__form js-pharmacovigilance-form">
-          <div class="pharmacovigilance-form__fields">
-            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
-              <select class="pharmacovigilance-form__select pharmacovigilance-form__type">
+        <form class="pharmacovigilance-form__form js-form" novalidate>
+          <div class="form-fields">
+            <label class="form-field form-field--required">
+              <select
+                class="form-field__select"
+                name="type"
+                data-rule="required"
+                data-error="Пожалуйста, выберите тип заявителя"
+              >
                 <option value="" disabled selected>Тип заявителя</option>
                 <option value="patient">Пациент</option>
                 <option value="doctor">Врач</option>
@@ -53,26 +58,36 @@
               </select>
             </label>
 
-            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+            <label class="form-field form-field--required">
               <input
-                class="pharmacovigilance-form__input pharmacovigilance-form__name"
+                class="form-field__input"
                 type="text"
+                name="name"
                 placeholder="ФИО заявителя"
+                data-rule="required"
+                data-error="Пожалуйста, введите ФИО заявителя"
               />
             </label>
 
-            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+            <label class="form-field form-field--required">
               <input
-                class="pharmacovigilance-form__input pharmacovigilance-form__phone"
+                class="form-field__input"
                 type="tel"
+                name="phone"
+                data-rule="required phone"
+                data-error="Пожалуйста, введите номер телефона"
               />
             </label>
 
-            <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+            <label class="form-field form-field--required">
               <input
-                class="pharmacovigilance-form__input pharmacovigilance-form__email"
+                class="form-field__input"
                 type="email"
+                name="email"
                 placeholder="Электронная почта"
+                data-rule="required email"
+                data-error="Пожалуйста, введите электронную почту"
+                data-error-email="Неверный формат почты"
               />
             </label>
           </div>
@@ -80,79 +95,101 @@
           <div class="pharmacovigilance-form__group">
             <p class="pharmacovigilance-form__group-title">Информация о пациенте</p>
 
-            <div class="pharmacovigilance-form__fields">
-              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+            <div class="form-fields">
+              <label class="form-field form-field--required">
                 <input
-                  class="pharmacovigilance-form__input pharmacovigilance-form__patient-name"
+                  class="form-field__input"
                   type="text"
+                  name="patient-name"
                   placeholder="ФИО пациента"
+                  data-rule="required"
+                  data-error="Пожалуйста, введите ФИО пациента"
                 />
               </label>
 
-              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <label class="form-field form-field--required">
                 <input
-                  class="pharmacovigilance-form__input pharmacovigilance-form__drug"
+                  class="form-field__input"
                   type="text"
+                  name="drug"
                   placeholder="Лекарственный препарат"
+                  data-rule="required"
+                  data-error="Пожалуйста, введите название препарата"
                 />
               </label>
 
-              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <label class="form-field form-field--required">
                 <input
-                  class="pharmacovigilance-form__input pharmacovigilance-form__manufacturer"
+                  class="form-field__input"
                   type="text"
+                  name="manufacturer"
                   placeholder="Производитель лекарственного препарата"
+                  data-rule="required"
+                  data-error="Пожалуйста, введите производителя"
                 />
               </label>
 
-              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--required">
+              <label class="form-field form-field--required">
                 <input
-                  class="pharmacovigilance-form__input pharmacovigilance-form__batch"
+                  class="form-field__input"
                   type="text"
+                  name="batch"
                   placeholder="Номер серии лекарственного препарата"
+                  data-rule="required"
+                  data-error="Пожалуйста, введите номер серии"
                 />
               </label>
 
-              <label class="pharmacovigilance-form__label pharmacovigilance-form__label--textarea pharmacovigilance-form__label--required">
+              <label class="form-field form-field--textarea form-field--required">
                 <textarea
-                  class="pharmacovigilance-form__textarea pharmacovigilance-form__reaction"
+                  class="form-field__textarea"
+                  name="reaction"
                   placeholder="Описание нежелательной реакции"
+                  data-rule="required"
+                  data-error="Пожалуйста, опишите нежелательную реакцию"
                 ></textarea>
               </label>
             </div>
           </div>
 
-          <label class="pharmacovigilance-form__label pharmacovigilance-form__label--file pharmacovigilance-form__label--required">
-            <span class="pharmacovigilance-form__file-box">
-              <span class="pharmacovigilance-form__file-icon"></span>
-              <span class="pharmacovigilance-form__file-text">Прикрепите фото или файл:</span>
-              <span class="pharmacovigilance-form__file-placeholder js-pv-file-placeholder">до 20 мб</span>
+          <label class="form-field form-field--file form-field--required">
+            <span class="form-field__file-box">
+              <span class="form-field__file-icon"></span>
+              <span class="form-field__file-text">Прикрепите фото или файл:</span>
+              <span class="form-field__file-placeholder" data-placeholder="до 20 мб">до 20 мб</span>
             </span>
             <input
-              class="pharmacovigilance-form__file"
+              class="form-field__file"
               type="file"
+              name="file"
               accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+              data-rule="required file"
+              data-max-size="20"
+              data-error="Пожалуйста, прикрепите файл"
+              data-error-format="Допустимые форматы: JPG, PNG, PDF, Word"
+              data-error-size="Максимальный размер файла — 20 МБ"
             />
           </label>
 
           <div class="pharmacovigilance-form__bottom">
-            <label class="pharmacovigilance-form__agreement">
+            <label class="form-agreement">
               <input
-                class="pharmacovigilance-form__agreement-input"
+                class="form-agreement__input"
                 type="checkbox"
-                required
                 name="pv-agreement"
+                data-rule="required"
+                data-error="Необходимо согласие на обработку персональных данных"
               />
 
-              <span class="pharmacovigilance-form__agreement-box"></span>
+              <span class="form-agreement__box"></span>
 
-              <span class="pharmacovigilance-form__agreement-text">
-                Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие
-                на&nbsp;обработку <a href="/policy" class="pharmacovigilance-form__agreement-link js-policy">персональных данных</a>
+              <span class="form-agreement__text">
+                Я&nbsp;согласен на&nbsp;обработку
+                <a href="/policy" class="form-agreement__link js-policy">персональных данных</a>
               </span>
             </label>
 
-            <button class="pharmacovigilance-form__submit button-blue" type="submit">
+            <button class="form-submit button-blue" type="submit">
               Отправить
             </button>
           </div>

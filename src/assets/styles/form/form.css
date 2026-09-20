@@ -1,59 +1,347 @@
-.form {
+/* Общая система полей формы.
+   Используется всеми формами сайта: секциями на страницах карьеры
+   и фармаконадзора и формами во всплывающих окнах.
+   Подключается первым импортом в entries/ui.ts, чтобы .form-submit
+   перебивал .button-blue из common/button.css, а секционные стили —
+   перебивали этот файл. */
 
-  &-input,
-  &-textarea {
-    --border-color: var(--color-gray-2);
+/* Колонка полей */
 
-    display: block;
-    background: white;
-    border: none;
-    box-shadow: 0 0 0 1px var(--border-color);
-    border-radius: 25px;
-    color: var(--color-dark);
-    font-size: 12px;
-    line-height: 1.67;
-    outline: none;
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-    padding: 12px 28px 12px 21px;
+/* Поле */
 
-    max-width: none;
-    width: 100%;
+.form-field {
+  position: relative;
+  display: block;
 
-    transition: box-shadow .2s ease;
+  &--required {
 
-    @media (--tablet) {
-      font-size: 14px;
+    &::after {
+      @mixin font Manrope;
 
-      padding: 16px 28px 16px 21px;
-    }
+      content: '*';
+      position: absolute;
+      right: 12px;
+      top: 22px;
+      transform: translateY(-50%);
+      color: var(--color-red);
+      font-size: 16px;
+      line-height: 30px;
+      pointer-events: none;
 
-    &:hover {
-      --border-color: var(--color-green-5);
-    }
-
-    &:focus {
-      --border-color: var(--color-green-2);
-    }
-  }
-
-  &-input {
-
-    /* TODO: переписать правило */
-    c-search:focus-within & {
-      box-shadow: 0 0 0 1px var(--color-green-2);
-
-      &:not(:placeholder-shown):invalid {
-        box-shadow: 0 0 0 1px var(--color-tomato);
+      @media (--tablet) {
+        top: 30px;
       }
     }
   }
 
-  &-textarea {
-    height: 92px;
-    resize: none;
+  &--textarea&--required::after {
+    top: 10px;
+    transform: none;
+  }
+
+  &--file {
+    cursor: pointer;
+  }
+
+  &--error {
+
+    & .form-field__input,
+    & .form-field__select,
+    & .form-field__textarea,
+    & .form-field__file-box {
+      border-color: var(--color-red);
+    }
+  }
+
+  /* Подпись ошибки */
+
+  &__error {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-red);
+  }
+
+  /* Инпут */
+
+  &__input {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    outline: none;
+    transition: border-color 0.2s ease;
 
     @media (--tablet) {
-      height: 108px;
+      height: 56px;
+      font-size: 16px;
     }
+
+    &::placeholder {
+      color: var(--color-blue);
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Селект */
+
+  &__select {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      height: 56px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Многострочное поле */
+
+  &__textarea {
+    @mixin font;
+
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 12px 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    color: var(--color-blue);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      color: var(--color-blue);
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+
+    &:focus {
+      border-color: var(--color-blue);
+    }
+  }
+
+  /* Файл */
+
+  &__file-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 40px;
+    padding: 0 8px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 12px;
+    transition: border-color 0.2s ease;
+
+    @media (--tablet) {
+      height: 56px;
+    }
+
+    &:hover {
+      border-color: var(--color-blue-200);
+    }
+  }
+
+  &__file-icon {
+    @mixin icon paperclip;
+
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--color-blue);
+
+    @media (--laptop) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__file-text {
+    @mixin font;
+
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__file-placeholder {
+    @mixin font;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--color-gray-border);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media (--tablet) {
+      font-size: 16px;
+    }
+
+    /* Выбранный файл */
+    &--filled {
+      color: var(--color-blue);
+    }
+  }
+
+  &__file {
+    @mixin visually-hidden;
+  }
+}
+
+/* Согласие на обработку данных */
+
+.form-agreement {
+  display: flex;
+  align-items: center;
+  /* Подпись ошибки переносится на свою строку под чекбокс */
+  flex-wrap: wrap;
+  gap: 12px;
+  cursor: pointer;
+
+  &__input {
+    @mixin visually-hidden;
+
+    &:checked ~ .form-agreement__box {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+    }
+
+    &:checked ~ .form-agreement__box::after {
+      opacity: 1;
+    }
+  }
+
+  &__box {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--color-blue-200);
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 8px;
+      width: 6px;
+      height: 10px;
+      border: solid var(--color-white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  &__text {
+    @mixin font;
+
+    /* Текст ужимается рядом с чекбоксом, на свою строку уходит только ошибка */
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.14;
+    color: var(--color-blue-300);
+  }
+
+  &__link {
+    color: var(--color-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  &--error {
+
+    & .form-agreement__box {
+      border-color: var(--color-red);
+    }
+  }
+}
+
+/* Кнопка отправки. Используется вместе с .button-blue */
+
+.form-submit {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 16px;
+
+  @media (--tablet) {
+    height: 64px;
+    border-radius: 16px;
+    font-size: 18px;
   }
 }
