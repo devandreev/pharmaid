@@ -334,6 +334,54 @@
 
 
 
+  /* Цитата без фото */
+
+  &__quote--no-photo {
+    gap: 16px;
+
+    @media (--tablet) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    @media (--laptop) {
+      gap: 16px;
+    }
+
+    @media (--desktop) {
+      gap: 16px;
+    }
+
+    & .article__quote-author {
+
+      @media (--tablet) {
+        width: auto;
+      }
+    }
+
+    & .article__quote-caption {
+      gap: 12px;
+
+      @media (--tablet) {
+        gap: 4px;
+      }
+    }
+
+    & .article__quote-name {
+      font-size: 32px;
+      line-height: 0.95;
+
+      @media (--tablet) {
+        font-size: 40px;
+      }
+
+      @media (--desktop) {
+        font-size: 48px;
+      }
+    }
+  }
+
   /* Врезка на бирюзовом фоне */
 
   &__note {
