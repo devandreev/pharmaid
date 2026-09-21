@@ -60,6 +60,7 @@
     @media (--tablet-landscape) {
       height: 474px;
       padding-left: 67px;
+      transition: padding-left 0.4s ease;
     }
 
     @media (--laptop) {
@@ -77,8 +78,8 @@
     @mixin font Bebas Neue;
 
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
     gap: 9px;
     margin: 0;
     font-weight: 400;
@@ -92,7 +93,7 @@
     padding-right: 6px;
 
     @media (--tablet) {
-      flex-direction: row;
+      grid-template-columns: auto auto;
       justify-content: center;
       gap: 105px;
       font-size: 80px;
@@ -105,6 +106,7 @@
       gap: 112px;
       font-size: 100px;
       padding-top: 110px;
+      transition: gap 0.4s ease;
     }
 
     @media (--laptop) {
@@ -121,22 +123,28 @@
       transition: gap 0.4s ease;
     }
 
+    &-heading {
+      display: contents;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
     &-word {
       &--left {
-        align-self: flex-start;
+        justify-self: start;
 
         @media (--tablet) {
-          align-self: auto;
+          justify-self: auto;
         }
       }
 
       &--right {
-        align-self: flex-end;
+        justify-self: end;
         position: relative;
         z-index: 22;
 
         @media (--tablet) {
-          align-self: auto;
+          justify-self: auto;
         }
       }
     }
@@ -181,6 +189,7 @@
 
       @media (--tablet-landscape) {
         width: 208px;
+        transition: transform 0.4s ease;
       }
 
       @media (--laptop) {
@@ -197,17 +206,20 @@
 
   &__links {
     display: none;
+    text-transform: none;
 
-    @media (--laptop) {
+    @media (--tablet-landscape) {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
       position: absolute;
+      grid-column: 2;
+      grid-row: 1;
       top: 100%;
       left: 0;
-      margin: 0;
+      z-index: 22;
+      margin: -6px 0 0;
       padding: 0;
-      padding-top: 24px;
       list-style: none;
       opacity: 0;
       transform: translateY(-20px);
@@ -215,11 +227,21 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
+    @media (--laptop) {
+      gap: 16px;
+      margin-top: 24px;
+    }
+
     &-item {
       display: flex;
       align-items: center;
-      gap: 24px;
-      height: 32px;
+      gap: 8px;
+      height: 24px;
+
+      @media (--laptop) {
+        gap: 24px;
+        height: 32px;
+      }
     }
 
     &-link {
@@ -227,15 +249,20 @@
 
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 8px;
       font-weight: 600;
-      font-size: 16px;
-      line-height: 28px;
+      font-size: 12px;
+      line-height: 1.75;
       letter-spacing: -0.03em;
       color: var(--color-red);
       text-decoration: none;
       white-space: nowrap;
       transition: opacity 0.2s ease;
+
+      @media (--laptop) {
+        gap: 24px;
+        font-size: 16px;
+      }
 
       &::before {
         @mixin icon arrow-right;
@@ -243,6 +270,7 @@
         flex-shrink: 0;
         width: 20px;
         height: 20px;
+        color: var(--color-blue);
       }
 
       &:hover {
@@ -263,8 +291,29 @@
       font-weight: 500;
       font-size: 12px;
       line-height: 1.2;
+      letter-spacing: normal;
       border-radius: 32px;
       white-space: nowrap;
+    }
+  }
+
+  @media (--tablet-landscape-only) {
+    &:hover &__composition {
+      padding-left: 0;
+    }
+
+    &:hover &__title {
+      gap: 386px;
+    }
+
+    &:hover &__vial-image {
+      transform: scale(1.25);
+    }
+
+    &:hover &__links {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
   }
 

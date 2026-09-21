@@ -6,3 +6,4 @@
 @custom-media --desktop screen and (min-width: 1380px);
 
 @custom-media --max-tablet screen and (max-width: 768px);
+@custom-media --tablet-landscape-only screen and (min-width: 1024px) and (max-width: 1279px);
