@@ -17,7 +17,8 @@
   }
 
   @media (--desktop) {
-    min-height: 900px;
+    aspect-ratio: 1900 / 900;
+    min-height: auto;
   }
 
   /* Модификатор — картинка с отступами и скруглением */

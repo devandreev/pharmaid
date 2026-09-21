@@ -1,4 +1,8 @@
 .career-hero {
+  @media (--laptop) {
+    padding-top: var(--body-offset);
+  }
+
   & .inner-hero__title {
     text-shadow:
       0 0 20px var(--color-white),
