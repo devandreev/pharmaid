@@ -51,6 +51,14 @@ const baseRoutes: Route[] = [
     filename: 'news-detail.html',
   },
   {
+    title: 'Новость — вариант с фотоблоками',
+    filename: 'news-detail-media.html',
+  },
+  {
+    title: 'Новость — вариант без фото',
+    filename: 'news-detail-text.html',
+  },
+  {
     title: 'Результаты поиска',
     filename: 'search.html',
   },
@@ -61,6 +69,10 @@ const baseRoutes: Route[] = [
   {
     title: 'Страница не найдена',
     filename: '404.html',
+  },
+  {
+    title: 'Текстовая страница',
+    filename: 'text.html',
   },
 ]
 

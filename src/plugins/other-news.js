@@ -24,12 +24,13 @@ export default {
       },
     })
 
-    // Кнопки листают по две новости. slidesPerGroup здесь не подходит:
-    // он не работает вместе со slidesPerView: 'auto' на мобильном
-    const SLIDES_PER_CLICK = 2
+    // Кнопки листают по две новости, на мобильном — по одной. slidesPerGroup здесь
+    // не подходит: он не работает вместе со slidesPerView: 'auto' на мобильном
+    const tabletMedia = window.matchMedia('(min-width: 768px)')
+    const slidesPerClick = () => (tabletMedia.matches ? 2 : 1)
 
-    prevButton.addEventListener('click', () => swiper.slideTo(swiper.activeIndex - SLIDES_PER_CLICK))
-    nextButton.addEventListener('click', () => swiper.slideTo(swiper.activeIndex + SLIDES_PER_CLICK))
+    prevButton.addEventListener('click', () => swiper.slideTo(swiper.activeIndex - slidesPerClick()))
+    nextButton.addEventListener('click', () => swiper.slideTo(swiper.activeIndex + slidesPerClick()))
 
     const updateState = () => {
       prevButton.disabled = swiper.isBeginning

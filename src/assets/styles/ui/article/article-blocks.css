@@ -64,9 +64,96 @@
   }
 
   &__media-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     @media (--tablet-landscape) {
       grid-column: 3 / 5;
+      gap: 24px;
+    }
+
+    @media (--desktop) {
+      gap: 32px;
+    }
+  }
+
+  /* Текст слева, картинка справа */
+
+  &__media--reverse {
+
+    @media (--tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 2 / 6;
+    }
+
+    & .article__media-text {
+
+      @media (--tablet) {
+        grid-column: 1 / 3;
+      }
+    }
+
+    & .article__media-picture {
+
+      @media (--tablet) {
+        grid-column: 3 / 5;
+      }
+    }
+
+    & .article__media-image {
+
+      @media (--tablet-landscape) {
+        aspect-ratio: 596 / 360;
+      }
+    }
+  }
+
+  /* Текст на три колонки, узкая картинка справа */
+
+  &__media--aside {
+
+    @media (--tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (--tablet-landscape) {
+      grid-column: 2 / 6;
+    }
+
+    & .article__media-text {
+      gap: 16px;
+
+      @media (--tablet) {
+        grid-column: 1 / 4;
+        gap: 16px;
+      }
+
+      @media (--desktop) {
+        gap: 16px;
+      }
+    }
+
+    & .article__media-picture {
+
+      @media (--tablet) {
+        grid-column: 4 / 5;
+      }
+    }
+
+    & .article__media-image {
+      aspect-ratio: 290 / 175;
+
+      @media (--tablet) {
+        aspect-ratio: 290 / 175;
+      }
+
+      @media (--tablet-landscape) {
+        aspect-ratio: 290 / 175;
+      }
     }
   }
 

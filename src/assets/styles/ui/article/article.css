@@ -120,7 +120,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
-    color: var(--color-blue-300);
+    color: var(--color-blue);
 
     @media (--tablet) {
       font-size: 16px;
@@ -209,6 +209,19 @@
 
       @media (--tablet-landscape) {
         grid-column: 2 / 6;
+      }
+    }
+  }
+
+  /* Тело новости: блоки идут плотнее, чем в витрине типографики */
+
+  &--news {
+
+    & .article__wrapper {
+      row-gap: 24px;
+
+      @media (--desktop) {
+        row-gap: 32px;
       }
     }
   }

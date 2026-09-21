@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" name="viewport">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <%= require('../views/preload.html').default %>
+
+</head>
+<body>
+<%= require('../views/header.html').default %>
+
+  <main class="page-news-detail page">
+    <%= require('../views/news-detail/breadcrumbs.html').default %>
+    <%= require('../views/news-detail/hero.html').default %>
+    <%= require('../views/news-detail/content-media.html').default %>
+    <%= require('../views/news-detail/other-news.html').default %>
+  </main>
+
+  <%= require('../views/footer.html').default %>
+
+  <%= require('../views/popups.html').default %>
+</body>
+</html>
