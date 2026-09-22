@@ -79,8 +79,7 @@
 
     @media (--tablet-landscape) {
       height: 474px;
-      padding-left: 67px;
-      transition: padding-left 0.4s ease;
+      padding-left: 0;
     }
 
     @media (--laptop) {
@@ -123,24 +122,21 @@
     }
 
     @media (--tablet-landscape) {
-      gap: 112px;
+      gap: 386px;
       font-size: 100px;
       padding-top: 110px;
-      transition: gap 0.4s ease;
     }
 
     @media (--laptop) {
-      gap: 148px;
+      gap: 450px;
       font-size: 130px;
       padding-top: 143px;
-      transition: gap 0.4s ease;
     }
 
     @media (--desktop) {
-      gap: 228px;
+      gap: min(690px, calc(100vw - 1096px));
       font-size: 180px;
       padding-top: 232px;
-      transition: gap 0.4s ease;
     }
 
     &-heading {
@@ -160,10 +156,6 @@
           justify-self: auto;
           --in-offset: calc(94px - 50vw);
         }
-
-        @media (--tablet-landscape) and (hover: hover) {
-          animation: none;
-        }
       }
 
       &--right {
@@ -177,10 +169,6 @@
         @media (--tablet) {
           justify-self: auto;
           --in-offset: calc(50vw + 10px);
-        }
-
-        @media (--tablet-landscape) and (hover: hover) {
-          animation: none;
         }
       }
     }
@@ -230,23 +218,18 @@
       @media (--tablet-landscape) {
         width: 208px;
         --in-offset: 52px;
-        transition: transform 0.4s ease;
-      }
-
-      @media (--tablet-landscape) and (hover: hover) {
-        animation: none;
+        transform: scale(1.25);
       }
 
       @media (--laptop) {
         width: 256px;
         --in-offset: 65px;
-        transition: transform 0.4s ease;
+        transform: scale(1.27);
       }
 
       @media (--desktop) {
         width: 388px;
         --in-offset: 99px;
-        transition: transform 0.4s ease;
       }
     }
   }
@@ -268,10 +251,7 @@
       margin: -6px 0 0;
       padding: 0;
       list-style: none;
-      opacity: 0;
-      transform: translateY(-20px);
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      animation: products-hero-links-in 0.4s 1.1s ease-out backwards;
     }
 
     @media (--laptop) {
@@ -341,98 +321,6 @@
       letter-spacing: normal;
       border-radius: 32px;
       white-space: nowrap;
-    }
-  }
-
-  @media (--tablet-landscape) and (hover: none) {
-    &__links {
-      animation: products-hero-links-in 0.4s 1.1s ease-out backwards;
-
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-  }
-
-  @media (--tablet-landscape-only) and (hover: none) {
-    &__composition {
-      padding-left: 0;
-    }
-
-    &__title {
-      gap: 386px;
-    }
-
-    &__vial-image {
-      transform: scale(1.25);
-    }
-  }
-
-  @media (--laptop) and (hover: none) {
-    &__title {
-      gap: 450px;
-    }
-
-    &__vial-image {
-      transform: scale(1.27);
-    }
-  }
-
-  @media (--desktop) and (hover: none) {
-    &__title {
-      gap: 690px;
-    }
-  }
-
-  @media (--tablet-landscape-only) {
-    &:hover &__composition {
-      padding-left: 0;
-    }
-
-    &:hover &__title {
-      gap: 386px;
-    }
-
-    &:hover &__vial-image {
-      transform: scale(1.25);
-    }
-
-    &:hover &__links {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-  }
-
-  @media (--laptop) {
-    &:hover &__title {
-      gap: 450px;
-    }
-
-    &:hover &__vial-image {
-      transform: scale(1.27);
-    }
-
-    &:hover &__links {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-  }
-
-  @media (--desktop) {
-    &:hover &__title {
-      gap: 690px;
-    }
-
-    &:hover &__vial-image {
-      transform: scale(1.27);
-    }
-
-    &:hover &__links {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
     }
   }
 }
