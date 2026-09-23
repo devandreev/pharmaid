@@ -251,7 +251,7 @@
   & .form-field__textarea {
 
     @media (--tablet-landscape) {
-      height: 108px;
+      min-height: 108px;
     }
   }
 

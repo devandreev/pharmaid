@@ -75,7 +75,14 @@ export default {
 
     this.initPhoneMasks()
     this.initFileInputs()
+    this.initAutoResize()
     this.initPopupTriggers()
+  },
+
+  // Ширина полей меняется вместе с окном — пересчитываем высоту textarea
+  onResize() {
+    document.querySelectorAll('.js-form .form-field__textarea')
+      .forEach(textarea => this.autoResizeTextarea(textarea))
   },
 
   /* Вспомогательное */
@@ -160,7 +167,13 @@ export default {
         ? 'change'
         : 'input'
 
-      input.addEventListener(event, () => this.clearError(input))
+      input.addEventListener(event, () => {
+        this.clearError(input)
+
+        if (input.classList.contains('form-field__textarea')) {
+          this.autoResizeTextarea(input)
+        }
+      })
     })
 
     form.addEventListener('submit', e => this.onSubmit(e, form))
@@ -210,6 +223,25 @@ export default {
     })
   },
 
+  /* Высота многострочного поля под объём текста */
+
+  initAutoResize() {
+    // Предзаполненные значения: подгоняем высоту сразу
+    this.onResize()
+  },
+
+  autoResizeTextarea(textarea) {
+    // В закрытом попапе поле не отрисовано — измерить нечего
+    if (textarea.offsetParent === null) return
+
+    textarea.style.height = 'auto'
+
+    // scrollHeight считается без бордеров, а box-sizing: border-box их учитывает
+    const borders = textarea.offsetHeight - textarea.clientHeight
+
+    textarea.style.height = `${textarea.scrollHeight + borders}px`
+  },
+
   /* Всплывающие окна */
 
   initPopupTriggers() {
@@ -235,6 +267,11 @@ export default {
       const form = popup.querySelector('.js-form')
       if (!form) return
 
+      popup.addEventListener('show', () => {
+        form.querySelectorAll('.form-field__textarea')
+          .forEach(textarea => this.autoResizeTextarea(textarea))
+      })
+
       popup.addEventListener('hide', () => this.resetForm(form))
     })
   },
@@ -247,6 +284,9 @@ export default {
     form.querySelectorAll('input[type="tel"]').forEach(input => {
       if (input._mask) input._mask.value = ''
     })
+
+    form.querySelectorAll('.form-field__textarea')
+      .forEach(textarea => this.autoResizeTextarea(textarea))
 
     form.querySelectorAll('.form-field__file-placeholder').forEach(placeholder => {
       placeholder.textContent = placeholder.dataset.placeholder
