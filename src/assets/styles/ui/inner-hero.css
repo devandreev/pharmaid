@@ -43,8 +43,9 @@
     overflow: hidden;
 
     &-picture {
+      position: absolute;
+      inset: 0;
       display: block;
-      height: 100%;
     }
 
     &-image {
@@ -55,7 +56,11 @@
       object-position: center;
     }
 
+    /* Видео лежит поверх картинки-подложки и перекрывает её, когда загрузится */
+
     &-video {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;

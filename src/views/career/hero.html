@@ -1,8 +1,17 @@
 <section class="inner-hero career-hero">
   <div class="inner-hero__bg">
+    <!-- Постеры — первые кадры соответствующих роликов, кадрировка совпадает один в один -->
+    <picture class="inner-hero__bg-picture">
+      <source srcset="./images/career/career-hero-poster-1920.avif" media="(min-width: 1380px)" type="image/avif">
+      <source srcset="./images/career/career-hero-poster-1280.avif" media="(min-width: 1280px)" type="image/avif">
+      <source srcset="./images/career/career-hero-poster-1024.avif" media="(min-width: 1024px)" type="image/avif">
+      <source srcset="./images/career/career-hero-poster-768.avif" media="(min-width: 768px)" type="image/avif">
+      <source srcset="./images/career/career-hero-poster-390.avif" type="image/avif">
+      <img class="inner-hero__bg-image" src="./images/career/career-hero-poster-390.avif" alt="">
+    </picture>
+
     <video
       class="inner-hero__bg-video js-hero-video"
-      poster="./images/career/career-hero-bg.avif"
       data-src-390="./videos/career/career-hero-390.mp4"
       data-src-768="./videos/career/career-hero-768.mp4"
       data-src-1024="./videos/career/career-hero-1024.mp4"
