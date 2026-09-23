@@ -323,4 +323,20 @@
       white-space: nowrap;
     }
   }
+
+  /* Анимации ждут решения по дисклеймеру: пауза держит стартовый кадр */
+
+  &__vial-image,
+  &__title-word,
+  &__links {
+    animation-play-state: paused;
+  }
+
+  .is-disclaimer-passed & {
+    &__vial-image,
+    &__title-word,
+    &__links {
+      animation-play-state: running;
+    }
+  }
 }
