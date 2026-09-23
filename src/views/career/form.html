@@ -60,14 +60,15 @@
             />
           </label>
 
-          <label class="form-field">
+          <label class="form-field form-field--required">
             <input
               class="form-field__input"
               type="email"
               name="email"
               placeholder="Электронная почта"
-              data-rule="email"
-              data-error="Неверный формат почты"
+              data-rule="required email"
+              data-error="Пожалуйста, введите электронную почту"
+              data-error-email="Неверный формат почты"
             />
           </label>
 
@@ -90,11 +91,13 @@
             />
           </label>
 
-          <label class="form-field form-field--textarea">
+          <label class="form-field form-field--textarea form-field--required">
             <textarea
               class="form-field__textarea"
               name="message"
               placeholder="Сообщение"
+              data-rule="required"
+              data-error="Пожалуйста, напишите сообщение"
             ></textarea>
           </label>
         </div>
