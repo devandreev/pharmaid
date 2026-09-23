@@ -119,16 +119,18 @@
     }
   }
 
-  /* Выпадающее меню под шапкой: без подложки, ниже шапки по z-index */
+  /* Выпадающее меню под шапкой: подложка и карточка ниже шапки по z-index */
   &.c-popup--offset-header {
-    z-index: 50;
+    /* 50 — у cookie-баннера, он лежит ниже по DOM и перекрыл бы подложку */
+    z-index: 60;
     padding-right: 0;
 
     transition: opacity 150ms ease-in-out;
   }
 
   &.c-popup--offset-header &__overlay {
-    display: none;
+    /* карточка меню появляется за .3s — подложка не должна доезжать после неё */
+    animation-duration: .3s;
   }
 
   &.c-popup--offset-header &__cross {
