@@ -3,15 +3,22 @@
     <div class="search__bar">
       <button class="search__back" type="button" aria-label="Назад"></button>
 
+      <h1 class="search__title">Результаты поиска</h1>
+    </div>
+
+    <form class="search__form" action="search.html" method="get" role="search">
       <div class="search__field">
-        <div class="search__field-inner">
-          <span class="search__field-icon"></span>
-          <input class="search__input" type="search" name="query" placeholder="Поиск" value="Вакцина">
-        </div>
+        <span class="search__field-icon"></span>
+
+        <input class="search__input" type="search" name="query" placeholder="Поиск" value="Вакцина" autocomplete="off" spellcheck="false">
 
         <button class="search__clear" type="button" aria-label="Очистить"></button>
       </div>
-    </div>
+
+      <button class="search__submit" type="submit">
+        <span class="search__submit-text">Поиск</span>
+      </button>
+    </form>
 
     <div class="search__header">
       <p class="search__count">По запросу «Вакцина» найдено 137 материалов</p>
@@ -87,5 +94,21 @@
         <span class="search__item-date">10 апреля 2026</span>
       </a>
     </div>
+
+    <nav class="search__pagination pagination" aria-label="Страницы результатов">
+      <span class="pagination__arrow pagination__arrow--prev pagination__arrow--disabled"></span>
+
+      <div class="pagination__pages">
+        <span class="pagination__item pagination__item--current" aria-current="page">1</span>
+        <a class="pagination__item" href="search.html?query=Вакцина&amp;page=2">2</a>
+        <a class="pagination__item" href="search.html?query=Вакцина&amp;page=3">3</a>
+        <a class="pagination__item" href="search.html?query=Вакцина&amp;page=4">4</a>
+        <a class="pagination__item" href="search.html?query=Вакцина&amp;page=5">5</a>
+        <span class="pagination__item pagination__item--gap">…</span>
+        <a class="pagination__item" href="search.html?query=Вакцина&amp;page=17">17</a>
+      </div>
+
+      <a class="pagination__arrow pagination__arrow--next" href="search.html?query=Вакцина&amp;page=2" aria-label="Следующая страница"></a>
+    </nav>
   </div>
 </section>

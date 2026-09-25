@@ -16,21 +16,17 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-
-    @media (--tablet) {
-      gap: 24px;
-    }
+    gap: 16px;
 
     @media (--desktop) {
       display: grid;
       grid-template-columns: var(--search-col) 1fr var(--search-col);
       column-gap: 16px;
-      row-gap: 32px;
+      row-gap: 24px;
     }
   }
 
-  /* Строка поиска */
+  /* Заголовок и кнопка «назад» */
   &__bar {
     display: flex;
     align-items: center;
@@ -77,44 +73,90 @@
     }
   }
 
+  &__title {
+    @mixin font Bebas Neue;
+
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-blue);
+
+    @media (--tablet) {
+      font-size: 48px;
+    }
+
+    @media (--tablet-landscape) {
+      font-size: 70px;
+    }
+
+    @media (--laptop) {
+      font-size: 90px;
+    }
+
+    /* В макете 130px при ширине окна 1900; ниже заголовок сжимается
+       по ширине средней колонки, чтобы остаться в одну строку */
+    @media (--desktop) {
+      grid-column: 2;
+      font-size: clamp(80px, 11.6vw - 80px, 130px);
+    }
+  }
+
+  /* Форма поиска */
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    /* В макете зазор до заголовка 24px против 16px у остальных блоков */
+    margin-top: 8px;
+
+    @media (--tablet) {
+      gap: 16px;
+    }
+
+    @media (--desktop) {
+      grid-column: 2;
+      margin-top: 0;
+    }
+  }
+
   &__field {
     flex: 1;
     min-width: 0;
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 8px;
     height: 32px;
+    padding: 0 8px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 12px;
+    background: var(--color-white);
 
     @media (--desktop) {
-      grid-column: 2;
       height: 48px;
     }
   }
 
-  &__field-inner {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 100%;
-    padding: 0 8px;
-    border: 1px solid var(--color-gray-200);
-    border-radius: 8px;
-    background: var(--color-white);
-
-    @media (--desktop) {
-      border-radius: 12px;
-    }
-  }
-
   &__field-icon {
-    @mixin icon search, 20px;
+    @mixin icon search, 16px;
 
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     color: var(--color-blue);
+
+    @media (--desktop) {
+      @mixin icon search, 20px;
+
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &__input {
@@ -150,26 +192,95 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--color-blue);
+    cursor: pointer;
+
+    @media (--desktop) {
+      width: 24px;
+      height: 24px;
+    }
+
+    &::before {
+      @mixin icon cross, 16px;
+
+      width: 16px;
+      height: 16px;
+
+      @media (--desktop) {
+        @mixin icon cross, 24px;
+
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  /* На мобильном кнопка сжимается до иконки */
+  &__submit {
+    @mixin font;
+
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 32px;
     height: 32px;
     padding: 0;
     border: none;
     border-radius: 8px;
-    background: var(--color-red);
+    background: var(--color-blue);
     color: var(--color-white);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    white-space: nowrap;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    @media (--tablet) {
+      width: 131px;
+    }
 
     @media (--desktop) {
-      width: 48px;
+      width: 194px;
       height: 48px;
-      border-radius: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      opacity: 0.85;
     }
 
     &::before {
-      @mixin icon cross, 24px;
+      @mixin icon search, 16px;
 
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
+
+      @media (--tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__submit-text {
+    @mixin visually-hidden;
+
+    @media (--tablet) {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
     }
   }
 
@@ -184,10 +295,8 @@
       align-items: center;
     }
 
-    /* В макете зазор до строки поиска 40px против 32px у остальных блоков */
     @media (--desktop) {
       grid-column: 2;
-      margin-top: 8px;
     }
   }
 
@@ -284,8 +393,10 @@
     flex-direction: column;
     gap: 24px;
 
+    /* В макете зазор до шапки результатов 32px против 24px у остальных блоков */
     @media (--desktop) {
       grid-column: 2;
+      margin-top: 8px;
     }
   }
 
@@ -346,5 +457,15 @@
   &__highlight {
     font-weight: 600;
     color: var(--color-teal);
+  }
+
+  /* Пагинация. Базовые стили — в ui/pagination.css */
+  &__pagination {
+    /* В макете зазор до списка на 8px больше, чем у остальных блоков */
+    margin-top: 8px;
+
+    @media (--desktop) {
+      grid-column: 2;
+    }
   }
 }
