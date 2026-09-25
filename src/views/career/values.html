@@ -47,13 +47,14 @@
       <p class="career-values__subtitle">Корпоративные ценности</p>
 
       <div class="career-values__corporate-content">
-        <img
-          class="career-values__photo"
-          src="./images/career/career-values-photo.avif"
-          alt="Корпоративные ценности"
-          width="358"
-          height="340"
-        >
+        <picture class="career-values__photo-picture">
+          <source srcset="./images/career/career-values-photo-desktop.avif 1x, ./images/career/career-values-photo-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+          <source srcset="./images/career/career-values-photo-laptop.avif 1x, ./images/career/career-values-photo-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
+          <source srcset="./images/career/career-values-photo-tablet-landscape.avif 1x, ./images/career/career-values-photo-tablet-landscape@2x.avif 2x" media="(min-width: 1024px)" type="image/avif">
+          <source srcset="./images/career/career-values-photo-tablet.avif" media="(min-width: 768px)" type="image/avif">
+          <source srcset="./images/career/career-values-photo.avif" type="image/avif">
+          <img class="career-values__photo" src="./images/career/career-values-photo.avif" alt="Корпоративные ценности" width="358" height="340">
+        </picture>
 
         <div class="career-values__info">
         <p class="career-values__intro">
@@ -89,13 +90,11 @@
         </div>
 
         <div class="career-values__sidebar">
-          <img
-            class="career-values__sidebar-photo"
-            src="./images/career/career-values-photo-2.avif"
-            alt="Команда"
-            width="192"
-            height="192"
-          >
+          <picture class="career-values__sidebar-picture">
+            <source srcset="./images/career/career-values-photo-2-desktop.avif 1x, ./images/career/career-values-photo-2-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+            <source srcset="./images/career/career-values-photo-2-laptop.avif 1x, ./images/career/career-values-photo-2-laptop@2x.avif 2x" type="image/avif">
+            <img class="career-values__sidebar-photo" src="./images/career/career-values-photo-2-laptop.avif" alt="Команда" width="192" height="192">
+          </picture>
           <a class="career-values__sidebar-button button-blue" href="#career-form" data-popup="career-popup">Отправить резюме</a>
         </div>
       </div>
