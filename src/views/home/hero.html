@@ -1,13 +1,15 @@
 <section class="hero">
   <div class="hero__bg">
-    <picture class="hero__bg-picture">
-      <source srcset="./images/hero/hero-bg-desktop.avif" media="(min-width: 1270px)" type="image/avif">
-      <source srcset="./images/hero/hero-bg-tablet.avif" media="(min-width: 768px)" type="image/avif">
-      <source srcset="./images/hero/hero-bg.avif" type="image/avif">
-      <img class="hero__bg-image" src="./images/hero/hero-bg.avif" alt="">
+    <div class="hero__bg-fill"></div>
+
+    <picture class="hero__molecule">
+      <source srcset="./images/hero/hero-molecule-desktop.avif 1x, ./images/hero/hero-molecule-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+      <source srcset="./images/hero/hero-molecule-laptop.avif 1x, ./images/hero/hero-molecule-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
+      <source srcset="./images/hero/hero-molecule-tablet-landscape.avif 1x, ./images/hero/hero-molecule-tablet-landscape@2x.avif 2x" media="(min-width: 1024px)" type="image/avif">
+      <source srcset="./images/hero/hero-molecule-tablet.avif" media="(min-width: 768px)" type="image/avif">
+      <source srcset="./images/hero/hero-molecule.avif" type="image/avif">
+      <img class="hero__molecule-image" src="./images/hero/hero-molecule.avif" alt="">
     </picture>
-    <div class="hero__bg-gradient hero__bg-gradient--top"></div>
-    <div class="hero__bg-gradient hero__bg-gradient--bottom"></div>
   </div>
 
   <div class="hero__wrapper wrapper">

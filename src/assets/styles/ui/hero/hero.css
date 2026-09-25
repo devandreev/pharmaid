@@ -54,78 +54,92 @@
     z-index: -1;
     overflow: hidden;
 
-    &-picture {
-      display: block;
+    &-fill {
+      --hero-fade-top: 100px;
+      --hero-fade-bottom: 163px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 85%;
+      background:
+        linear-gradient(to top, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%) top / 100% var(--hero-fade-top) no-repeat,
+        linear-gradient(to bottom, rgba(254, 254, 255, 0) 0%, var(--color-white) 100%) bottom / 100% var(--hero-fade-bottom) no-repeat,
+        radial-gradient(60% 40% at 50% 62%, var(--color-lilac-50) 0%, var(--color-lilac-100) 70%),
+        var(--color-lilac-100);
 
       @media (--tablet) {
+        --hero-fade-top: 149px;
+        --hero-fade-bottom: 90px;
+
         height: 91%;
       }
 
       @media (--tablet-landscape) {
+        --hero-fade-bottom: 129px;
+
         height: 82%;
       }
 
       @media (--laptop) {
+        --hero-fade-top: 211px;
+        --hero-fade-bottom: 160px;
+
         height: 90%;
       }
+
+      @media (--desktop) {
+        --hero-fade-bottom: 240px;
+      }
+    }
+  }
+
+  /* Молекула */
+
+  &__molecule {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    z-index: 1;
+    width: 212px;
+    transform: translate(-50%, -50%);
+
+    @media (--tablet) {
+      top: 66.5%;
+      width: 166px;
+    }
+
+    @media (--tablet-landscape) {
+      top: 59%;
+      width: 225px;
+    }
+
+    /* Ступени под скачки min-height у .hero */
+
+    @media (min-width: 1150px) {
+      top: 54%;
+      width: 270px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 295px;
+    }
+
+    @media (--laptop) {
+      top: 65%;
+      width: 280px;
+    }
+
+    @media (--desktop) {
+      top: 60%;
+      width: 400px;
     }
 
     &-image {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-
-      @media (min-width: 1920px) {
-        object-position: center;
-      }
-    }
-
-    &-gradient {
-      position: absolute;
-      left: 0;
-      right: 0;
-      z-index: 1;
-
-      &--top {
-        top: 0;
-        height: 100px;
-        background: linear-gradient(to top, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
-
-        @media (--tablet) {
-          height: 149px;
-        }
-
-        @media (--laptop) {
-          height: 211px;
-        }
-      }
-
-      &--bottom {
-        bottom: 0;
-        height: 163px;
-        background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 45%);
-
-        @media (--tablet) {
-          height: 90px;
-          background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 85%);
-        }
-
-        @media (--tablet-landscape) {
-          height: 129px;
-        }
-
-        @media (--laptop) {
-          background: linear-gradient(to bottom, rgba(254, 254, 255, 0) 5%, var(--color-white) 55%);
-          height: 160px;
-        }
-
-        @media (--desktop) {
-          height: 240px;
-        }
-      }
+      height: auto;
     }
   }
 
