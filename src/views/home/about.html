@@ -12,7 +12,11 @@
 
     <div class="about__body">
       <div class="about__photo">
-        <picture>
+        <picture class="about__photo-picture">
+          <source srcset="./images/about/about-lab-desktop.avif 1x, ./images/about/about-lab-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+          <source srcset="./images/about/about-lab-laptop.avif 1x, ./images/about/about-lab-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
+          <source srcset="./images/about/about-lab-tablet-landscape.avif 1x, ./images/about/about-lab-tablet-landscape@2x.avif 2x" media="(min-width: 1024px)" type="image/avif">
+          <source srcset="./images/about/about-lab-tablet.avif" media="(min-width: 768px)" type="image/avif">
           <source srcset="./images/about/about-lab.avif" type="image/avif">
           <img class="about__photo-image" src="./images/about/about-lab.avif" alt="">
         </picture>

@@ -72,6 +72,11 @@
       max-width: none;
     }
 
+    &-picture {
+      display: block;
+      height: 100%;
+    }
+
     &-image {
       display: block;
       width: 100%;
