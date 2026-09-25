@@ -34,17 +34,38 @@
 
 .contacts-hero {
   min-height: auto;
+  aspect-ratio: auto;
   padding-top: 12px;
   padding-bottom: 14px;
 
   @media (--tablet) {
     padding-top: 16px;
+    padding-bottom: 0;
+  }
+
+  @media (--laptop) {
+    padding-top: 24px;
+    padding-bottom: 0;
+  }
+
+  @media (--desktop) {
+    padding-top: 30px;
   }
 
   & .inner-hero__title {
     text-shadow: 0 0 100px white, 8px 8px 30px rgba(255, 255, 255, 0.6);
+    line-height: 1;
+
+    /* Отрицательный отступ снимает лидинг строки — в макете текст обрезан по капители */
+
+    @media (--laptop) {
+      margin-bottom: -26px;
+      line-height: 1.2;
+    }
 
     @media (--desktop) {
+      margin-bottom: -36px;
+      letter-spacing: 0.04em;
       text-shadow: 0 0 80px rgba(255, 255, 255, 0.6);
     }
   }
