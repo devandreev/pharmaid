@@ -29,21 +29,18 @@
 
   &__logo {
     display: block;
-    width: 197px;
+    width: auto;
     height: 32px;
 
     @media (--tablet) {
-      width: 148px;
       height: 24px;
     }
 
     @media (--tablet-landscape) {
-      width: 246px;
       height: 40px;
     }
 
     @media (--desktop) {
-      width: 393px;
       height: 64px;
     }
   }
