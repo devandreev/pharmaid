@@ -126,8 +126,9 @@
     }
   }
 
-  &__card-photo--flipped {
-    transform: rotate(180deg);
+  &__card-picture {
+    display: block;
+    height: 100%;
   }
 
   &__card-img {
