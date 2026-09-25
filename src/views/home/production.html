@@ -31,7 +31,10 @@
         </p>
 
         <div class="production__photo production__photo--first">
-          <picture>
+          <picture class="production__photo-picture">
+            <source srcset="./images/production/production-1-desktop.avif 1x, ./images/production/production-1-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+            <source srcset="./images/production/production-1-laptop.avif 1x, ./images/production/production-1-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
+            <source srcset="./images/production/production-1-tablet.avif" media="(min-width: 768px)" type="image/avif">
             <source srcset="./images/production/production-1.avif" type="image/avif">
             <img class="production__photo-image" src="./images/production/production-1.avif" alt="">
           </picture>
@@ -39,7 +42,11 @@
       </div>
 
       <div class="production__photo production__photo--second">
-        <picture>
+        <picture class="production__photo-picture">
+          <source srcset="./images/production/production-2-desktop.avif 1x, ./images/production/production-2-desktop@2x.avif 2x" media="(min-width: 1380px)" type="image/avif">
+          <source srcset="./images/production/production-2-laptop.avif 1x, ./images/production/production-2-laptop@2x.avif 2x" media="(min-width: 1280px)" type="image/avif">
+          <source srcset="./images/production/production-2-tablet-landscape.avif 1x, ./images/production/production-2-tablet-landscape@2x.avif 2x" media="(min-width: 1024px)" type="image/avif">
+          <source srcset="./images/production/production-2-tablet.avif" media="(min-width: 768px)" type="image/avif">
           <source srcset="./images/production/production-2.avif" type="image/avif">
           <img class="production__photo-image" src="./images/production/production-2.avif" alt="">
         </picture>

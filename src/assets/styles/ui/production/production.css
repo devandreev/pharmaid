@@ -180,6 +180,11 @@
     }
   }
 
+  &__photo-picture {
+    display: block;
+    height: 100%;
+  }
+
   &__photo-image {
     display: block;
     width: 100%;
