@@ -1,13 +1,14 @@
-import Swiper from 'swiper'
-import { Autoplay, EffectCreative } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-creative'
-
 export default {
-  init() {
+  async init() {
     const container = document.querySelector('.products__swiper')
 
     if (!container) return
+
+    // Слайдер есть не на каждой странице — грузим библиотеку отдельным чанком
+    const [{ default: Swiper }, { Autoplay, EffectCreative }] = await Promise.all([
+      import(/* webpackChunkName: "swiper" */ 'swiper'),
+      import(/* webpackChunkName: "swiper" */ 'swiper/modules'),
+    ])
 
     const description = document.querySelector('.products__description')
     const slides = container.querySelectorAll('.product-slide')

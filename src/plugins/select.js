@@ -1,11 +1,12 @@
-import SlimSelect from 'slim-select'
-
 export default {
   instances: [],
 
-  init() {
+  async init() {
     const selects = document.querySelectorAll('.js-select')
     if (!selects.length) return
+
+    // Кастомные селекты есть не на каждой странице — грузим библиотеку отдельным чанком
+    const { default: SlimSelect } = await import(/* webpackChunkName: "slim-select" */ 'slim-select')
 
     this.instances = [...selects].map((select) => {
       this.setCurrentOption(select)

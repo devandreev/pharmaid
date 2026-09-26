@@ -1,8 +1,5 @@
-import Swiper from 'swiper'
-import 'swiper/css'
-
 export default {
-  init() {
+  async init() {
     const block = document.querySelector('.other-news')
 
     if (!block) return
@@ -12,6 +9,9 @@ export default {
     const nextButton = block.querySelector('.slider-nav__button--next')
 
     if (!container || !prevButton || !nextButton) return
+
+    // Слайдер есть не на каждой странице — грузим библиотеку отдельным чанком
+    const { default: Swiper } = await import(/* webpackChunkName: "swiper" */ 'swiper')
 
     // Брейкпоинты Swiper — min-width, совпадают с --tablet / --laptop / --desktop
     const swiper = new Swiper(container, {

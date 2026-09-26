@@ -1,5 +1,3 @@
-import IMask from 'imask'
-
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 /* Правила валидации.
@@ -196,7 +194,30 @@ export default {
   /* Маска телефона */
 
   initPhoneMasks() {
-    document.querySelectorAll('.js-form input[type="tel"]').forEach(input => {
+    const inputs = [...document.querySelectorAll('.js-form input[type="tel"]')]
+
+    if (!inputs.length) return
+
+    // Поля на самой странице маскируем сразу: маска видна до фокуса (lazy: false)
+    const visible = inputs.filter(input => !input.closest('c-popup'))
+
+    if (visible.length) this.applyPhoneMasks(visible)
+
+    // Поля в попапах ждут открытия — до него библиотека не нужна
+    inputs.filter(input => input.closest('c-popup')).forEach(input => {
+      const popup = input.closest('c-popup')
+
+      popup.addEventListener('show', () => this.applyPhoneMasks([input]), { once: true })
+    })
+  },
+
+  // Библиотека маски приезжает отдельным чанком, когда поле телефона реально нужно
+  async applyPhoneMasks(inputs) {
+    const { default: IMask } = await import(/* webpackChunkName: "imask" */ 'imask')
+
+    inputs.forEach(input => {
+      if (input._mask) return
+
       input._mask = IMask(input, {
         mask: '+{7} (000) 000-00-00',
         lazy: false,

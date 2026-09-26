@@ -126,7 +126,9 @@ export default (_env: unknown, options: { mode: string }): Configuration => {
     entry,
     output: {
       path: getPath('./public/dist'),
-      filename: 'assets/js/[name].bundle.js'
+      filename: 'assets/js/[name].bundle.js',
+      // Лениво подгружаемые библиотеки (swiper, slim-select, imask)
+      chunkFilename: 'assets/js/[name].chunk.js'
     },
     optimization: {
       minimizer: [
@@ -213,7 +215,8 @@ export default (_env: unknown, options: { mode: string }): Configuration => {
       ...routeInstances,
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].bundle.css'
+        filename: 'assets/css/[name].bundle.css',
+        chunkFilename: 'assets/css/[name].chunk.css'
       }),
       new webpack.EnvironmentPlugin({
         YANDEX_MAPS_API_KEY: env.YANDEX_MAPS_API_KEY || '',
