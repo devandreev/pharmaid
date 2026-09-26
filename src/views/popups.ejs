@@ -1,15 +1,16 @@
+<% const active = key => nav === key ? ' mobile-menu__link--active' : '' %>
 <c-popup id="mobile-menu" class="mobile-menu-popup" offset-header>
   <div class="mobile-menu">
     <nav class="mobile-menu__nav">
       <ul class="mobile-menu__list">
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="about.html">О нас</a>
+          <a class="mobile-menu__link<%= active('about') %>" href="about.html">О нас</a>
         </li>
 
         <li class="mobile-menu__item">
           <details class="mobile-menu__details" open>
             <summary class="mobile-menu__summary">
-              <span class="mobile-menu__link">Продукты</span>
+              <span class="mobile-menu__link<%= active('products') %>">Продукты</span>
               <span class="mobile-menu__chevron"></span>
             </summary>
 
@@ -47,19 +48,19 @@
 
       <ul class="mobile-menu__list">
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="partners.html">Партнерам</a>
+          <a class="mobile-menu__link<%= active('partners') %>" href="partners.html">Партнерам</a>
         </li>
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="career.html">Карьера</a>
+          <a class="mobile-menu__link<%= active('career') %>" href="career.html">Карьера</a>
         </li>
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="news.html">Новости</a>
+          <a class="mobile-menu__link<%= active('news') %>" href="news.html">Новости</a>
         </li>
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="pharmacovigilance.html">Фармаконадзор</a>
+          <a class="mobile-menu__link<%= active('pharmacovigilance') %>" href="pharmacovigilance.html">Фармаконадзор</a>
         </li>
         <li class="mobile-menu__item">
-          <a class="mobile-menu__link" href="contacts.html">Контакты</a>
+          <a class="mobile-menu__link<%= active('contacts') %>" href="contacts.html">Контакты</a>
         </li>
       </ul>
     </nav>

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<%= require('../views/header.html').default %>
+<%= require('../views/header.ejs')({ nav: '' }) %>
 
   <main class="page-404 page page--offset">
     <%= require('../views/404/content.html').default %>
@@ -17,6 +17,6 @@
 
   <%= require('../views/footer.html').default %>
 
-  <%= require('../views/popups.html').default %>
+  <%= require('../views/popups.ejs')({ nav: '' }) %>
 </body>
 </html>

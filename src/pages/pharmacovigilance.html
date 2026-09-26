@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<%= require('../views/header.html').default %>
+<%= require('../views/header.ejs')({ nav: 'pharmacovigilance' }) %>
 
   <main class="page-pharmacovigilance page">
     <%= require('../views/pharmacovigilance/hero.html').default %>
@@ -18,6 +18,6 @@
 
   <%= require('../views/footer.html').default %>
 
-  <%= require('../views/popups.html').default %>
+  <%= require('../views/popups.ejs')({ nav: 'pharmacovigilance' }) %>
 </body>
 </html>

@@ -80,4 +80,5 @@ Routes defined in `src/routes.ts` — each route maps to an HTML template in `sr
 - CSS uses PostCSS features: nesting, mixins (prefixed with `_`), custom media queries, simple vars
 - SVG icons inlined as webpack assets
 - HTML views included via `require()` in page templates (processed by html-loader)
+- Views с параметрами лежат как `.ejs` (обрабатываются ejs-loader) и подключаются вызовом: `<%= require('../views/header.ejs')({ nav: 'about' }) %>`. Обычные `.html`-views подключаются через `.default`. Сейчас параметризованы `header.ejs` и `popups.ejs` — параметр `nav` проставляет активный пункт меню (`page-header__nav-link--active`, `mobile-menu__link--active`); передавать его нужно всегда, пустая строка = нет активного пункта
 - `App.methods` динамически расширяет экземпляр App — внутри `onload`/`onresize` доступ к методам через `this['methodName']`

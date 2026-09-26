@@ -159,6 +159,16 @@ export default (_env: unknown, options: { mode: string }): Configuration => {
             }
           }
         },
+        // Views с параметрами: подключаются как require('../views/x.ejs')({ ... })
+        {
+          test: /\.ejs$/i,
+          use: {
+            loader: 'ejs-loader',
+            options: {
+              esModule: false
+            }
+          }
+        },
         // Обычный CSS
         {
           test: /\.css$/i,

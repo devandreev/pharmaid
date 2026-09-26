@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<%= require('../views/header.html').default %>
+<%= require('../views/header.ejs')({ nav: 'products' }) %>
 
   <main class="page-products page">
     <%= require('../views/products/hero.html').default %>
@@ -21,6 +21,6 @@
   <%= require('../views/footer.html').default %>
 
   <%= require('../views/product-disclaimer.html').default %>
-  <%= require('../views/popups.html').default %>
+  <%= require('../views/popups.ejs')({ nav: 'products' }) %>
 </body>
 </html>

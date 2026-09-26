@@ -1,14 +1,15 @@
+<% const active = key => nav === key ? ' page-header__nav-link--active' : '' %>
 <header style="position: fixed;" id="header" class="page-header headroom--faded">
   <div class="wrapper">
     <div class="page-header__bar">
-      <a class="page-header__logo" href="/">
+      <a class="page-header__logo" href="https://devandreev.github.io/pharmaid/">
         <img src="./images/logo.svg" alt="PharmAid" width="172" height="28">
       </a>
 
       <nav class="page-header__nav">
-        <a class="page-header__nav-link" href="about.html">О нас</a>
+        <a class="page-header__nav-link<%= active('about') %>" href="about.html">О нас</a>
         <div class="page-header__dropdown">
-          <a class="page-header__nav-link page-header__nav-link--dropdown" href="products.html">
+          <a class="page-header__nav-link page-header__nav-link--dropdown<%= active('products') %>" href="products.html">
             Продукты
             <span class="page-header__nav-chevron"></span>
           </a>
@@ -32,11 +33,11 @@
             </a>
           </div>
         </div>
-        <a class="page-header__nav-link" href="partners.html">Партнерам</a>
-        <a class="page-header__nav-link" href="career.html">Карьера</a>
-        <a class="page-header__nav-link" href="news.html">Новости</a>
-        <a class="page-header__nav-link" href="pharmacovigilance.html">Фармаконадзор</a>
-        <a class="page-header__nav-link" href="contacts.html">Контакты</a>
+        <a class="page-header__nav-link<%= active('partners') %>" href="partners.html">Партнерам</a>
+        <a class="page-header__nav-link<%= active('career') %>" href="career.html">Карьера</a>
+        <a class="page-header__nav-link<%= active('news') %>" href="news.html">Новости</a>
+        <a class="page-header__nav-link<%= active('pharmacovigilance') %>" href="pharmacovigilance.html">Фармаконадзор</a>
+        <a class="page-header__nav-link<%= active('contacts') %>" href="contacts.html">Контакты</a>
       </nav>
 
       <form class="page-header__search-form" action="search.html" method="get" role="search">

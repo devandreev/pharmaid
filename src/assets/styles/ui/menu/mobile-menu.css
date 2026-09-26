@@ -72,6 +72,21 @@
     &:hover {
       color: var(--color-blue-300);
     }
+
+    /* активный пункт: класс вешает бэкенд, в вёрстке — параметр nav у popups.ejs */
+    &--active {
+      width: fit-content;
+      padding: 5px 12px;
+      margin-left: -12px;
+
+      border-radius: 8px;
+      background-color: var(--color-blue);
+      color: var(--color-white);
+
+      &:hover {
+        color: var(--color-white);
+      }
+    }
   }
 
   &__details {

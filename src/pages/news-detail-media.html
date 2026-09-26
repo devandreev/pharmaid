@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<%= require('../views/header.html').default %>
+<%= require('../views/header.ejs')({ nav: 'news' }) %>
 
   <main class="page-news-detail page">
     <%= require('../views/news-detail/breadcrumbs.html').default %>
@@ -20,6 +20,6 @@
 
   <%= require('../views/footer.html').default %>
 
-  <%= require('../views/popups.html').default %>
+  <%= require('../views/popups.ejs')({ nav: 'news' }) %>
 </body>
 </html>

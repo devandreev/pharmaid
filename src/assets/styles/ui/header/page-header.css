@@ -113,6 +113,16 @@
     &:hover {
       background-color: var(--color-gray-border);
     }
+
+    /* активный пункт: класс вешает бэкенд, в вёрстке — параметр nav у header.ejs */
+    &--active {
+      background-color: var(--color-blue);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-blue);
+      }
+    }
   }
 
   &__nav-chevron {
