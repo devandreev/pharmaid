@@ -30,3 +30,16 @@
     font-weight: 700;
     src: url('./inter-v20-cyrillic_latin-700.woff2') format('woff2');
 }
+
+/* Фолбэк с подогнанными метриками: пока Inter грузится, текст рисуется
+   системным шрифтом того же кегля и ширины — подмена не двигает вёрстку.
+   size-adjust посчитан по средней ширине строк на русском (Inter / Arial). */
+@font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    src: local('Arial'), local('Helvetica Neue'), local('Roboto');
+    ascent-override: 91.41%;
+    descent-override: 22.76%;
+    line-gap-override: 0%;
+    size-adjust: 106%;
+}

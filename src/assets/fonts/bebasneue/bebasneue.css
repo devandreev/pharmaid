@@ -6,3 +6,19 @@
     font-weight: 400;
     src: url('./bebasneue-v1-cyrillic_latin-regular.woff2') format('woff2');
 }
+
+/* Фолбэк с подогнанными метриками. Bebas — узкий заглавный шрифт, поэтому
+   в основе узкие системные: без size-adjust заголовки в фолбэке шире реальных
+   на ~70% и hero-заголовок (white-space: nowrap, до 130px) вылезает за экран.
+   size-adjust подогнан по ширине заглавных строк относительно Arial Narrow.
+   Альтернатива, если нужно точнее совпадение по высоте букв (но жирнее):
+   local('Impact') и size-adjust: 75.83% / ascent-override: 117.01% / descent-override: 26.21%. */
+@font-face {
+    font-family: 'Bebas Neue Fallback';
+    font-style: normal;
+    src: local('Arial Narrow'), local('Roboto Condensed'), local('Impact');
+    ascent-override: 123.91%;
+    descent-override: 27.75%;
+    line-gap-override: 0%;
+    size-adjust: 71.6%;
+}
