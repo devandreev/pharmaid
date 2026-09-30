@@ -28,7 +28,9 @@ export default {
       const lng = parseFloat(container.dataset.lng)
       if (isNaN(lat) || isNaN(lng)) return
 
-      const map = await createMap(container, [lat, lng], 16)
+      const zoom = parseFloat(container.dataset.zoom) || 16
+
+      const map = await createMap(container, [lat, lng], zoom)
       addPlacemark(map, [lat, lng], container.dataset.title || '')
       createOverlay(container, map)
     })

@@ -61,12 +61,13 @@ export async function createMap(container, center, zoom = 16) {
 
 export async function addPlacemark(map, coords, title = '') {
   const ymaps3 = await loadYandexMaps3(process.env.YANDEX_MAPS_API_KEY)
-  const { YMapDefaultMarker } = await ymaps3.import('@yandex/ymaps3-markers@0.0.1')
 
-  const marker = new YMapDefaultMarker({
-    coordinates: coords,
-    title,
-  })
+  // Кастомный маркер с логотипом вместо дефолтной метки Яндекса
+  const element = document.createElement('div')
+  element.className = 'contacts-map__marker'
+  if (title) element.title = title
+
+  const marker = new ymaps3.YMapMarker({ coordinates: coords }, element)
 
   map.addChild(marker)
   return marker
