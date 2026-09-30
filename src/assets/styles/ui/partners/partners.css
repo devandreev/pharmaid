@@ -14,10 +14,12 @@
 
     @media (--laptop) {
       gap: 80px;
+      padding-top: 80px;
     }
 
     @media (--desktop) {
       gap: 100px;
+      padding-top: 100px;
     }
   }
 }
