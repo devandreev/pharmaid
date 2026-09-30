@@ -13,9 +13,11 @@
 
   <main class="page-partners page">
     <%= require('../views/partners/hero.html').default %>
-    <%= require('../views/partners/cooperation.html').default %>
-    <%= require('../views/partners/team.html').default %>
-    <%= require('../views/partners/competencies.html').default %>
+    <div class="page__content">
+      <%= require('../views/partners/cooperation.html').default %>
+      <%= require('../views/partners/team.html').default %>
+      <%= require('../views/partners/competencies.html').default %>
+    </div>
   </main>
 
   <%= require('../views/footer.html').default %>

@@ -21,6 +21,37 @@
     min-height: auto;
   }
 
+  /* Модификатор — фиксированный фон, контент наезжает при скролле */
+
+  &--fixed {
+    @media (--laptop) {
+      height: 100vh;
+      min-height: 0;
+      z-index: 1;
+    }
+
+    @media (--desktop) {
+      height: 100vh;
+      aspect-ratio: auto;
+      min-height: 0;
+    }
+  }
+
+  &--fixed &__bg {
+    @media (--laptop) {
+      position: fixed;
+    }
+  }
+
+  &--fixed &__wrapper {
+    @media (--laptop) {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
   /* Модификатор — картинка с отступами и скруглением */
 
   &--inset &__bg {

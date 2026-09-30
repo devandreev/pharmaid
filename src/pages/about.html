@@ -13,9 +13,11 @@
 
   <main class="page-about page">
     <%= require('../views/about/hero.html').default %>
-    <%= require('../views/about/info.html').default %>
-    <%= require('../views/about/partners.html').default %>
-    <%= require('../views/about/quality.html').default %>
+    <div class="page__content">
+      <%= require('../views/about/info.html').default %>
+      <%= require('../views/about/partners.html').default %>
+      <%= require('../views/about/quality.html').default %>
+    </div>
   </main>
 
   <%= require('../views/footer.html').default %>

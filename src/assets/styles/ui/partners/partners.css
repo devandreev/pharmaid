@@ -4,10 +4,20 @@
   gap: 64px;
 
   @media (--laptop) {
-    gap: 80px;
+    gap: 0;
   }
 
-  @media (--desktop) {
-    gap: 100px;
+  & .page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    @media (--laptop) {
+      gap: 80px;
+    }
+
+    @media (--desktop) {
+      gap: 100px;
+    }
   }
 }

@@ -2,6 +2,11 @@
   background: var(--color-blue);
   padding: 24px 0;
 
+  @media (--laptop) {
+    position: relative;
+    z-index: 2;
+  }
+
   @media (--desktop) {
     padding-top: 40px;
   }
